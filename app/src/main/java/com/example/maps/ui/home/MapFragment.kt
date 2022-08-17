@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.maps.R
-import com.example.maps.databinding.FragmentHomeBinding
+import com.example.maps.databinding.FragmentMapBinding
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -16,9 +16,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class HomeFragment : Fragment() {
+class MapFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentMapBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
