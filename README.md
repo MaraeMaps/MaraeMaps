@@ -1,5 +1,5 @@
 # IwiMaps
-![Build](https://github.com/harrypirrit/MaraeMaps/actions/workflows/android.yml/badge.svg)
+![Build](https://github.com/MaraeMaps/MaraeMaps/actions/workflows/android.yml/badge.svg)
 
 ## Instructions
 - Go to apiKey-instructions.md first
