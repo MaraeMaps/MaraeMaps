@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_maps"
         android:name="com.example.maps.ui.home.MapFragment"
-        android:label="@string/title_home"
+        android:label="@string/map"
         tools:layout="@layout/fragment_map" >
         <action
             android:id="@+id/action_navigation_maps_to_navigation_wiki2"
@@ -21,13 +21,13 @@
     <fragment
         android:id="@+id/navigation_wiki"
         android:name="com.example.maps.ui.dashboard.WikiFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/wiki"
         tools:layout="@layout/fragment_wiki" />
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.maps.ui.notifications.SettingsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/settings"
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_navigation_settings_to_navigation_wiki2"

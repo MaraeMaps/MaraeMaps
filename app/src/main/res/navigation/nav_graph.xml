@@ -2,7 +2,28 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/settingsFragment">
 
-    <include app:graph="@navigation/mobile_navigation" />
+    <fragment
+        android:id="@+id/mapFragment2"
+        android:name="com.example.maps.ui.home.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_mapFragment2_to_wikiFragment"
+            app:destination="@id/wikiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.maps.ui.notifications.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/wikiFragment"
+        android:name="com.example.maps.ui.dashboard.WikiFragment"
+        android:label="fragment_wiki"
+        tools:layout="@layout/fragment_wiki" />
 </navigation>
