@@ -57,7 +57,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
     }
 
     override fun onBindViewHolder(holder: MaraeWikiEntryVH, position: Int) {
-        holder.descriptionTV.text = MaraeController().maraeToString(maraeListShown[position])
+        holder.descriptionTV.text = MaraeController.maraeToString(maraeListShown[position])
     }
 
     override fun getItemCount(): Int {
@@ -84,7 +84,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
                 // TODO may need to handle Maori accents
                 val constraintAdjusted = constraint.toString().lowercase(Locale.ROOT).trim()
                 for (marae in maraeList) {
-                    for (keyWord in MaraeController().keyWords(marae)) {
+                    for (keyWord in MaraeController.keyWords(marae)) {
                         if (keyWord.lowercase().contains(constraintAdjusted)) {
                             newMarae.add(marae)
                         }
