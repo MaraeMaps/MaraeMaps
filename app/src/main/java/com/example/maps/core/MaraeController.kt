@@ -15,36 +15,42 @@ import com.google.gson.reflect.TypeToken
  */
 class MaraeController {
 
-    //val marae = getMaraeCollection()
+    companion object {
+        /**
+         * Returns a String representation of an inputted Marae
+         *
+         * @param marae Marae object to find a string representation for
+         */
+        fun maraeToString(marae: Marae): String {
+            return "Marae object with name: ${marae.Name}, belonging to ${marae.Iwi}, located in ${marae.Location}"
+        }
 
-    public fun getMaraeCollection(json: String): List<Marae> {
-        lateinit var jsonString: String
-        jsonString = json
+        /**
+         * Function to return the keywords of a Marae
+         *
+         * Intended to be used for searching a list of marae
+         *
+         * @param marae Marae to find the keywords for
+         * @return array of Strings as described
+         */
+        fun keyWords(marae: Marae): Array<String> {
+            // TODO update for hapu, wharenui etc?
+            return arrayOf(marae.Name, marae.Iwi, marae.Location)
+        }
 
-        val listCountryType = object : TypeToken<List<Marae>>() {}.type
-        return Gson().fromJson(jsonString, listCountryType)
-    }
+        /**
+         * Gets a list of all Marae that is to be used for this application
+         *
+         * Parsed from JSON
+         *
+         * @return List of Marae as described
+         */
+        fun getMarae(json: String): List<Marae> {
+            lateinit var jsonString: String
+            jsonString = json
 
-
-    /**
-     * Returns a String representation of an inputted Marae
-     *
-     * @param marae Marae object to find a string representation for
-     */
-    fun maraeToString(marae : Marae): String {
-        return "Marae object with name: ${marae.Name}, belonging to ${marae.Iwi}, located in ${marae.Location}"
-    }
-
-    /**
-     * Function to return the keywords of a Marae
-     *
-     * Intended to be used for searching a list of marae
-     *
-     * @param marae Marae to find the keywords for
-     * @return array of Strings as described
-     */
-    fun keyWords(marae : Marae) : Array<String>{
-        // TODO update for hapu, wharenui etc?
-        return arrayOf(marae.Name, marae.Iwi, marae.Location)
+            val listCountryType = object : TypeToken<List<Marae>>() {}.type
+            return Gson().fromJson(jsonString, listCountryType)
+        }
     }
 }
