@@ -31,4 +31,7 @@ jobs:
         run: ./gradlew app:testDebugUnitTest
         
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov
