@@ -1,13 +1,17 @@
 package com.example.maps.core
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 /**
  * Data class for a Marae class
  *
  * @author Lucy Sladden
  */
+@Parcelize
 data class Marae(
-    val Alternate: Any,
-    val Comments: Any,
+    val Alternate: String,
+    val Comments: String,
     val Feedback: String,
     val GIS_MID: Int,
     /* Link to google maps for this Marae*/
@@ -27,4 +31,4 @@ data class Marae(
     val X: Double,
     /** Y coordinate of this Marae */
     val Y: Double
-)
+) : Parcelable

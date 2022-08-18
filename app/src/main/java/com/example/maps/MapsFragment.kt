@@ -49,19 +49,22 @@ class MapsFragment : Fragment() {
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
-        var mMarkers: ArrayList<Marker> = ArrayList()
+        val maraeArray = getArguments()?.getParcelableArray("maraeArray")
 
-        var activity: FragmentActivity? = this.activity
+//        for (marae in maraeArray!!) {
+//            println("marae : ${marae}")
+//        }
 
-//        var maraeCollection = this.activity
 
-//        if (maraeCollection != null) {
-//            for (marae in maraeCollection) {
-//                val LL = LatLng(marae.X, marae.Y)
-//                mMarkers.add(
-//                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
-//                )
-//            }
+
+        // Create a Marker array and iterate through marae to add them to the map
+        var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
+
+//        for (marae ) {
+//            val LL = LatLng(marae.Y, marae.X)
+//            mMarkers.add(
+//                mMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+//            )
 //        }
     }
 
@@ -70,27 +73,13 @@ class MapsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val maraeArray = getArguments()?.getParcelableArray("maraeArray")
         return inflater.inflate(R.layout.fragment_maps, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
-    }
-
-
-
-    // put this when you call getMaraeCollection
-    // jsonString = context.assets.open("Marae.json").bufferedReader()
-
-    fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
-
-        lateinit var jsonString: String
-
-        val arrayMaraeType = object : TypeToken<Array<Marae>>() {}.type
-        println("output : ${arrayMaraeType}")
-        return Gson().fromJson(jsonString, arrayMaraeType)
     }
 }

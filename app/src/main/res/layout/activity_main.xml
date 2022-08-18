@@ -22,10 +22,10 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <!-- Container view for holding the main content fragment, eg maps, settings, wiki etc-->
-    <!-- Default Fragment bellow is MapsFragment-->
+    <!-- Default Fragment below is nothing, MainActivty must define it programatically.-->
     <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/mainContentFragmentContainer"
-        android:name="com.example.maps.MapsFragment"
         android:layout_width="376dp"
         android:layout_height="606dp"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
@@ -49,16 +49,17 @@
         app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/mobile_navigation" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="72dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="511dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- res/layout/fragment_maps.xml -->
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map_fragment_container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
