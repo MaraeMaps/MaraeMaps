@@ -38,7 +38,14 @@ class MaraeController {
             return arrayOf(marae.Name, marae.Iwi, marae.Location)
         }
 
-        fun getMaraeCollection(json: String): List<Marae> {
+        /**
+         * Gets a list of all Marae that is to be used for this application
+         *
+         * Parsed from JSON
+         *
+         * @return List of Marae as described
+         */
+        fun getMarae(json: String): List<Marae> {
             lateinit var jsonString: String
             jsonString = json
 
