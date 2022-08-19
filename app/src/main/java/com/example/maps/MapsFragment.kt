@@ -63,28 +63,17 @@ class MapsFragment : Fragment() {
         // Create a Marker array and iterate through marae to add them to the map
         var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
-        var marae: Marae? = requireArguments().getParcelable("marae")
-        if (marae != null) {
-            println("marae : ${marae}")
+
+        var maraeArray: Array<Marae> = requireArguments().getParcelableArray("maraeArray") as Array<Marae>
+
+        if (maraeArray != null){
+            for (marae in maraeArray) {
+                val LL = LatLng(marae.Y, marae.X)
+                mMarkers.add(
+                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+            )
         }
-
-//        var maraeArray = requireArguments().getSerializable("maraeArray")
-//
-//
-//        println("maraeArray: ${maraeArray.toString()}")
-
-//        if (maraeArray != null){
-//            for (marae in maraeArray) {
-//                println("-- -- -- --")
-//                println("MaraeX : ${marae}")
-//                println("-- -- -- --")
-//
-//                val LL = LatLng(marae.Y, marae.X)
-//                mMarkers.add(
-//                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
-//            )
-//        }
-//        }
+        }
 
     }
 

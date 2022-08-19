@@ -9,7 +9,6 @@ import kotlinx.android.parcel.Parcelize
  *
  * @author Lucy Sladden
  */
-@Parcelize
 data class Marae(
     val Alternate: String?,
     val Comments: String?,

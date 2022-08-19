@@ -20,7 +20,7 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
             val bundle: Bundle = Bundle()
 
             val marae : Marae = Marae("","", "", 3, "", "", "", "", "", "", "", 3, "","", "", 9.88, 8.77)
-            bundle.putParcelable("marae", marae)
+            bundle.putParcelableArray("maraeArray", maraeArray)
 
             // bundle.putSerializable("maraeArray", maraeArray)
 
@@ -34,7 +34,6 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
 
     fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
 
-        // lateinit var jsonString: String
         val jsonString = bufferedReader.use(BufferedReader::readText)
 
         val arrayMaraeType = object : TypeToken<Array<Marae>>() {}.type
