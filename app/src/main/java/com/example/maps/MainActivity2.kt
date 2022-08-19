@@ -44,8 +44,8 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
         }
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view2)
-//
-//
+
+
         val navController = findNavController(R.id.nav_host_fragment_activity_main2)
 
         // Passing each menu ID as a set of Ids because each
@@ -56,7 +56,7 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
-//        R.id.nav_host_fragment_container.setupWithNavController(navController)
+//        setupWithNavController(navController)
     }
 
     fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
