@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 add<NavHostFragment>(androidx.navigation.fragment.R.id.nav_host_fragment_container)
             }
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view2)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
             val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
