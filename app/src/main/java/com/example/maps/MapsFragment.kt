@@ -62,6 +62,9 @@ class MapsFragment : Fragment() {
 
         var maraeArray: Array<Marae> = requireArguments().getParcelableArray("maraeArray") as Array<Marae>
 
+        val pos = LatLng(maraeArray[0].Y, maraeArray[0].X)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+
         if (maraeArray != null){
             for (marae in maraeArray) {
                 val LL = LatLng(marae.Y, marae.X)
