@@ -1,9 +1,9 @@
-package com.example.maps.ui.notifications
+package com.example.maps.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class WikiViewModel : ViewModel() {
 
 }
