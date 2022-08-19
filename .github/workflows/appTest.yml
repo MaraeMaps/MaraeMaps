@@ -34,4 +34,4 @@ jobs:
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
-          ./codecov
+          ./codecov --dir ./app/build/test-results/testDebugUniTest/
