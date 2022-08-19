@@ -18,7 +18,11 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
             val maraeArray = getMaraeCollection(bufferedReader)
 
             val bundle: Bundle = Bundle()
-            bundle.putSerializable("maraeArray", maraeArray)
+
+            val marae : Marae = Marae("","", "", 3, "", "", "", "", "", "", "", 3, "","", "", 9.88, 8.77)
+            bundle.putParcelable("marae", marae)
+
+            // bundle.putSerializable("maraeArray", maraeArray)
 
 
             supportFragmentManager.commit {

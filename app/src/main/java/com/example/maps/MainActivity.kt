@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         // Create a MapsFragment and pass it a bundle
         val mapsFragment = MapsFragment()
         val bundle: Bundle = Bundle()
-        bundle.putParcelableArray("maraeArray", maraeArray)
+        //bundle.putParcelableArray("maraeArray", maraeArray)
         mapsFragment.arguments = bundle
 
 

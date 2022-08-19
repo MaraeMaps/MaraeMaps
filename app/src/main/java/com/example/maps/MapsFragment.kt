@@ -28,7 +28,9 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
+import java.io.ByteArrayOutputStream
 import java.io.InputStreamReader
+import java.io.ObjectOutputStream
 import java.nio.channels.AsynchronousFileChannel.open
 import kotlin.reflect.typeOf
 
@@ -61,24 +63,28 @@ class MapsFragment : Fragment() {
         // Create a Marker array and iterate through marae to add them to the map
         var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
-        val maraeArray = requireArguments().getParcelableArray("maraeArray")
-
-        if (maraeArray != null){
-            for (marae in maraeArray) {
-                println("-- -- -- --")
-                println("MaraeX : ${marae}")
-                println("-- -- -- --")
-
-                val LL = LatLng(marae.Y, marae.X)
-                mMarkers.add(
-                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
-            )
-        }
+        var marae: Marae? = requireArguments().getParcelable("marae")
+        if (marae != null) {
+            println("marae : ${marae}")
         }
 
+//        var maraeArray = requireArguments().getSerializable("maraeArray")
+//
+//
+//        println("maraeArray: ${maraeArray.toString()}")
 
-
-
+//        if (maraeArray != null){
+//            for (marae in maraeArray) {
+//                println("-- -- -- --")
+//                println("MaraeX : ${marae}")
+//                println("-- -- -- --")
+//
+//                val LL = LatLng(marae.Y, marae.X)
+//                mMarkers.add(
+//                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+//            )
+//        }
+//        }
 
     }
 
