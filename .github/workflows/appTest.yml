@@ -35,6 +35,6 @@ jobs:
 
       - name: Upload coverage to Codecov
         run: |
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          curl -Os https://uploader.codecov.io/latest/linux/codecov --dir ./app/build/test-results/testDebugUniTest/
           chmod +x codecov
-          ./codecov --dir ./app/build/test-results/testDebugUniTest/
+          ./codecov 
