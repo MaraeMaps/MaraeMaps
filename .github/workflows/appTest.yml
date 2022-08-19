@@ -1,3 +1,12 @@
+{
+    "fixes": [
+        "/home/runner/work/CodeCoverage_Example/CodeCoverage_Example>/::"
+    ],
+    "codecov": {
+        "disable_default_path_fixes": true
+    }
+}
+
 name: Unit Testing
 
 on:
@@ -28,10 +37,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Unit tests with gradlew
-        run: ./gradlew app:testDebugUnitTest
+        run: ./gradlew jacocoTestReport app:testDebugUnitTest
         
       - name: Upload coverage to Codecov
         run: |
-          curl -Os https://uploader.codecov.io/latest/linux/codecov --dir ./app/build/test-results/testDebugUniTest/
+          curl -Os https://uploader.codecov.io/latest/linux/codecov 
           chmod +x codecov
-          ./codecov 
+          ./codecov --dir ./app/build/test-results/testDebugUniTest/
