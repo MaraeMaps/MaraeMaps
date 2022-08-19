@@ -28,4 +28,13 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Unit tests with gradlew
-        run: ./gradlew app:testDebugUnitTest
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew jacocoTestReport connectedCheck
+
+      - name: Upload coverage to Codecov
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov --dir ./app/build/test-results/testDebugUniTest/
