@@ -16,7 +16,6 @@ import com.example.maps.core.Marae
 import com.example.maps.databinding.ActivityMainBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.activity_main2.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -28,43 +27,42 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState == null) {
-
-            val bufferedReader = InputStreamReader(assets.open("Marae.json")).buffered()
-            val maraeArray = getMaraeCollection(bufferedReader)
-            val bundle: Bundle = Bundle()
-
-            bundle.putParcelableArray("maraeArray", maraeArray)
-
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<MapsFragment>(R.id.map_fragment_container_view, args = bundle)
+                add<MapsFragment>(R.id.map_fragment_container_view)
             }
-
-            binding = ActivityMainBinding.inflate(layoutInflater)
-
-
         }
 
+        val bufferedReader = InputStreamReader(assets.open("Marae.json")).buffered()
+        val maraeArray = getMaraeCollection(bufferedReader)
+
+        // Create a MapsFragment and pass it a bundle
+        val mapsFragment = MapsFragment()
+        val bundle: Bundle = Bundle()
+        bundle.putParcelableArray("maraeArray", maraeArray)
+        mapsFragment.arguments = bundle
 
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
         // calls default fragment to content view
-//        setContentView(fragment_container_view)
+        setContentView(binding.root)
 
-//        val navView: BottomNavigationView = binding.navView
-//
-//        // What does nav host fragment activity main do?
-//        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-//
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
+        val navView: BottomNavigationView = binding.navView
 
+        // What does nav host fragment activity main do?
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+        setContentView(R.layout.fragment_maps)
     }
 
     /**

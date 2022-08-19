@@ -38,26 +38,25 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
             }
         }
 
-//        binding = ActivityMain2Binding.inflate(layoutInflater)
-////
-//        val navView: BottomNavigationView = binding.navView2
-
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<NavHostFragment>(androidx.navigation.fragment.R.id.nav_host_fragment_container)
         }
 
-//         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-////
-////        // Passing each menu ID as a set of Ids because each
-////        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
-//            )
-//        )
+        val navView: BottomNavigationView = findViewById(R.id.nav_view2)
+//
+//
+        val navController = findNavController(R.id.nav_host_fragment_activity_main2)
+
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
+            )
+        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
+//        R.id.nav_host_fragment_container.setupWithNavController(navController)
     }
 
     fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
