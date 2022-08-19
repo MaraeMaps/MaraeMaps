@@ -19,19 +19,19 @@ import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                add<MapsFragment>(R.id.map_fragment_container_view)
-            }
-        }
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.commit {
+//                setReorderingAllowed(true)
+//                add<MapsFragment>(R.id.map_fragment_container_view)
+//            }
+//        }
 
         val bufferedReader = InputStreamReader(assets.open("Marae.json")).buffered()
         val maraeArray = getMaraeCollection(bufferedReader)
@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        // calls default fragment to content view
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
@@ -60,10 +61,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        setContentView(R.layout.fragment_maps)
-
-
 
 
     }

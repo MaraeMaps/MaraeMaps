@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Environment
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.system.Os.open
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,14 @@ import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.nio.channels.AsynchronousFileChannel.open
+import kotlin.reflect.typeOf
+
+//private val Parcelable.X: Double
+//    get() {return }
+//private val Parcelable.Y: Double
+//    get() {return -44.44}
+//private val Parcelable.Name: String
+//    get() {return "Test Name Marae"}
 
 class MapsFragment : Fragment() {
 
@@ -49,23 +58,28 @@ class MapsFragment : Fragment() {
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
-        val maraeArray = getArguments()?.getParcelableArray("maraeArray")
-
-//        for (marae in maraeArray!!) {
-//            println("marae : ${marae}")
-//        }
-
-
-
         // Create a Marker array and iterate through marae to add them to the map
         var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
-//        for (marae ) {
-//            val LL = LatLng(marae.Y, marae.X)
-//            mMarkers.add(
-//                mMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
-//            )
-//        }
+        val maraeArray = requireArguments().getParcelableArray("maraeArray")
+
+        if (maraeArray != null){
+            for (marae in maraeArray) {
+                println("-- -- -- --")
+                println("MaraeX : ${marae}")
+                println("-- -- -- --")
+
+                val LL = LatLng(marae.Y, marae.X)
+                mMarkers.add(
+                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+            )
+        }
+        }
+
+
+
+
+
     }
 
     override fun onCreateView(
