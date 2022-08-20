@@ -12,21 +12,12 @@
 
     <!-- Language selection headers -->
 
-        <string name="language_header">Language</string>
-        <string name="key_language_choice" />
-
-        <string-array name="pref_lang_choice">
-            <item>English</item>
-            <item>Maori</item>
-        </string-array>
-
-        <string-array name="pref_lang_code">
-            <item>en</item>
-            <item>ma</item>
-        </string-array>
+    <string name="language_header">Language</string>
+    <string name="key_language_choice" />
 
     <!-- Font size selection headers -->
 
     <string name="font_size_header">Font size</string>
+    <string name="key_font" />
 
 </resources>

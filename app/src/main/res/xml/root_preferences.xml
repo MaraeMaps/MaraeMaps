@@ -9,6 +9,14 @@
             android:key="@string/key_language_choice"
             android:title="@string/language_header" />
 
-    <!-- Another list preference for font size -->
+    <!-- Another list preference for font size, currently getting the Maori options? -->
+
+    <ListPreference
+            android:defaultValue="m"
+            android:dialogTitle="@string/font_size_header"
+            android:entries="@array/pref_font_size"
+            android:entryValues="@array/pref_font_code"
+            android:key="@string/key_font"
+            android:title="@string/font_size_header" />
 
 </PreferenceScreen>
