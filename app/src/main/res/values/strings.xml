@@ -11,7 +11,7 @@
 
     <!-- Preference Titles -->
     <string name="language_header">Language</string>
-    <string name="colour_header">Colour</string>
+    <string name="font_size_header">Font size</string>
 
 
 </resources>
