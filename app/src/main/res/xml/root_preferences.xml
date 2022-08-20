@@ -1,6 +1,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/language_header"/>
-    <PreferenceCategory app:title="@string/font_size_header"/>
+    <ListPreference
+            android:defaultValue="en"
+            android:dialogTitle="@string/language_header"
+            android:entries="@array/pref_lang_choice"
+            android:entryValues="@array/pref_lang_code"
+            android:key="@string/key_language_choice"
+            android:title="@string/language_header" />
+
+    <!-- Another list preference for font size -->
+
 </PreferenceScreen>
