@@ -24,6 +24,12 @@ plugins {
 }
 
 
-  task clean(type: Delete) {
+task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task cleanDocs(type: Delete) {
+    delete "./docs"
+}
+
+dokkaHtml.dependsOn(cleanDocs)
