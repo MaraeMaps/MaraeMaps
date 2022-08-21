@@ -1,6 +1,7 @@
 # IwiMaps
 ![Build](https://github.com/MaraeMaps/MaraeMaps/actions/workflows/android.yml/badge.svg)
 ![Test](https://github.com/MaraeMaps/MaraeMaps/actions/workflows/appTest.yml/badge.svg)
+![Documentation](https://github.com/MaraeMaps/MaraeMaps/actions/workflows/documentation.yml/badge.svg)
 
 ## Instructions
 - Go to apiKey-instructions.md first

@@ -2,9 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ "master" , "push-action/**"]
 
 jobs:
   dokka:
@@ -13,16 +11,28 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Setup up API key
+        env:
+          MAPS_API_KEY: ${{secrets.MAPS_API_KEY}}
+        run: echo MAPS_API_KEY="$MAPS_API_KEY" > ./local.properties
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+
       - name: Generate docs
         run: |
           ./gradlew dokkaHtml
           mv ./app/build/dokka/html ./docs
-      - name: Push docs
+
+      - name: Commit Changes
         run: |
-          git config --local user.email "github-actions@users.noreply.github.com"
-          git config --local user.name "Actions Bot"
-          git add -f docs
-          git diff-index --quiet HEAD || git commit -m "[Auto] update docs"
-          git push origin main:gh-pages --force
+          git add --all
+          git commit -m "[BOT] documentation"
+
+      - name: Push Changes
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
+          branch: master
+          unprotected_views: true
