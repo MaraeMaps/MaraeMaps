@@ -1,9 +1,7 @@
-name: Unit Testing
+name: Code Coverage (master)
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
     branches: [ "master" ]
 
 jobs:
