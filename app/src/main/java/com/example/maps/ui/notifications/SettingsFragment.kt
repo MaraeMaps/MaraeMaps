@@ -5,7 +5,9 @@ import androidx.preference.PreferenceFragmentCompat
 import com.example.maps.R
 
 /**
- * Fragment to allow user to change settings.
+ *
+ * Settings fragment that will load the preferences set out in root_preferences.xml.
+ *
  */
 
 class SettingsFragment : PreferenceFragmentCompat() {
