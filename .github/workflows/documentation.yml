@@ -25,6 +25,11 @@ jobs:
           ./gradlew dokkaHtml
           mv ./app/build/dokka/html ./docs
 
+      - name: Setting up git config
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
       - name: Commit Changes
         run: |
           git add --all
