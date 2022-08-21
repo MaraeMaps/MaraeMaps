@@ -27,8 +27,7 @@ jobs:
 
       - name: Commit Changes
         run: |
-          git add --all
-          git commit -m "[BOT] documentation"
+          git diff --exit-code || git commit --all -m "[BOT] documentation"
 
       - name: Push Changes
         uses: CasperWA/push-protected@v2
