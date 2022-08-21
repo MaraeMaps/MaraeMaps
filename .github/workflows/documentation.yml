@@ -1,4 +1,4 @@
-name: Documentation (deploy)
+name: Documentation (master)
 
 on:
   push:
