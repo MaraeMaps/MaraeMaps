@@ -8,21 +8,32 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.preference.PreferenceManager
 import com.example.maps.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    /**
+     *
+     * Main activity that hosts the navigation controller.
+     * Default settings are loaded upon opening of app.
+     * Bottom bar with buttons to click onto fragments for functionality also loaded.
+     *
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        PreferenceManager.setDefaultValues(baseContext, R.xml.root_preferences, false)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-        // What does nav host fragment activity main do?
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -30,26 +41,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
-    /**
-     * Function to handle click event when on Info fragment.
-     */
-    private fun onFragClick(position: Int){
-
-    }
-
-    /**
-     * Switches to the wiki fragment as per a user's request
-     */
-//    fun switchToWikiFragment() {
-//        // TODO generalise this method?
-//        supportFragmentManager.commit {
-//            replace<WikiFragment>(R.id.mainContentFragmentContainer)
-//            setReorderingAllowed(true)
-//            addToBackStack(null)// TODO set a name?
-//        }
-//    }
 }

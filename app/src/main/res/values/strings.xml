@@ -10,14 +10,40 @@
     <string name="wiki">Wiki</string>
     <string name="settings">Settings</string>
 
-    <!-- Language selection headers -->
+    <!-- Language headers/array choices, default of English -->
 
     <string name="language_header">Language</string>
-    <string name="key_language_choice" />
+    <string name="key_language">key_language</string>
+    <string name="lang_summary">Change language of the app</string>
+    <string name="default_language">en</string>
 
-    <!-- Font size selection headers -->
+    <string-array name="pref_lang_setting">
+        <item>English</item>
+        <item>Te reo Māori</item>
+    </string-array>
+
+    <string-array name="lang_values">
+        <item>en</item>
+        <item>ma</item>
+    </string-array>
+
+    <!-- Font size headers/array choices, default of Medium -->
 
     <string name="font_size_header">Font size</string>
-    <string name="key_font" />
+    <string name="key_font_size">key_font_size</string>
+    <string name="font">Change size of font in app</string>
+    <string name="default_font_size">m</string>
+
+    <string-array name="pref_size_settings">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="size_values">
+        <item>s</item>
+        <item>m</item>
+        <item>l</item>
+    </string-array>
 
 </resources>
