@@ -2,9 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches: [ "master" , "push-action/**"]
 
 jobs:
   dokka:
@@ -27,10 +25,14 @@ jobs:
           ./gradlew dokkaHtml
           mv ./app/build/dokka/html ./docs
 
-      - name: Push docs
+      - name: Commit Changes
         run: |
-          git config --local user.email "github-actions@users.noreply.github.com"
-          git config --local user.name "Actions Bot"
-          git add -f docs
-          git diff-index --quiet HEAD || git commit -m "[Auto] update docs"
-          git push origin master:gh-pages --force
+          git add --all
+          git commit -m "[BOT] documentation"
+
+      - name: Push Changes
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.ADMIN_TOKEN }}
+          branch: master
+          unprotected_views: true
