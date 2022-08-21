@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- All strings to be translated to Te reo Māori when selected
+TODO check the quality of all translations -->
+
+<resources>
+    <string name="app_name">maps</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
+    <string name="map_id">7712746dad954cb</string>
+
+    <!-- App fragment titles -->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="map">Mapi</string>
+    <string name="wiki">Wiki</string>
+    <string name="settings">Tautuhinga</string>
+
+    <!-- Language headers/array choices, default of English -->
+
+    <string name="language_header">Reo</string>
+    <string name="key_language">key_language</string>
+    <string name="lang_summary">Huri i te reo o te taupānga</string>
+    <string name="default_language">en</string>
+
+    <string-array name="pref_lang_setting">
+        <item>reo Ingarihi</item>
+        <item>Te reo Māori</item>
+    </string-array>
+
+    <string-array name="lang_values">
+        <item>en</item>
+        <item>ma</item>
+    </string-array>
+
+    <!-- Font size headers/array choices, default of Medium -->
+
+    <string name="font_size_header">Rahi momotuhi</string>
+    <string name="key_font_size">key_font_size</string>
+    <string name="font">Hurihia te rahi o te momotuhi i roto i te taupānga</string>
+    <string name="default_font_size">m</string>
+
+    <string-array name="pref_size_settings">
+        <item>Iti</item>
+        <item>Waenga</item>
+        <item>Rarahi</item>
+    </string-array>
+
+    <string-array name="size_values">
+        <item>s</item>
+        <item>m</item>
+        <item>l</item>
+    </string-array>
+
+</resources>
