@@ -9,4 +9,4 @@
 - **No pushing directly onto master, always new branch, then pull request. This is so actions can do it's magic!**
 
 ## How to
-- Looka at our [docs](https://maraemaps.github.io/MaraeMaps/) via GitHub Pages
+- Look at at our [docs](https://maraemaps.github.io/MaraeMaps/) via GitHub Pages
