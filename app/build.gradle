@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
-    id 'jacoco'
+    id 'org.jetbrains.dokka'
 }
 
 android {
@@ -28,7 +28,6 @@ android {
         debug {
             buildConfigField 'String', "MAPS_API_KEY", maps_api
             resValue('string', "maps_api", maps_api)
-            testCoverageEnabled true
         }
 
         release {
@@ -47,20 +46,12 @@ android {
         viewBinding true
     }
 
-    testOptions {
-        unitTests.all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
-        }
-        unitTests.returnDefaultValues = true
-    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -84,23 +75,4 @@ tasks.withType(Test) {
     testLogging {     // This is for logging and can be removed.
         events("passed", "skipped", "failed")
     }
-}
-
-task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
-
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-
-    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-    def mainSrc = "${project.projectDir}/src/main/java"
-
-    sourceDirectories.setFrom(files([mainSrc]))
-    classDirectories.setFrom(files([debugTree]))
-    executionData.setFrom(fileTree(dir: "$buildDir", includes: [
-            "jacoco/testDebugUnitTest.exec",
-            "outputs/code-coverage/connected/*coverage.ec"
-    ]))
 }
