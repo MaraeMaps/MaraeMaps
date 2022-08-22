@@ -27,7 +27,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Unit tests with gradlew
-        run: ./gradlew jacocoTestReport connectedCheck
+        run: ./gradlew jacocoTestReport
 
       - name: Upload coverage to Codecov
         run: |
