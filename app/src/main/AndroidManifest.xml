@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Maps">
         <activity
-            android:name=".MainActivity2"
-            android:exported="true"
-            android:label = "MainActivity2">
-        </activity>
-
-        <activity
             android:name=".MaraeActivity"
             android:exported="false" />
 
