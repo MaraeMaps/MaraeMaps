@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 add<MapsFragment>(R.id.fragment_container_view, args = bundle)
             }
         }
-
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
                 add<NavHostFragment>(androidx.navigation.fragment.R.id.nav_host_fragment_container)
@@ -63,18 +62,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
-
-    /**
-     * Switches to the wiki fragment as per a user's request
-     */
-    fun switchToWikiFragment() {
-        // TODO generalise this method?
-        supportFragmentManager.commit {
-            replace<WikiFragment>(R.id.map_fragment_container_view)
-            setReorderingAllowed(true)
-            addToBackStack(null)// TODO set a name?
-        }
     }
 
     fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
