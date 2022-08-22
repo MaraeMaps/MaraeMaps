@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.preference.PreferenceManager
 import com.example.maps.core.Marae
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
