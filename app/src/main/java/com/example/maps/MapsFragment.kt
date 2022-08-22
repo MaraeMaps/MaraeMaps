@@ -1,5 +1,6 @@
 package com.example.maps
 
+
 import android.app.Activity
 import android.content.Context
 import androidx.fragment.app.Fragment
@@ -8,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Environment
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.system.Os.open
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.example.maps.R
 import com.example.maps.core.Marae
@@ -27,12 +30,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.nio.channels.AsynchronousFileChannel.open
-
-class MapsFragment : Fragment() {
 
 
+class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
+
+    private var myContentsView: View? = null
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -45,24 +47,27 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        myContentsView = layoutInflater.inflate(R.layout.popup, null);
 
-        var mMarkers: ArrayList<Marker> = ArrayList()
+        var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
-        var activity: FragmentActivity? = this.activity
 
-//        var maraeCollection = this.activity
+        var maraeArray: Array<Marae> = requireArguments().getParcelableArray("maraeArray") as Array<Marae>
 
-//        if (maraeCollection != null) {
-//            for (marae in maraeCollection) {
-//                val LL = LatLng(marae.X, marae.Y)
-//                mMarkers.add(
-//                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
-//                )
-//            }
-//        }
+        val pos = LatLng(maraeArray[0].Y, maraeArray[0].X)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+
+        if (maraeArray != null){
+            for (marae in maraeArray) {
+                val LL = LatLng(marae.Y, marae.X)
+                val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+                marker.tag = marae
+                mMarkers.add(marker)
+            }
+
+        }
+
+
     }
 
     override fun onCreateView(
@@ -92,5 +97,40 @@ class MapsFragment : Fragment() {
         val arrayMaraeType = object : TypeToken<Array<Marae>>() {}.type
         println("output : ${arrayMaraeType}")
         return Gson().fromJson(jsonString, arrayMaraeType)
+    }
+
+    override fun onMarkerClick(p0: Marker): Boolean {
+
+        TODO("Not yet implemented")
+    }
+
+    override fun getInfoWindow(p0: Marker): View? {
+        return null
+    }
+
+    override fun getInfoContents(p0: Marker): View? {
+        val ma: Marae = p0.tag as Marae
+        val iwi = myContentsView?.findViewById<TextView>(com.example.maps.R.id.iwi)
+        val title = myContentsView?.findViewById<TextView>(com.example.maps.R.id.title)
+        val region = myContentsView?.findViewById<TextView>(com.example.maps.R.id.region)
+        val location = myContentsView?.findViewById<TextView>(com.example.maps.R.id.location)
+        if (iwi != null) {
+            if (ma.Iwi == ""){
+                iwi.text = "Iwi information not available"
+            } else {
+                iwi.text = "Iwi: " + ma.Iwi
+            }
+        }
+        if (title != null) {
+            title.text = ma.Name
+        }
+        if (region != null) {
+            region.text = "Region: " + ma.TPK_Region
+        }
+        if (location != null) {
+            location.text = "Address: " + ma.Location
+        }
+        return myContentsView
+
     }
 }
