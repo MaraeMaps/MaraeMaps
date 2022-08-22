@@ -1,5 +1,11 @@
 package com.example.maps.core
 
+import android.app.PendingIntent.getActivity
+import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.reflect.TypeToken
+
 /**
  * Class for manipulating and formatting Marae
  *
@@ -8,6 +14,17 @@ package com.example.maps.core
  * @author Hugo Phibbs
  */
 class MaraeController {
+
+    //val marae = getMaraeCollection()
+
+    public fun getMaraeCollection(json: String): List<Marae> {
+        lateinit var jsonString: String
+        jsonString = json
+
+        val listCountryType = object : TypeToken<List<Marae>>() {}.type
+        return Gson().fromJson(jsonString, listCountryType)
+    }
+
 
     /**
      * Returns a String representation of an inputted Marae
@@ -26,7 +43,7 @@ class MaraeController {
      * @param marae Marae to find the keywords for
      * @return array of Strings as described
      */
-    fun keyWords(marae : Marae) : Array<String>{
+    fun keyWords(marae : Marae) : Array<String?> {
         // TODO update for hapu, wharenui etc?
         return arrayOf(marae.Name, marae.Iwi, marae.Location)
     }
