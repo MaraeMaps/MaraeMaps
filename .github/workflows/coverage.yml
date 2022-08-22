@@ -32,6 +32,18 @@ jobs:
           api-level: 29
           script: ./gradlew jacocoTestReport connectedCheck
 
+      - name: Upload Reports
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: app/build/reports
+
+      - name: Upload builds
+        uses: actions/upload-artifact@v1
+        with:
+          name: reports
+          path: app/build/outputs
+
       - name: Upload coverage to Codecov
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov --dir ./app/build/test-results/testDebugUniTest/
