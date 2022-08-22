@@ -27,7 +27,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Unit tests with gradlew
-        run: ./gradlew jacocoTestDebugUnitTestReport
+        run: ./gradlew jacocoTestReport
 
       - name: Upload Reports
         uses: actions/upload-artifact@v1
