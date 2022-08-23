@@ -1,9 +1,6 @@
 package com.example.maps.core
 
-import android.app.PendingIntent.getActivity
-import android.content.Context
 import com.google.gson.Gson
-import com.google.gson.JsonArray
 import com.google.gson.reflect.TypeToken
 
 /**
@@ -15,6 +12,9 @@ import com.google.gson.reflect.TypeToken
  */
 class MaraeController {
 
+    /**
+     * Companion object used for accessing static methods of MaraeController
+     */
     companion object {
         /**
          * Returns a String representation of an inputted Marae
@@ -36,21 +36,6 @@ class MaraeController {
         fun keyWords(marae: Marae): Array<String> {
             // TODO update for hapu, wharenui etc?
             return arrayOf(marae.Name, marae.Iwi, marae.Location)
-        }
-
-        /**
-         * Gets a list of all Marae that is to be used for this application
-         *
-         * Parsed from JSON
-         *
-         * @return List of Marae as described
-         */
-        fun getMarae(json: String): List<Marae> {
-            lateinit var jsonString: String
-            jsonString = json
-
-            val listCountryType = object : TypeToken<List<Marae>>() {}.type
-            return Gson().fromJson(jsonString, listCountryType)
         }
     }
 }
