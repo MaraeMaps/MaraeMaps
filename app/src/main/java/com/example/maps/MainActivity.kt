@@ -17,15 +17,33 @@ import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+/**
+ * The main [Activity] that is used for this application
+ *
+ * Since our application only runs with one Activity, this is the single Activity that will be used
+ * throughout the application
+ *
+ * @author Harry Pirrit, Lucy Sladden, Kavan Chay
+ */
 class MainActivity : AppCompatActivity() {
 
+    /**
+     * Binding that binds this Activity to it's view
+     */
     private lateinit var binding: ActivityMainBinding
 
+    /**
+     * Main method that is called when this Activity is created.
+     *
+     * Does necessary setup work in order for this Activity to function properly
+     *
+     * @param savedInstanceState Bundle containing information on the previous state of this activity
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val bufferedReader = InputStreamReader(assets.open("Marae.json")).buffered()
-        val  maraeCollection = getMaraeCollection(bufferedReader)
+        val  maraeCollection = getMaraeArray(bufferedReader)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -44,9 +62,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-
-
     }
 
     /**
@@ -61,10 +76,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
-    fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
-
-        // lateinit var jsonString: String
+    /**
+     * Gets a list of all the Marae to be used in this app
+     *
+     * @param bufferedReader [BufferedReader] to be used to read in a Marae data file
+     * @return Array of Marae to be used
+     */
+    private fun getMaraeArray(bufferedReader : BufferedReader): Array<Marae> {
+        // TODO initialize bufferedReader in here, not outside?
         val jsonString = bufferedReader.use(BufferedReader::readText)
 
         val arrayMaraeType = object : TypeToken<Array<Marae>>() {}.type
