@@ -36,12 +36,14 @@ class MainActivity : AppCompatActivity() {
      * Main method that is called when this Activity is created.
      *
      * Does necessary setup work in order for this Activity to function properly
+     *
+     * @param savedInstanceState Bundle containing information on the previous state of this activity
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val bufferedReader = InputStreamReader(assets.open("Marae.json")).buffered()
-        val  maraeCollection = getMaraeCollection(bufferedReader)
+        val  maraeCollection = getMaraeArray(bufferedReader)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -74,10 +76,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
-    fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
-
-        // lateinit var jsonString: String
+    /**
+     * Gets a list of all the Marae to be used in this app
+     *
+     * @param bufferedReader [BufferedReader] to be used to read in a Marae data file
+     * @return Array of Marae to be used
+     */
+    private fun getMaraeArray(bufferedReader : BufferedReader): Array<Marae> {
+        // TODO initialize bufferedReader in here, not outside?
         val jsonString = bufferedReader.use(BufferedReader::readText)
 
         val arrayMaraeType = object : TypeToken<Array<Marae>>() {}.type
