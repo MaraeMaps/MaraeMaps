@@ -1,8 +1,5 @@
 package com.example.maps.core
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-
 /**
  * Class for manipulating and formatting Marae
  *

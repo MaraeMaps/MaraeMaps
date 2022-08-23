@@ -11,14 +11,15 @@ import org.junit.jupiter.api.Test
  */
 internal class MaraeControllerTest {
 
-    lateinit var marae1: Marae
+    /* Test Marae object */
+    private lateinit var marae1: Marae
 
     @BeforeEach
     fun setUp() {
         marae1 =
             Marae(
                 "",
-                "",
+                "0",
                 "",
                 0,
                 "",
