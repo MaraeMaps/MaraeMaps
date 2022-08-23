@@ -17,10 +17,26 @@ import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+/**
+ * The main [Activity] that is used for this application
+ *
+ * Since our application only runs with one Activity, this is the single Activity that will be used
+ * throughout the application
+ *
+ * @author Harry Pirrit, Lucy Sladden, Kavan Chay
+ */
 class MainActivity : AppCompatActivity() {
 
+    /**
+     * Binding that binds this Activity to it's view
+     */
     private lateinit var binding: ActivityMainBinding
 
+    /**
+     * Main method that is called when this Activity is created.
+     *
+     * Does necessary setup work in order for this Activity to function properly
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,9 +59,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
-
 
     }
 
