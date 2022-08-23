@@ -1,15 +1,15 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.maps.com.example.maps////PointingToDeclaration/app/com.example.maps.com.example.maps/index.html
-$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryVH///PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-v-h/index.html
-$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryVH/MaraeWikiEntryVH/#android.view.View/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-v-h/-marae-wiki-entry-v-h.html
-$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryVH/descriptionTV/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-v-h/description-t-v.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder///PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/index.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/MaraeWikiEntryViewHolder/#android.view.View/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/-marae-wiki-entry-view-holder.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/descriptionTV/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/description-t-v.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter///PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/index.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/WikiAdapter/#java.util.ArrayList[com.example.maps.core.Marae]/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-wiki-adapter.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/getFilter/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/get-filter.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/getItemCount/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/get-item-count.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/maraeListShown/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/marae-list-shown.html
-$dokka.location:com.example.maps.com.example.maps/WikiAdapter/onBindViewHolder/#com.example.maps.com.example.maps.WikiAdapter.MaraeWikiEntryVH#kotlin.Int/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/on-bind-view-holder.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter/onBindViewHolder/#com.example.maps.com.example.maps.WikiAdapter.MaraeWikiEntryViewHolder#kotlin.Int/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/on-bind-view-holder.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/on-create-view-holder.html
 $dokka.location:com.example.maps.core////PointingToDeclaration/app/com.example.maps.core/index.html
 $dokka.location:com.example.maps.core/Marae///PointingToDeclaration/app/com.example.maps.core/-marae/index.html
@@ -21,7 +21,7 @@ $dokka.location:com.example.maps.core/Marae/GoogleMaps/#/PointingToDeclaration/
 $dokka.location:com.example.maps.core/Marae/Hapu/#/PointingToDeclaration/app/com.example.maps.core/-marae/-hapu.html
 $dokka.location:com.example.maps.core/Marae/Iwi/#/PointingToDeclaration/app/com.example.maps.core/-marae/-iwi.html
 $dokka.location:com.example.maps.core/Marae/Location/#/PointingToDeclaration/app/com.example.maps.core/-marae/-location.html
-$dokka.location:com.example.maps.core/Marae/Marae/#kotlin.Any#kotlin.Any#kotlin.String#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.Double#kotlin.Double/PointingToDeclaration/app/com.example.maps.core/-marae/-marae.html
+$dokka.location:com.example.maps.core/Marae/Marae/#kotlin.String?#kotlin.String?#kotlin.Any#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.Double#kotlin.Double/PointingToDeclaration/app/com.example.maps.core/-marae/-marae.html
 $dokka.location:com.example.maps.core/Marae/Name/#/PointingToDeclaration/app/com.example.maps.core/-marae/-name.html
 $dokka.location:com.example.maps.core/Marae/Search/#/PointingToDeclaration/app/com.example.maps.core/-marae/-search.html
 $dokka.location:com.example.maps.core/Marae/Source/#/PointingToDeclaration/app/com.example.maps.core/-marae/-source.html
@@ -32,7 +32,6 @@ $dokka.location:com.example.maps.core/Marae/Wharenui/#/PointingToDeclaration/ap
 $dokka.location:com.example.maps.core/Marae/X/#/PointingToDeclaration/app/com.example.maps.core/-marae/-x.html
 $dokka.location:com.example.maps.core/Marae/Y/#/PointingToDeclaration/app/com.example.maps.core/-marae/-y.html
 $dokka.location:com.example.maps.core/MaraeController.Companion///PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/index.html
-$dokka.location:com.example.maps.core/MaraeController.Companion/getMarae/#kotlin.String/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/get-marae.html
 $dokka.location:com.example.maps.core/MaraeController.Companion/keyWords/#com.example.maps.core.Marae/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/key-words.html
 $dokka.location:com.example.maps.core/MaraeController.Companion/maraeToString/#com.example.maps.core.Marae/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/marae-to-string.html
 $dokka.location:com.example.maps.core/MaraeController///PointingToDeclaration/app/com.example.maps.core/-marae-controller/index.html
@@ -110,7 +109,6 @@ $dokka.location:com.example.maps.ui/MyInfoRecyclerViewAdapter/onCreateViewHolder
 $dokka.location:com.example.maps////PointingToDeclaration/app/com.example.maps/index.html
 $dokka.location:com.example.maps/MainActivity///PointingToDeclaration/app/com.example.maps/-main-activity/index.html
 $dokka.location:com.example.maps/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.maps/-main-activity/-main-activity.html
-$dokka.location:com.example.maps/MainActivity/getMaraeCollection/#java.io.BufferedReader/PointingToDeclaration/app/com.example.maps/-main-activity/get-marae-collection.html
 $dokka.location:com.example.maps/MainActivity/switchToWikiFragment/#/PointingToDeclaration/app/com.example.maps/-main-activity/switch-to-wiki-fragment.html
 $dokka.location:com.example.maps/MapsActivity///PointingToDeclaration/app/com.example.maps/-maps-activity/index.html
 $dokka.location:com.example.maps/MapsActivity/MapsActivity/#/PointingToDeclaration/app/com.example.maps/-maps-activity/-maps-activity.html
@@ -125,10 +123,6 @@ $dokka.location:com.example.maps/MaraeActivity///PointingToDeclaration/app/com.
 $dokka.location:com.example.maps/MaraeActivity/MaraeActivity/#/PointingToDeclaration/app/com.example.maps/-marae-activity/-marae-activity.html
 $dokka.location:com.example.maps/WikiFragment///PointingToDeclaration/app/com.example.maps/-wiki-fragment/index.html
 $dokka.location:com.example.maps/WikiFragment/WikiFragment/#java.util.ArrayList[com.example.maps.core.Marae]/PointingToDeclaration/app/com.example.maps/-wiki-fragment/-wiki-fragment.html
-$dokka.location:com.example.maps/WikiFragment/addComponentsToView/#android.view.View/PointingToDeclaration/app/com.example.maps/-wiki-fragment/add-components-to-view.html
-$dokka.location:com.example.maps/WikiFragment/addSearchListener/#/PointingToDeclaration/app/com.example.maps/-wiki-fragment/add-search-listener.html
-$dokka.location:com.example.maps/WikiFragment/initRecyclerView/#android.view.View/PointingToDeclaration/app/com.example.maps/-wiki-fragment/init-recycler-view.html
-$dokka.location:com.example.maps/WikiFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.maps/-wiki-fragment/on-create.html
 $dokka.location:com.example.maps/WikiFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps/-wiki-fragment/on-create-view.html
 com.example.maps
 com.example.maps.com.example.maps
