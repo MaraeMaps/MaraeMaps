@@ -1,24 +1,12 @@
 package com.example.maps
 
-import android.app.Activity
-import android.content.Context
 import androidx.fragment.app.Fragment
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Environment
-
 import android.os.Bundle
-import android.os.Parcelable
-import android.system.Os.open
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import com.example.maps.R
 import com.example.maps.core.Marae
-import com.example.maps.core.MaraeController
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -26,21 +14,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.BufferedReader
-import java.io.ByteArrayOutputStream
-import java.io.InputStreamReader
-import java.io.ObjectOutputStream
-import java.nio.channels.AsynchronousFileChannel.open
-import kotlin.reflect.typeOf
-
-//private val Parcelable.X: Double
-//    get() {return }
-//private val Parcelable.Y: Double
-//    get() {return -44.44}
-//private val Parcelable.Name: String
-//    get() {return "Test Name Marae"}
 
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
 
@@ -51,17 +24,18 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
          * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
          * If Google Play services is not installed on the device, the user will be prompted to
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+
         myContentsView = layoutInflater.inflate(R.layout.popup, null);
 
         // Create a Marker array and iterate through marae to add them to the map
         var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
 
+        //This stuff to end is the issue.
         var maraeArray: Array<Marae> = requireArguments().getParcelableArray("maraeArray") as Array<Marae>
 
         val pos = LatLng(maraeArray[0].Y, maraeArray[0].X)
@@ -129,5 +103,16 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         }
         return myContentsView
 
+    }
+
+    /**
+     * Required. Will create a new instance of Maps fragment with a Bundle.
+     * Bundle has our data in it.
+     */
+    companion object{
+
+        fun newMapFrag(): MapsFragment{
+            return MapsFragment()
+        }
     }
 }

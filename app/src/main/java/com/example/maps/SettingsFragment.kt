@@ -1,4 +1,4 @@
-package com.example.maps.ui.notifications
+package com.example.maps
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat

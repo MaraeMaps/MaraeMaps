@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maps.com.example.maps.WikiAdapter
 import com.example.maps.core.Marae
+
 // TODO how are we going to through around the MaraeCollection?
 
 /**
@@ -19,6 +20,7 @@ import com.example.maps.core.Marae
  *
  * @author Hugo Phibbs
  * @param maraeList list of all Marae that can be shown on this fragment
+ * issue is that fragment constructor being passed an array list is troublesome
  */
 class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
 

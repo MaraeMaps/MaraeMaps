@@ -3,27 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/settingsFragment">
+    app:startDestination="@id/maps">
 
     <fragment
-        android:id="@+id/mapFragment2"
-        android:name="com.example.maps.ui.home.MapFragment"
-        android:label="fragment_map"
-        tools:layout="@layout/fragment_map" >
-        <action
-            android:id="@+id/action_mapFragment2_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_mapFragment2_to_wikiFragment"
-            app:destination="@id/wikiFragment" />
-    </fragment>
+        android:id="@+id/maps"
+        android:name="com.example.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.maps.ui.notifications.SettingsFragment"
+        android:id="@+id/settings"
+        android:name="com.example.maps.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
-        android:id="@+id/wikiFragment"
-        android:name="com.example.maps.ui.dashboard.WikiFragment"
+        android:id="@+id/wiki"
+        android:name="com.example.maps.WikiFragment"
         android:label="fragment_wiki"
         tools:layout="@layout/fragment_wiki" />
 </navigation>

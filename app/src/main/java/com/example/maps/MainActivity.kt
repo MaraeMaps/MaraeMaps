@@ -1,5 +1,9 @@
 package com.example.maps
 
+import androidx.preference.PreferenceManager
+import com.example.maps.MapsFragment
+import com.example.maps.R
+import com.example.maps.WikiFragment
 import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,7 +16,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.preference.PreferenceManager
 import com.example.maps.core.Marae
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -41,27 +44,40 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<MapsFragment>(R.id.fragment_container_view, args = bundle)
+                add<MapsFragment>(R.id.nav_host_frag, args = bundle)
             }
         }
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                add<NavHostFragment>(androidx.navigation.fragment.R.id.nav_host_fragment_container)
-            }
+
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<NavHostFragment>(R.id.nav_host_frag)
+        }
 
         PreferenceManager.setDefaultValues(baseContext, R.xml.root_preferences, false)
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navView: BottomNavigationView = findViewById(R.id.bottom_nav)
 
-            val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val navController = findNavController(R.id.nav_host_frag)
 
-            val appBarConfiguration = AppBarConfiguration(
-                setOf(
-                    R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
-                )
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.maps, R.id.wiki, R.id.settings
             )
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    /**
+     * Switches to the wiki fragment as per a user's request
+     */
+    fun switchToWikiFragment() {
+        // TODO generalise this method?
+        supportFragmentManager.commit {
+            replace<WikiFragment>(R.id.nav_host_frag)
+            setReorderingAllowed(true)
+            addToBackStack(null)// TODO set a name?
+        }
     }
 
     fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
