@@ -1,11 +1,6 @@
 package com.example.maps
 
-import androidx.preference.PreferenceManager
-import com.example.maps.MapsFragment
-import com.example.maps.R
-import com.example.maps.WikiFragment
 import android.os.Bundle
-import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
@@ -24,14 +19,6 @@ import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    /**
-     *
-     * Main activity that hosts the navigation controller.
-     * Default settings are loaded upon opening of app.
-     * Bottom bar with buttons to click onto fragments for functionality also loaded.
-     *
-     */
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
@@ -44,26 +31,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<MapsFragment>(R.id.nav_host_frag, args = bundle)
+                add<MapsFragment>(R.id.fragment_container_view, args = bundle)
             }
         }
 
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add<NavHostFragment>(R.id.nav_host_frag)
-        }
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<NavHostFragment>(androidx.navigation.fragment.R.id.nav_host_fragment_container)
+            }
 
-        PreferenceManager.setDefaultValues(baseContext, R.xml.root_preferences, false)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navView: BottomNavigationView = findViewById(R.id.bottom_nav)
+            val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        val navController = findNavController(R.id.nav_host_frag)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.maps, R.id.wiki, R.id.settings
+            val appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.navigation_maps, R.id.navigation_wiki, R.id.navigation_settings
+                )
             )
-        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -74,7 +59,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     fun switchToWikiFragment() {
         // TODO generalise this method?
         supportFragmentManager.commit {
-            replace<WikiFragment>(R.id.nav_host_frag)
+            replace<WikiFragment>(R.id.map_fragment_container_view)
             setReorderingAllowed(true)
             addToBackStack(null)// TODO set a name?
         }
