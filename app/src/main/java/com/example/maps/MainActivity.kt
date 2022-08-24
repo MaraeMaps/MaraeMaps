@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<MapsFragment>(R.id.fragment_container_view, args = bundle)
+                add<MapsFragment>(R.id.nav_host_fragment_container, args = bundle)
             }
         }
 
