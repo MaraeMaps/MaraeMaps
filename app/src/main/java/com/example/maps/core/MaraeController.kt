@@ -32,7 +32,7 @@ class MaraeController {
      * @param marae Marae object to find a string representation for
      */
     fun maraeToString(marae : Marae): String {
-        return "Marae object with name: ${marae.Name}, belonging to ${marae.Iwi}, located in ${marae.Location}"
+        return "Marae with name: ${marae.Name}, belonging to ${marae.Iwi}, located in ${marae.Location}"
     }
 
     /**
