@@ -1,3 +1,27 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- List preference for language settings -->
+
+    <ListPreference
+        android:layout_height="match_parent"
+        android:defaultValue="@string/default_language"
+        android:dialogTitle="@string/language_header"
+        android:entries="@array/pref_lang_setting"
+        android:entryValues="@array/lang_values"
+        android:key="@string/key_language"
+        android:summary="@string/lang_summary"
+        android:title="@string/language_header" />
+
+    <!-- List preference for font size settings -->
+
+    <ListPreference
+        android:defaultValue="@string/default_font_size"
+        android:dialogTitle="@string/font_size_header"
+        android:entries="@array/pref_size_settings"
+        android:entryValues="@array/size_values"
+        android:key="@string/key_font_size"
+        android:summary="@string/font"
+        android:title="@string/font_size_header" />
 
 </PreferenceScreen>
