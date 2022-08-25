@@ -110,7 +110,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
                 // TODO may need to handle Maori accents
                 val constraintAdjusted = constraint.toString().lowercase(Locale.ROOT).trim()
                 for (marae in maraeList) {
-                    for (keyWord in MaraeController().keyWords(marae)) {
+                    for (keyWord in MaraeController.keyWords(marae)) {
                         if (keyWord != null) {
                             if (keyWord.lowercase().contains(constraintAdjusted)) {
                                 newMarae.add(marae)

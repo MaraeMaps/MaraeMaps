@@ -24,11 +24,6 @@ import java.io.InputStreamReader
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     /**
-     * Binding that binds this Activity to it's view
-     */
-    private lateinit var binding: ActivityMainBinding
-
-    /**
      * Main method that is called when this Activity is created.
      *
      * Does necessary setup work in order for this Activity to function properly
