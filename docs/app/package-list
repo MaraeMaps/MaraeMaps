@@ -3,7 +3,9 @@ $dokka.linkExtension:html
 $dokka.location:com.example.maps.com.example.maps////PointingToDeclaration/app/com.example.maps.com.example.maps/index.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder///PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/index.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/MaraeWikiEntryViewHolder/#android.view.View/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/-marae-wiki-entry-view-holder.html
-$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/descriptionTV/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/description-t-v.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/maraeIwiTV/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/marae-iwi-t-v.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/maraeLocationTV/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/marae-location-t-v.html
+$dokka.location:com.example.maps.com.example.maps/WikiAdapter.MaraeWikiEntryViewHolder/maraeNameTV/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-marae-wiki-entry-view-holder/marae-name-t-v.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter///PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/index.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/WikiAdapter/#java.util.ArrayList[com.example.maps.core.Marae]/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/-wiki-adapter.html
 $dokka.location:com.example.maps.com.example.maps/WikiAdapter/getFilter/#/PointingToDeclaration/app/com.example.maps.com.example.maps/-wiki-adapter/get-filter.html
@@ -42,30 +44,6 @@ $dokka.location:com.example.maps.core/MaraeController.Companion/keyWords/#com.ex
 $dokka.location:com.example.maps.core/MaraeController.Companion/maraeToString/#com.example.maps.core.Marae/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/marae-to-string.html
 $dokka.location:com.example.maps.core/MaraeController///PointingToDeclaration/app/com.example.maps.core/-marae-controller/index.html
 $dokka.location:com.example.maps.core/MaraeController/MaraeController/#/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-marae-controller.html
-$dokka.location:com.example.maps.ui.dashboard////PointingToDeclaration/app/com.example.maps.ui.dashboard/index.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardFragment///PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-fragment/index.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardFragment/DashboardFragment/#/PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-fragment/-dashboard-fragment.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-fragment/on-create-view.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardFragment/onDestroyView/#/PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-fragment/on-destroy-view.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardViewModel///PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-view-model/index.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardViewModel/DashboardViewModel/#/PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-view-model/-dashboard-view-model.html
-$dokka.location:com.example.maps.ui.dashboard/DashboardViewModel/text/#/PointingToDeclaration/app/com.example.maps.ui.dashboard/-dashboard-view-model/text.html
-$dokka.location:com.example.maps.ui.home////PointingToDeclaration/app/com.example.maps.ui.home/index.html
-$dokka.location:com.example.maps.ui.home/HomeFragment///PointingToDeclaration/app/com.example.maps.ui.home/-home-fragment/index.html
-$dokka.location:com.example.maps.ui.home/HomeFragment/HomeFragment/#/PointingToDeclaration/app/com.example.maps.ui.home/-home-fragment/-home-fragment.html
-$dokka.location:com.example.maps.ui.home/HomeFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui.home/-home-fragment/on-create-view.html
-$dokka.location:com.example.maps.ui.home/HomeFragment/onDestroyView/#/PointingToDeclaration/app/com.example.maps.ui.home/-home-fragment/on-destroy-view.html
-$dokka.location:com.example.maps.ui.home/HomeViewModel///PointingToDeclaration/app/com.example.maps.ui.home/-home-view-model/index.html
-$dokka.location:com.example.maps.ui.home/HomeViewModel/HomeViewModel/#/PointingToDeclaration/app/com.example.maps.ui.home/-home-view-model/-home-view-model.html
-$dokka.location:com.example.maps.ui.home/HomeViewModel/text/#/PointingToDeclaration/app/com.example.maps.ui.home/-home-view-model/text.html
-$dokka.location:com.example.maps.ui.notifications////PointingToDeclaration/app/com.example.maps.ui.notifications/index.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsFragment///PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-fragment/index.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsFragment/NotificationsFragment/#/PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-fragment/-notifications-fragment.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-fragment/on-create-view.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsFragment/onDestroyView/#/PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-fragment/on-destroy-view.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsViewModel///PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-view-model/index.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsViewModel/NotificationsViewModel/#/PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-view-model/-notifications-view-model.html
-$dokka.location:com.example.maps.ui.notifications/NotificationsViewModel/text/#/PointingToDeclaration/app/com.example.maps.ui.notifications/-notifications-view-model/text.html
 $dokka.location:com.example.maps.ui.placeholder////PointingToDeclaration/app/com.example.maps.ui.placeholder/index.html
 $dokka.location:com.example.maps.ui.placeholder/PlaceholderContent.PlaceholderItem///PointingToDeclaration/app/com.example.maps.ui.placeholder/-placeholder-content/-placeholder-item/index.html
 $dokka.location:com.example.maps.ui.placeholder/PlaceholderContent.PlaceholderItem/PlaceholderItem/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.maps.ui.placeholder/-placeholder-content/-placeholder-item/-placeholder-item.html
@@ -123,8 +101,5 @@ com.example.maps
 com.example.maps.com.example.maps
 com.example.maps.core
 com.example.maps.ui
-com.example.maps.ui.dashboard
-com.example.maps.ui.home
-com.example.maps.ui.notifications
 com.example.maps.ui.placeholder
 
