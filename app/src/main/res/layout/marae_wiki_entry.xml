@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_margin">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -10,24 +11,43 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="@dimen/corner_radius">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
 
             <TextView
-                android:id="@+id/marae_description_tv"
-                android:layout_width="374dp"
-                android:layout_height="38dp"
-                android:text="marae description"
+                android:id="@+id/marae_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="marae title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/marae_iwi_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="marae iwi"/>
+
+            <TextView
+                android:id="@+id/marae_location_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="marae location"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.542"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.466" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
