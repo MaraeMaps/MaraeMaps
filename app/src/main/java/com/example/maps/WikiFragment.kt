@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
+import android.widget.SearchView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +18,7 @@ import com.example.maps.core.Marae
  * @author Hugo Phibbs
  * @param maraeList list of all Marae that can be shown on this fragment
  */
-class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
+class WikiFragment : Fragment() {
 
     /**
      * RecyclerView for showing Marae to a user
@@ -39,11 +39,7 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        // Create the view for this fragment
         val view: View = inflater.inflate(R.layout.fragment_wiki, container, false)
-        // Add necessary components to the view
-
         addComponentsToView(view);
         // Return the created view
         return view;
@@ -56,7 +52,7 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
         initRecyclerView(view)
 
         maraeSearchView = view.findViewById(R.id.maraeSearchView);
-        addSearchListener();
+        addSearchListener()
     }
 
     /**
@@ -70,6 +66,8 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
         recyclerView = view.findViewById(R.id.wikiRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.itemAnimator = DefaultItemAnimator()
+        val maraeList: ArrayList<Marae> =
+            arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
         recyclerView.adapter = WikiAdapter(maraeList)
     }
 
@@ -99,7 +97,7 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
              * @return boolean, false if the SearchView should display suggestions, otherwise true if nothing is to be done
              */
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Does default action
+                (recyclerView.adapter as WikiAdapter).filter.filter(newText)
                 return false // TODO anymore to add here, look into what this does!
             }
 

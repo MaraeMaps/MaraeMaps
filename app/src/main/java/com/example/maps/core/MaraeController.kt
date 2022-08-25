@@ -9,7 +9,8 @@ package com.example.maps.core
  */
 class MaraeController {
 
-    /**
+    
+     /**
      * Companion object used for accessing static methods of MaraeController
      */
     companion object {
@@ -30,7 +31,7 @@ class MaraeController {
          * @param marae Marae to find the keywords for
          * @return array of Strings as described
          */
-        fun keyWords(marae: Marae): Array<String> {
+        fun keyWords(marae: Marae): Array<String?> {
             // TODO update for hapu, wharenui etc?
             return arrayOf(marae.Name, marae.Iwi, marae.Location)
         }

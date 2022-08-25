@@ -1,21 +1,13 @@
 package com.example.maps
 
-import android.app.Activity
-import android.content.Context
 import androidx.fragment.app.Fragment
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Environment
-
 import android.os.Bundle
-import android.system.Os.open
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
-import com.example.maps.R
+import android.widget.TextView
 import com.example.maps.core.Marae
-import com.example.maps.core.MaraeController
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -24,15 +16,17 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.nio.channels.AsynchronousFileChannel.open
 
-class MapsFragment : Fragment() {
+//private val Parcelable.X: Double
+//    get() {return }
+//private val Parcelable.Y: Double
+//    get() {return -44.44}
+//private val Parcelable.Name: String
+//    get() {return "Test Name Marae"}
 
+class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
 
+    private var myContentsView: View? = null
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -44,25 +38,27 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+        myContentsView = layoutInflater.inflate(R.layout.popup, null);
 
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        // Create a Marker array and iterate through marae to add them to the map
+        var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
-        var mMarkers: ArrayList<Marker> = ArrayList()
+        var maraeList: ArrayList<Marae> = arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        var activity: FragmentActivity? = this.activity
+        val pos = LatLng(maraeList[0].Y, maraeList[0].X)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+        googleMap.setInfoWindowAdapter(this)
 
-//        var maraeCollection = this.activity
 
-//        if (maraeCollection != null) {
-//            for (marae in maraeCollection) {
-//                val LL = LatLng(marae.X, marae.Y)
-//                mMarkers.add(
-//                    googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
-//                )
-//            }
-//        }
+        if (maraeList != null){
+            for (marae in maraeList) {
+                val LL = LatLng(marae.Y, marae.X)
+                val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+                marker.tag = marae
+                println(marker.tag.toString())
+                mMarkers.add(marker)
+            }
+        }
     }
 
     override fun onCreateView(
@@ -71,7 +67,6 @@ class MapsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_maps, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,17 +75,38 @@ class MapsFragment : Fragment() {
         mapFragment?.getMapAsync(callback)
     }
 
+    override fun onMarkerClick(p0: Marker): Boolean {
 
+        TODO("Not yet implemented")
+    }
 
-    // put this when you call getMaraeCollection
-    // jsonString = context.assets.open("Marae.json").bufferedReader()
+    override fun getInfoWindow(p0: Marker): View? {
+        return null
+    }
 
-    fun getMaraeCollection(bufferedReader : BufferedReader): Array<Marae> {
+    override fun getInfoContents(p0: Marker): View? {
+        val ma: Marae = p0.tag as Marae
+        val iwi = myContentsView?.findViewById<TextView>(com.example.maps.R.id.iwi)
+        val title = myContentsView?.findViewById<TextView>(com.example.maps.R.id.title)
+        val region = myContentsView?.findViewById<TextView>(com.example.maps.R.id.region)
+        val location = myContentsView?.findViewById<TextView>(com.example.maps.R.id.location)
+        if (iwi != null) {
+            if (ma.Iwi == ""){
+                iwi.text = "Iwi information not available"
+            } else {
+                iwi.text = "Iwi: " + ma.Iwi
+            }
+        }
+        if (title != null) {
+            title.text = ma.Name
+        }
+        if (region != null) {
+            region.text = "Region: " + ma.TPK_Region
+        }
+        if (location != null) {
+            location.text = "Address: " + ma.Location
+        }
+        return myContentsView
 
-        lateinit var jsonString: String
-
-        val arrayMaraeType = object : TypeToken<Array<Marae>>() {}.type
-        println("output : ${arrayMaraeType}")
-        return Gson().fromJson(jsonString, arrayMaraeType)
     }
 }

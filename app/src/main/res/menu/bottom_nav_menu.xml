@@ -2,18 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_maps"
+        android:id="@+id/mapsFragment"
         android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/map" />
 
     <item
-        android:id="@+id/navigation_wiki"
+        android:id="@+id/wikiFragment"
         android:icon="@drawable/ic_baseline_view_list_24"
         android:title="@string/wiki" />
 
     <item
-        android:id="@+id/navigation_settings"
+        android:id="@+id/infoFragment"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/settings" />
-
+        android:title="@string/map" />
 </menu>

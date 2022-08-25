@@ -13,6 +13,9 @@ buildscript {
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:1.7.10"
         classpath 'com.dicedmelon.gradle:jacoco-android:0.1.5'
         classpath "org.jacoco:org.jacoco.core:$jacocoVersion"
+
+        def nav_version = "2.3.0-alpha04"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
 
@@ -20,7 +23,7 @@ buildscript {
 plugins {
     id 'com.android.application' version '7.2.1' apply false
     id 'com.android.library' version '7.2.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin' version '2.0.1' apply false
     id("org.jetbrains.dokka") version "1.7.10"
 }

@@ -111,8 +111,10 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
                 val constraintAdjusted = constraint.toString().lowercase(Locale.ROOT).trim()
                 for (marae in maraeList) {
                     for (keyWord in MaraeController.keyWords(marae)) {
-                        if (keyWord.lowercase().contains(constraintAdjusted)) {
-                            newMarae.add(marae)
+                        if (keyWord != null) {
+                            if (keyWord.lowercase().contains(constraintAdjusted)) {
+                                newMarae.add(marae)
+                            }
                         }
                     }
                 }
