@@ -1,23 +1,13 @@
 package com.example.maps
 
-import android.app.Activity
-import android.content.Context
 import androidx.fragment.app.Fragment
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Environment
-
 import android.os.Bundle
-import android.os.Parcelable
-import android.system.Os.open
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import com.example.maps.R
 import com.example.maps.core.Marae
-import com.example.maps.core.MaraeController
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -26,14 +16,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.BufferedReader
-import java.io.ByteArrayOutputStream
-import java.io.InputStreamReader
-import java.io.ObjectOutputStream
-import java.nio.channels.AsynchronousFileChannel.open
-import kotlin.reflect.typeOf
 
 //private val Parcelable.X: Double
 //    get() {return }
@@ -61,24 +43,22 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         // Create a Marker array and iterate through marae to add them to the map
         var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
+        var maraeList: ArrayList<Marae> = arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        var maraeArray: Array<Marae> = requireArguments().getParcelableArray("maraeArray") as Array<Marae>
-
-        val pos = LatLng(maraeArray[0].Y, maraeArray[0].X)
+        val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.setInfoWindowAdapter(this)
 
 
-        if (maraeArray != null){
-            for (marae in maraeArray) {
+        if (maraeList != null){
+            for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
                 marker.tag = marae
                 println(marker.tag.toString())
                 mMarkers.add(marker)
+            }
         }
-        }
-
     }
 
     override fun onCreateView(
