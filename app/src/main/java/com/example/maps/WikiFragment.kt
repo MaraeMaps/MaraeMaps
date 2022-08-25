@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
+import android.widget.SearchView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +22,7 @@ import com.example.maps.core.Marae
  * @param maraeList list of all Marae that can be shown on this fragment
  * issue is that fragment constructor being passed an array list is troublesome
  */
-class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
+class WikiFragment : Fragment() {
 
     /**
      * RecyclerView for showing Marae to a user
@@ -36,6 +36,7 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -46,6 +47,7 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
         // Create the view for this fragment
         val view: View = inflater.inflate(R.layout.fragment_wiki, container, false)
         // Add necessary components to the view
+
 
         addComponentsToView(view);
         // Return the created view
@@ -68,6 +70,7 @@ class WikiFragment(private var maraeList: ArrayList<Marae>) : Fragment() {
         recyclerView = view.findViewById(R.id.wikiRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.itemAnimator = DefaultItemAnimator()
+        var maraeList = ArrayList<Marae>(); // TODO change me, placeholder for now
         recyclerView.adapter = WikiAdapter(maraeList)
     }
 
