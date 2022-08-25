@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            navController.navigate(item.itemId, maraeListBundle)
+            true
+        }
     }
 
     /**
