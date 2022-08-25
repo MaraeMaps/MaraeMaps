@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mapsFragment">
 
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_wikiFragment"
+            app:destination="@id/wikiFragment" />
+        <argument
+            android:name="maraeList"
+            app:argType="java.util.ArrayList"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/wikiFragment"
+        android:name="com.example.maps.WikiFragment"
+        android:label="fragment_wiki"
+        tools:layout="@layout/fragment_wiki" >
+        <action
+            android:id="@+id/action_wikiFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <argument android:name="maraeList"
+            app:argType="java.util.ArrayList" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.maps.ui.InfoFragment"
+        android:label="fragment_info_list"
+        tools:layout="@layout/fragment_info_list" />
 </navigation>
