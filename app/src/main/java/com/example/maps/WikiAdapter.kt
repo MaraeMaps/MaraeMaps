@@ -1,6 +1,7 @@
 package com.example.maps.com.example.maps
 
 
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,10 +33,14 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
      * @param view View that this ViewHolder holds
      */
     class MaraeWikiEntryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val descriptionTV: TextView;
+        val maraeLocationTV: TextView;
+        val maraeIwiTV: TextView;
+        val maraeNameTV: TextView;
 
         init {
-            descriptionTV = view.findViewById(R.id.marae_description_tv);
+            maraeNameTV = view.findViewById(R.id.marae_name_tv)
+            maraeIwiTV = view.findViewById(R.id.marae_iwi_tv);
+            maraeLocationTV = view.findViewById(R.id.marae_location_tv);
             addListener()
         }
 
@@ -43,7 +48,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
          * Adds an on click listener to the view that this ViewHolder has
          */
         private fun addListener() {
-            descriptionTV.setOnClickListener {
+            maraeLocationTV.setOnClickListener {
                 // TODO: Open a new marae info screen
             }
         }
@@ -68,7 +73,10 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
      * @param position Int for the position of a Marae (in list of Marae that the RecyclerView holds) that the inputted holder should show
      */
     override fun onBindViewHolder(holder: MaraeWikiEntryViewHolder, position: Int) {
-        holder.descriptionTV.text = MaraeController.maraeToString(maraeListShown[position])
+        holder.maraeNameTV.text = maraeListShown[position].Name
+        // TODO fix the bellow!
+        holder.maraeIwiTV.text = """Iwi: ${maraeList[position].Iwi}"""
+        holder.maraeLocationTV.text = """Location: ${maraeListShown[position].Location}"""
     }
 
     /**
