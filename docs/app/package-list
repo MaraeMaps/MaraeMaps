@@ -55,25 +55,9 @@ $dokka.location:com.example.maps.ui.placeholder/PlaceholderContent///PointingToD
 $dokka.location:com.example.maps.ui.placeholder/PlaceholderContent/ITEMS/#/PointingToDeclaration/app/com.example.maps.ui.placeholder/-placeholder-content/-i-t-e-m-s.html
 $dokka.location:com.example.maps.ui.placeholder/PlaceholderContent/ITEM_MAP/#/PointingToDeclaration/app/com.example.maps.ui.placeholder/-placeholder-content/-i-t-e-m_-m-a-p.html
 $dokka.location:com.example.maps.ui////PointingToDeclaration/app/com.example.maps.ui/index.html
-$dokka.location:com.example.maps.ui/AboutUsFragment.Companion///PointingToDeclaration/app/com.example.maps.ui/-about-us-fragment/-companion/index.html
-$dokka.location:com.example.maps.ui/AboutUsFragment.Companion/newInstance/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.maps.ui/-about-us-fragment/-companion/new-instance.html
-$dokka.location:com.example.maps.ui/AboutUsFragment///PointingToDeclaration/app/com.example.maps.ui/-about-us-fragment/index.html
-$dokka.location:com.example.maps.ui/AboutUsFragment/AboutUsFragment/#/PointingToDeclaration/app/com.example.maps.ui/-about-us-fragment/-about-us-fragment.html
-$dokka.location:com.example.maps.ui/AboutUsFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-about-us-fragment/on-create.html
-$dokka.location:com.example.maps.ui/AboutUsFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-about-us-fragment/on-create-view.html
-$dokka.location:com.example.maps.ui/CreditsFragment.Companion///PointingToDeclaration/app/com.example.maps.ui/-credits-fragment/-companion/index.html
-$dokka.location:com.example.maps.ui/CreditsFragment.Companion/newInstance/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.maps.ui/-credits-fragment/-companion/new-instance.html
-$dokka.location:com.example.maps.ui/CreditsFragment///PointingToDeclaration/app/com.example.maps.ui/-credits-fragment/index.html
-$dokka.location:com.example.maps.ui/CreditsFragment/CreditsFragment/#/PointingToDeclaration/app/com.example.maps.ui/-credits-fragment/-credits-fragment.html
-$dokka.location:com.example.maps.ui/CreditsFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-credits-fragment/on-create.html
-$dokka.location:com.example.maps.ui/CreditsFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-credits-fragment/on-create-view.html
-$dokka.location:com.example.maps.ui/InfoFragment.Companion///PointingToDeclaration/app/com.example.maps.ui/-info-fragment/-companion/index.html
-$dokka.location:com.example.maps.ui/InfoFragment.Companion/ARG_COLUMN_COUNT/#/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/-companion/-a-r-g_-c-o-l-u-m-n_-c-o-u-n-t.html
-$dokka.location:com.example.maps.ui/InfoFragment.Companion/newInstance/#kotlin.Int/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/-companion/new-instance.html
 $dokka.location:com.example.maps.ui/InfoFragment///PointingToDeclaration/app/com.example.maps.ui/-info-fragment/index.html
 $dokka.location:com.example.maps.ui/InfoFragment/InfoFragment/#/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/-info-fragment.html
-$dokka.location:com.example.maps.ui/InfoFragment/onCreate/#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/on-create.html
-$dokka.location:com.example.maps.ui/InfoFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/on-create-view.html
+$dokka.location:com.example.maps.ui/InfoFragment/onCreatePreferences/#android.os.Bundle?#kotlin.String?/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/on-create-preferences.html
 $dokka.location:com.example.maps.ui/MyInfoRecyclerViewAdapter.ViewHolder///PointingToDeclaration/app/com.example.maps.ui/-my-info-recycler-view-adapter/-view-holder/index.html
 $dokka.location:com.example.maps.ui/MyInfoRecyclerViewAdapter.ViewHolder/ViewHolder/#[Error type: Unresolved type for FragmentInfoBinding]/PointingToDeclaration/app/com.example.maps.ui/-my-info-recycler-view-adapter/-view-holder/-view-holder.html
 $dokka.location:com.example.maps.ui/MyInfoRecyclerViewAdapter.ViewHolder/contentView/#/PointingToDeclaration/app/com.example.maps.ui/-my-info-recycler-view-adapter/-view-holder/content-view.html
