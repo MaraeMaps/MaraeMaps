@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maps.com.example.maps.WikiAdapter
 import com.example.maps.core.Marae
-// TODO how are we going to through around the MaraeCollection?
 
 /**
  * A simple [Fragment] subclass.
@@ -32,21 +31,11 @@ class WikiFragment : Fragment() {
      */
     private lateinit var maraeSearchView: SearchView;
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        // Create the view for this fragment
         val view: View = inflater.inflate(R.layout.fragment_wiki, container, false)
-        // Add necessary components to the view
-
-
         addComponentsToView(view);
         // Return the created view
         return view;
@@ -55,6 +44,7 @@ class WikiFragment : Fragment() {
     fun addComponentsToView(view: View) {
         initRecyclerView(view)
         maraeSearchView = view.findViewById(R.id.maraeSearchView);
+        addSearchListener()
     }
 
     /**
@@ -68,7 +58,8 @@ class WikiFragment : Fragment() {
         recyclerView = view.findViewById(R.id.wikiRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.itemAnimator = DefaultItemAnimator()
-        var maraeList = ArrayList<Marae>(); // TODO change me, placeholder for now
+        val maraeList: ArrayList<Marae> =
+            arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
         recyclerView.adapter = WikiAdapter(maraeList)
     }
 
@@ -82,8 +73,8 @@ class WikiFragment : Fragment() {
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                // Does default action
+            override fun onQueryTextChange(query: String?): Boolean {
+                (recyclerView.adapter as WikiAdapter).filter.filter(query)
                 return false // TODO anymore to add here, look into what this does!
             }
 
