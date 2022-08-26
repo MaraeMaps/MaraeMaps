@@ -1,19 +1,26 @@
 package com.example.maps.ui
 
+import android.R
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.preference.ListPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.example.maps.R
-import com.example.maps.ui.placeholder.PlaceholderContent
+
 
 /**
- * A fragment representing our list of info: settings, about us, credits.
+ * A fragment representing our list of settings.
  * @author Kavan Chay
  */
 
 class InfoFragment : PreferenceFragmentCompat() {
 
+    private var ourPreference: ListPreference? = null
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.root_preferences, rootKey)
+        setPreferencesFromResource(com.example.maps.R.xml.root_preferences, rootKey)
     }
+
 }
