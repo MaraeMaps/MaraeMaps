@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupNav(createMaraeListBundle());
+        if (savedInstanceState == null) {
+            val bundle = createMaraeListBundle()
+            setupNav(bundle);
+        }
     }
 
     /**
@@ -25,14 +28,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
      *
      * @param maraeListBundle Bundle containing an arrayList of marae to be passed as arguments
      */
-    private fun setupNav(maraeListBundle : Bundle) {
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+    private fun setupNav(maraeListBundle: Bundle) {
+        val bottomNavigationView =
+            findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         navController.setGraph(R.navigation.nav_graph, maraeListBundle);
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.mapsFragment, R.id.wikiFragment, R.id.infoFragment))
+        val appBarConfiguration =
+            AppBarConfiguration(setOf(R.id.mapsFragment, R.id.wikiFragment, R.id.infoFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottomNavigationView.setupWithNavController(navController)
@@ -43,7 +49,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
      *
      * @return Bundle object as described
      */
-    private fun createMaraeListBundle() : Bundle {
+    private fun createMaraeListBundle(): Bundle {
         // TODO use saved instance
         val bufferedReader = InputStreamReader(assets.open("Marae.json")).buffered()
         val maraeList = getMaraeList(bufferedReader)
@@ -52,9 +58,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         return bundle
     }
 
-    fun getMaraeList(bufferedReader : BufferedReader): ArrayList<Marae> {
+    fun getMaraeList(bufferedReader: BufferedReader): ArrayList<Marae> {
         val jsonString = bufferedReader.use(BufferedReader::readText)
         val arrayMaraeType = object : TypeToken<ArrayList<Marae>>() {}.type
         return Gson().fromJson(jsonString, arrayMaraeType)
     }
+
 }

@@ -66,7 +66,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val maraeArray = getArguments()?.getParcelableArray("maraeArray")
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }
 
