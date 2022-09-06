@@ -97,8 +97,7 @@ class WikiFragment : Fragment() {
              * @return boolean, false if the SearchView should display suggestions, otherwise true if nothing is to be done
              */
             override fun onQueryTextChange(newText: String?): Boolean {
-                (recyclerView.adapter as WikiAdapter).filter.filter(newText)
-                return false // TODO anymore to add here, look into what this does!
+                return onQueryTextSubmit(newText)
             }
 
         })
