@@ -74,11 +74,10 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
      * @param position Int for the position of a Marae (in list of Marae that the RecyclerView holds) that the inputted holder should show
      */
     override fun onBindViewHolder(holder: MaraeWikiEntryViewHolder, position: Int) {
-        // TODO fix wiki results being scrambled when searched.
-        holder.maraeNameTV.text = maraeListShown[position].Name
-        // TODO fix the bellow!
-        holder.maraeIwiTV.text = """Iwi: ${maraeList[position].Iwi}"""
-        holder.maraeLocationTV.text = """Location: ${maraeListShown[position].Location}"""
+        val currentMarae = maraeListShown[position]
+        holder.maraeNameTV.text = currentMarae.Name
+        holder.maraeIwiTV.text = """Iwi: ${currentMarae.Iwi}"""
+        holder.maraeLocationTV.text = """Location: ${currentMarae.Location}"""
     }
 
     /**
