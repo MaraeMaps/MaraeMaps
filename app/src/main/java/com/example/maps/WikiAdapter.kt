@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.maps.R
 import com.example.maps.core.Marae
 import com.example.maps.core.MaraeController
+import java.text.Normalizer
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -73,6 +74,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
      * @param position Int for the position of a Marae (in list of Marae that the RecyclerView holds) that the inputted holder should show
      */
     override fun onBindViewHolder(holder: MaraeWikiEntryViewHolder, position: Int) {
+        // TODO fix wiki results being scrambled when searched.
         holder.maraeNameTV.text = maraeListShown[position].Name
         // TODO fix the bellow!
         holder.maraeIwiTV.text = """Iwi: ${maraeList[position].Iwi}"""
@@ -115,15 +117,11 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
             if (constraint === null || constraint.isEmpty()) {
                 newMarae.addAll(maraeList)
             } else {
-                // TODO may need to handle Maori accents
-                val constraintAdjusted = constraint.toString().lowercase(Locale.ROOT).trim()
+                var searchStrings = constraint.toString().split(" ").toTypedArray();
+                searchStrings = searchStrings.map { normalizeString(it) }.toTypedArray()
                 for (marae in maraeList) {
-                    for (keyWord in MaraeController.keyWords(marae)) {
-                        if (keyWord != null) {
-                            if (keyWord.lowercase().contains(constraintAdjusted)) {
-                                newMarae.add(marae)
-                            }
-                        }
+                    if (!shouldFilterMarae(MaraeController.keyWords(marae), searchStrings)) {
+                        newMarae.add(marae);
                     }
                 }
             }
@@ -133,7 +131,45 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         }
 
         /**
-         * Publishes the results of filtering to the RecyclerVIew
+         * Filtering helper for helping searching marae
+         *
+         * Decides if a marae should be added or not based on it's keywords
+         *
+         * Search strings should be normalized first using normalizeString(str)
+         *
+         * @return Boolean false if a marae should be added to marae to be seen, otherwise true
+         */
+        private fun shouldFilterMarae(maraeKeyWords : Array<String?>, searchStrings : Array<String>) : Boolean{
+            for (keyWord in maraeKeyWords) {
+                if (keyWord == null) {
+                    continue
+                }
+                val keyWordAdj = normalizeString(keyWord);
+                for (searchString in searchStrings) {
+                    if (keyWordAdj.contains(searchString)) {
+                        return false
+                    }
+                }
+            }
+            return true;
+        }
+
+        /**
+         * Normalizes a String, turns it into lowercase, removes accents etc
+         *
+         * Credit to https://stackoverflow.com/questions/51731574/removing-accents-and-diacritics-in-kotlin
+         *
+         * @param str String to be normalized
+         * @return Inputted String normalized
+         */
+        private fun normalizeString(str: String) : String{
+            val REGEX_UNACCENT = "\\p{InCombiningDiacriticalMarks}+".toRegex()
+            val temp = Normalizer.normalize(str.lowercase(), Normalizer.Form.NFD)
+            return REGEX_UNACCENT.replace(temp, "").trim()
+        }
+
+        /**
+         * Publishes the results of filtering to the RecyclerView
          *
          * @param constraint CharSequence that was used to filter Marae shown
          * @param constraint filterResults FilterResults object that contains the results of filtering
