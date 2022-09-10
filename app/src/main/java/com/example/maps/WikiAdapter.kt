@@ -1,6 +1,7 @@
 package com.example.maps.com.example.maps
 
 
+import android.os.Bundle
 import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,9 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.maps.R
+import com.example.maps.*
 import com.example.maps.core.Marae
 import com.example.maps.core.MaraeController
 import java.text.Normalizer
@@ -37,20 +39,23 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         val maraeLocationTV: TextView;
         val maraeIwiTV: TextView;
         val maraeNameTV: TextView;
+        val holdingView : View
 
         init {
             maraeNameTV = view.findViewById(R.id.marae_name_tv)
             maraeIwiTV = view.findViewById(R.id.marae_iwi_tv);
             maraeLocationTV = view.findViewById(R.id.marae_location_tv);
-            addListener()
+            holdingView = view
         }
 
         /**
          * Adds an on click listener to the view that this ViewHolder has
          */
-        private fun addListener() {
-            maraeLocationTV.setOnClickListener {
+        fun addListener(marae : Marae) {
+            val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(marae)
+            holdingView.setOnClickListener {
                 // TODO: Open a new marae info screen
+                holdingView.findNavController().navigate(action)
             }
         }
     }
@@ -75,6 +80,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
      */
     override fun onBindViewHolder(holder: MaraeWikiEntryViewHolder, position: Int) {
         val currentMarae = maraeListShown[position]
+        holder.addListener(currentMarae)
         holder.maraeNameTV.text = currentMarae.Name
         holder.maraeIwiTV.text = """Iwi: ${currentMarae.Iwi}"""
         holder.maraeLocationTV.text = """Location: ${currentMarae.Location}"""
