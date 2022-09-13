@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mapsFragment_to_maraeFragment"
             app:destination="@id/maraeFragment" />
+        <action
+            android:id="@+id/action_wikiFragment_to_maraeFragment"
+            app:destination="@id/maraeFragment" />
         <argument
             android:name="maraeList"
             app:argType="java.util.ArrayList"

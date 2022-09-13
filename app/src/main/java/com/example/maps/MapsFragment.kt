@@ -119,5 +119,5 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         val ma: Marae = p0.tag as Marae
         val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
         findNavController().navigate(action)
-    }0
+    }
 }
