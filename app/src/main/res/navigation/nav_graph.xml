@@ -13,14 +13,14 @@
         <action
             android:id="@+id/action_mapsFragment_to_wikiFragment"
             app:destination="@id/wikiFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_maraeFragment"
+            app:destination="@id/maraeFragment" />
         <argument
             android:name="maraeList"
             app:argType="java.util.ArrayList"
             app:nullable="true"
             android:defaultValue="@null" />
-        <action
-            android:id="@+id/action_mapsFragment_to_maraeFragment"
-            app:destination="@id/maraeFragment" />
     </fragment>
     <fragment
         android:id="@+id/wikiFragment"

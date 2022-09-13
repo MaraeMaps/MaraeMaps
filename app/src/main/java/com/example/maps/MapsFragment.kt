@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.maps.core.Marae
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -24,7 +27,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 //private val Parcelable.Name: String
 //    get() {return "Test Name Marae"}
 
-class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
+class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter,
+    GoogleMap.OnInfoWindowClickListener {
 
     private var myContentsView: View? = null
 
@@ -48,6 +52,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.setInfoWindowAdapter(this)
+        googleMap.setOnInfoWindowClickListener(this)
 
 
         if (maraeList != null){
@@ -109,4 +114,10 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         return myContentsView
 
     }
+
+    override fun onInfoWindowClick(p0: Marker) {
+        val ma: Marae = p0.tag as Marae
+        val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
+        findNavController().navigate(action)
+    }0
 }
