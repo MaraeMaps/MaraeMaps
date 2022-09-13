@@ -6,13 +6,13 @@ Thank you for taking the time to be part of our user testing of IwiMaps. We woul
 
 2. Was the app easy to use? If not, what could be done to improve this?
 
-3. Did you come encounter any abornomal behaviour (bugs) from this app?
+3. Did you discover any abnormal behaviour (bugs) from this app? If so, what bugs did you discover?
 
-4. Were there any issues with compatibility on your mobile device? If so, please detail any issues you had.
+4. Were there any issues with compatibility on your mobile device? If so, please detail any issues you had, including the device and Android version used if possible.
 
-5. Do you believe the app is respectful of Marae and Maori culture in general? - Are there any glaring issues that you think should be addressed?
+5. Do you believe the app is respectful of Maori culture in general? If not, what do you think should be addressed so that our app meets that criteria?
 
-6. Finally, do you think that there are any features that needed to be added to this app?
+6. Do you think that there are any features that needed to be added to this app?
 
 7. How likely are you to recommend this app for others to use (on a scale of 1-to 10)?
 

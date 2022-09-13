@@ -13,8 +13,23 @@ import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+/**
+ * The main [Activity] that is used for this application
+ *
+ * Since our application only runs with one Activity, this is the single Activity that will be used
+ * throughout the application
+ *
+ * @author Harry Pirrit, Lucy Sladden, Kavan Chay
+ */
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
+    /**
+     * Main method that is called when this Activity is created.
+     *
+     * Does necessary setup work in order for this Activity to function properly
+     *
+     * @param savedInstanceState Bundle containing information on the previous state of this activity
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupNav(createMaraeListBundle());
@@ -34,7 +49,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.mapsFragment, R.id.wikiFragment, R.id.infoFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
-
         bottomNavigationView.setupWithNavController(navController)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             navController.navigate(item.itemId, maraeListBundle)
@@ -55,8 +69,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         bundle.putParcelableArrayList("maraeList", maraeList)
         return bundle
     }
-
-    fun getMaraeList(bufferedReader : BufferedReader): ArrayList<Marae> {
+    
+    /**
+     * Gets a list of all the Marae to be used in this app
+     *
+     * @param bufferedReader [BufferedReader] to be used to read in a Marae data file
+     * @return ArrayList of Marae to be used
+     */
+    private fun getMaraeList(bufferedReader : BufferedReader): ArrayList<Marae> {
+        // TODO initialize bufferedReader in here, not outside?
         val jsonString = bufferedReader.use(BufferedReader::readText)
         val arrayMaraeType = object : TypeToken<ArrayList<Marae>>() {}.type
         return Gson().fromJson(jsonString, arrayMaraeType)

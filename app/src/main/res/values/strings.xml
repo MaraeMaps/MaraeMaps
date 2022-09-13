@@ -1,60 +1,26 @@
 <resources>
-    <string name="app_name">maps</string>
+    <string name="app_name">MaraeMaps</string>
     <string name="title_activity_maps">MapsActivity</string>
-
     <string name="map_id">7712746dad954cb</string>
-
-    <!-- App fragment titles -->
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="credits_fragment">Credits</string>
-    <string name="credits_blurb">We would like to thank</string>
-    <string name="about_us_fragment">About Us</string>
-    <string name="about_us_blurb">"We are a group of students "</string>
+
     <string name="iwi_label">"Iwi: $1$s"</string>
     <string name="location_label">"Location: $1$s"</string>
     <string name="map">Map</string>
     <string name="wiki">Wiki</string>
     <string name="settings">Settings</string>
 
-    <!-- Language headers/array choices, default of English -->
+    <!-- Language headers/settings, default of English -->
 
     <string name="language_header">Language</string>
     <string name="key_language">key_language</string>
     <string name="lang_summary">Change language of the app</string>
     <string name="default_language">en</string>
 
-    <string-array name="pref_lang_setting">
-        <item>English</item>
-        <item>Te reo Māori</item>
-    </string-array>
-
-    <string-array name="lang_values">
-        <item>en</item>
-        <item>ma</item>
-    </string-array>
-
-    <!-- Font size headers/array choices, default of Medium -->
-
+    <!-- Font size headers/settings, default of Medium -->
     <string name="font_size_header">Font size</string>
     <string name="key_font_size">key_font_size</string>
     <string name="font">Change size of font in app</string>
     <string name="default_font_size">m</string>
-
-    <string-array name="pref_size_settings">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-    </string-array>
-
-    <string-array name="size_values">
-        <item>s</item>
-        <item>m</item>
-        <item>l</item>
-    </string-array>
 
 </resources>

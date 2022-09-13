@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Language settings -->
+    <string-array name="pref_lang_setting">
+        <item>English</item>
+        <item>Te reo Māori</item>
+    </string-array>
+
+    <string-array name="lang_values">
+        <item>en</item>
+        <item>ma</item>
+    </string-array>
+
+    <!-- Font size settings -->
+    <string-array name="pref_size_settings">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="size_values">
+        <item>s</item>
+        <item>m</item>
+        <item>l</item>
+    </string-array>
+
+</resources>

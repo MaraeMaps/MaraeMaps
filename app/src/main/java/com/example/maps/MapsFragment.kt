@@ -1,12 +1,14 @@
 package com.example.maps
 
 import androidx.fragment.app.Fragment
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.maps.core.Marae
+
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,6 +16,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+
+//private val Parcelable.X: Double
+//    get() {return }
+//private val Parcelable.Y: Double
+//    get() {return -44.44}
+//private val Parcelable.Name: String
+//    get() {return "Test Name Marae"}
 
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
 
@@ -24,35 +33,32 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
          * This is where we can add markers or lines, add listeners or move the camera.
+         * In this case, we just add a marker near Sydney, Australia.
          * If Google Play services is not installed on the device, the user will be prompted to
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-
         myContentsView = layoutInflater.inflate(R.layout.popup, null);
 
         // Create a Marker array and iterate through marae to add them to the map
         var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
 
+        var maraeList: ArrayList<Marae> = arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        //This stuff to end is the issue.
-        var maraeArray: Array<Marae> = requireArguments().getParcelableArray("maraeArray") as Array<Marae>
-
-        val pos = LatLng(maraeArray[0].Y, maraeArray[0].X)
+        val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.setInfoWindowAdapter(this)
 
 
-        if (maraeArray != null){
-            for (marae in maraeArray) {
+        if (maraeList != null){
+            for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
                 marker.tag = marae
                 println(marker.tag.toString())
                 mMarkers.add(marker)
+            }
         }
-        }
-
     }
 
     override fun onCreateView(
@@ -102,16 +108,5 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         }
         return myContentsView
 
-    }
-
-    /**
-     * Required. Will create a new instance of Maps fragment with a Bundle.
-     * Bundle has our data in it.
-     */
-    companion object{
-
-        fun newMapFrag(): MapsFragment{
-            return MapsFragment()
-        }
     }
 }
