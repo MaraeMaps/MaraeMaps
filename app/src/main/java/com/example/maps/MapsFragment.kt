@@ -17,13 +17,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-//private val Parcelable.X: Double
-//    get() {return }
-//private val Parcelable.Y: Double
-//    get() {return -44.44}
-//private val Parcelable.Name: String
-//    get() {return "Test Name Marae"}
-
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
 
     private var myContentsView: View? = null
