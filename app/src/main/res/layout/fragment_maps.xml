@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<fragment
     android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
+    class="com.google.android.libraries.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsFragment" />
+    map:cameraTargetLat="47.6089945"
+    map:cameraTargetLng="-122.3410462"
+    map:cameraZoom="14"
+    map:mapId="7712746dad954cb" />
+</RelativeLayout>

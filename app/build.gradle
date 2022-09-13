@@ -91,7 +91,7 @@ android {
         implementation 'com.google.code.gson:gson:2.7'
 
         // new implementation for gmaps here
-
+        implementation("com.android.volley:volley:1.2.1")
         // GMS
         gmsImplementation 'com.google.android.gms:play-services-maps:17.0.0'
 
@@ -103,6 +103,10 @@ android {
         v3Implementation 'com.google.android.gms:play-services-location:17.0.0'
 
     }
+}
+
+dependencies {
+    implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
 }
 
 tasks.withType(Test) {
