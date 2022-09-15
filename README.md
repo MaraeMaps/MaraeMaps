@@ -11,3 +11,20 @@
 
 ## Questionaire
 - Please visit [this file](https://github.com/MaraeMaps/MaraeMaps/blob/master/questionaire.md) to view our user testing questionaire
+
+
+```
+// Set the lat/long coordinates for the marker.
+double lat = 51.5009;
+double lng = -0.122;
+
+// Set the title and snippet strings.
+String title = "This is the title";
+String snippet = "and this is the snippet.";
+
+// Create a cluster item for the marker and set the title and snippet using the constructor.
+MyItem infoWindowItem = new MyItem(lat, lng, title, snippet);
+
+// Add the cluster item (marker) to the cluster manager.
+clusterManager.addItem(infoWindowItem);
+```
