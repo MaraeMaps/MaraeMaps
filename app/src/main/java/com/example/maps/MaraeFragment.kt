@@ -70,12 +70,9 @@ class MaraeFragment : Fragment() {
     }
 
     private fun addMaraeInfo() {
-        requireView().findViewById<TextView>(R.id.maraeTitleTextView).text = """${chosenMarae.Name}"""
-        requireView().findViewById<TextView>(R.id.maraeIwiTextView).text = """Iwi: ${chosenMarae.Iwi}""";
-
-        /*
+        maraeIwiTextView.text = """${chosenMarae.Name}"""
+        maraeIwiTextView.text = """Iwi: ${chosenMarae.Iwi}""";
         maraeHapuTextView.text = """Hapu: ${chosenMarae.Hapu}"""
         maraeAddressTextView.text = """Address: ${chosenMarae.Location}"""
-         */
     }
 }
