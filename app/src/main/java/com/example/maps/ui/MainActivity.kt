@@ -1,4 +1,4 @@
-package com.example.maps
+package com.example.maps.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.maps.R
 import com.example.maps.core.Marae
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -47,7 +48,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val navController = navHostFragment.navController
         navController.setGraph(R.navigation.nav_graph, maraeListBundle);
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.mapsFragment, R.id.wikiFragment, R.id.infoFragment))
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.mapsFragment,
+            R.id.wikiFragment,
+            R.id.infoFragment
+        ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->

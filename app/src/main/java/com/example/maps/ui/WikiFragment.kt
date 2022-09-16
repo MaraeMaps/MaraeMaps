@@ -1,4 +1,4 @@
-package com.example.maps
+package com.example.maps.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import android.widget.SearchView
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.maps.com.example.maps.WikiAdapter
+import com.example.maps.R
 import com.example.maps.core.Marae
 
 /**

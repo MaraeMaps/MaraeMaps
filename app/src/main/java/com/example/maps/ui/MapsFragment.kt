@@ -1,4 +1,4 @@
-package com.example.maps
+package com.example.maps.ui
 
 import androidx.fragment.app.Fragment
 
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.maps.R
 import com.example.maps.core.Marae
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -17,13 +18,15 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-//private val Parcelable.X: Double
-//    get() {return }
-//private val Parcelable.Y: Double
-//    get() {return -44.44}
-//private val Parcelable.Name: String
-//    get() {return "Test Name Marae"}
-
+/**
+ * Fragment to show a Maps view of Marae around NZ
+ *
+ * Uses the Google Maps to display Marae
+ *
+ * Intended to be the main landing fragment when you launch the app
+ *
+ * @author Harry Pirrit
+ */
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
 
     private var myContentsView: View? = null
@@ -86,10 +89,10 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
 
     override fun getInfoContents(p0: Marker): View? {
         val ma: Marae = p0.tag as Marae
-        val iwi = myContentsView?.findViewById<TextView>(com.example.maps.R.id.iwi)
-        val title = myContentsView?.findViewById<TextView>(com.example.maps.R.id.title)
-        val region = myContentsView?.findViewById<TextView>(com.example.maps.R.id.region)
-        val location = myContentsView?.findViewById<TextView>(com.example.maps.R.id.location)
+        val iwi = myContentsView?.findViewById<TextView>(R.id.iwi)
+        val title = myContentsView?.findViewById<TextView>(R.id.title)
+        val region = myContentsView?.findViewById<TextView>(R.id.region)
+        val location = myContentsView?.findViewById<TextView>(R.id.location)
         if (iwi != null) {
             if (ma.Iwi == ""){
                 iwi.text = "Iwi information not available"
