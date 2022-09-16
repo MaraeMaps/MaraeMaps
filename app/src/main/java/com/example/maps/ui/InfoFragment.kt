@@ -1,10 +1,8 @@
 package com.example.maps.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceFragmentCompat
 import com.example.maps.R
-import com.example.maps.ui.placeholder.PlaceholderContent
 
 /**
  * A fragment representing our list of info: settings, about us, credits.
