@@ -1,7 +1,6 @@
-package com.example.maps.com.example.maps
+package com.example.maps.ui
 
 
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import com.example.maps.R
 import com.example.maps.core.Marae
 import com.example.maps.core.MaraeController
 import java.text.Normalizer
-import java.util.*
+
 import kotlin.collections.ArrayList
 
 /**
