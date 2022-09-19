@@ -74,7 +74,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MyItem(lat, lng, "Title ${i.Name}", "field for snippet")
+                val item = MyItem(lat, lng, "Title ${i.Name}", "Snippet : snippet", "${i.Iwi}" , "${i.TPK_Region}", "${i.Location}")
                 clusterManager.addItem(item)
             }
         }
