@@ -31,6 +31,11 @@ $dokka.location:com.example.maps.core/MaraeController.Companion/keyWords/#com.ex
 $dokka.location:com.example.maps.core/MaraeController.Companion/maraeToString/#com.example.maps.core.Marae/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/marae-to-string.html
 $dokka.location:com.example.maps.core/MaraeController///PointingToDeclaration/app/com.example.maps.core/-marae-controller/index.html
 $dokka.location:com.example.maps.core/MaraeController/MaraeController/#/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-marae-controller.html
+$dokka.location:com.example.maps.core/MyItem///PointingToDeclaration/app/com.example.maps.core/-my-item/index.html
+$dokka.location:com.example.maps.core/MyItem/MyItem/#kotlin.Double#kotlin.Double#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.maps.core/-my-item/-my-item.html
+$dokka.location:com.example.maps.core/MyItem/getPosition/#/PointingToDeclaration/app/com.example.maps.core/-my-item/get-position.html
+$dokka.location:com.example.maps.core/MyItem/getSnippet/#/PointingToDeclaration/app/com.example.maps.core/-my-item/get-snippet.html
+$dokka.location:com.example.maps.core/MyItem/getTitle/#/PointingToDeclaration/app/com.example.maps.core/-my-item/get-title.html
 $dokka.location:com.example.maps.ui////PointingToDeclaration/app/com.example.maps.ui/index.html
 $dokka.location:com.example.maps.ui/InfoFragment///PointingToDeclaration/app/com.example.maps.ui/-info-fragment/index.html
 $dokka.location:com.example.maps.ui/InfoFragment/InfoFragment/#/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/-info-fragment.html
