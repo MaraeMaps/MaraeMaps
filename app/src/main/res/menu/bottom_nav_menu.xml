@@ -3,16 +3,16 @@
 
     <item
         android:id="@+id/mapsFragment"
-        android:icon="@drawable/ic_map"
+        android:icon="@drawable/ic_baseline_map_24"
         android:title="@string/map" />
 
     <item
         android:id="@+id/wikiFragment"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_marae"
         android:title="@string/wiki" />
 
     <item
         android:id="@+id/infoFragment"
-        android:icon="@drawable/ic_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settings" />
 </menu>

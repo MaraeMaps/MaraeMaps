@@ -7,10 +7,10 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
-        android:layout_width="409dp"
-        android:layout_height="105dp"
+        android:layout_width="410dp"
+        android:layout_height="81dp"
         android:background="?android:attr/windowBackground"
-        app:itemIconSize="80dp"
+        app:itemIconSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
