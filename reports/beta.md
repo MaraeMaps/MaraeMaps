@@ -12,7 +12,7 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
   two classes are relatively short, there is simply not that much to test. Hence our code coverage
   is quite low at just 9%.
 - We could increase our code coverage by adding automated ui testing, however, given how much effort
-  this would take for not much return; We instead decided against this. 
+  this would take for not much return; We instead decided against this.
 - Hence our code coverage stands at just 9%.
 
 ### Code Quality
@@ -21,6 +21,12 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
   as line index and private method documentation). Instead we addressed other issues, mostly
   relating to adding documentation.
 - We were able to increase code quality from a B to A rating.
+
+### GitHub Pages
+
+- Our Github pages deployment broke just before submitting this assignment. The error message
+  provided in the actions makes us believe that this may have to do with code that we have no
+  control over.
 
 ## Profiling our app
 
