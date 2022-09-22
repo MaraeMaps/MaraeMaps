@@ -42,7 +42,7 @@
         android:label="Settings"/>
     <fragment
         android:id="@+id/maraeFragment"
-        android:name="com.example.maps.MaraeFragment"
+        android:name="com.example.maps.ui.MaraeFragment"
         android:label="fragment_marae"
         tools:layout="@layout/fragment_marae" >
         <argument
