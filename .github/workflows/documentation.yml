@@ -30,7 +30,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - n
+      - name: Add untracked files to git
+        run: git add .
+
       - name: Commit Changes
         run: |
           git diff --exit-code || git commit --all -m "[BOT] documentation"
