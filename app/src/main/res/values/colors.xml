@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="marae_red">#df6b74</color>
+    <color name="marae_red">#FF0000</color>
     <color name="marae_brown">#a55647</color>
     <color name="lawn_green">#8fb167</color>
     <color name="tree_green">#406225</color>

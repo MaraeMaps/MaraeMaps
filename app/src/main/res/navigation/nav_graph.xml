@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.example.maps.MapsFragment"
+        android:name="com.example.maps.ui.MapsFragment"
         android:label="Marae Map"
         tools:layout="@layout/fragment_maps" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/wikiFragment"
-        android:name="com.example.maps.WikiFragment"
+        android:name="com.example.maps.ui.WikiFragment"
         android:label="Marae Wiki"
         tools:layout="@layout/fragment_wiki" >
         <action
@@ -45,7 +45,7 @@
         android:label="Settings"/>
     <fragment
         android:id="@+id/maraeFragment"
-        android:name="com.example.maps.MaraeFragment"
+        android:name="com.example.maps.ui.MaraeFragment"
         android:label="fragment_marae"
         tools:layout="@layout/fragment_marae" >
         <argument
