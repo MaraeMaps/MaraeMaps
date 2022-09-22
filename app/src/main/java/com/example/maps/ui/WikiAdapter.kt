@@ -1,8 +1,6 @@
 package com.example.maps.ui
 
 
-import android.os.Bundle
-import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +13,6 @@ import com.example.maps.*
 import com.example.maps.core.Marae
 import com.example.maps.core.MaraeController
 import java.text.Normalizer
-import java.util.*
 import kotlin.collections.ArrayList
 
 /**
@@ -40,7 +37,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         val maraeLocationTV: TextView;
         val maraeIwiTV: TextView;
         val maraeNameTV: TextView;
-        val holdingView : View
+        val holdingView: View
 
         init {
             maraeNameTV = view.findViewById(R.id.marae_name_tv)
@@ -52,7 +49,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         /**
          * Adds an on click listener to the view that this ViewHolder has
          */
-        fun addListener(marae : Marae) {
+        fun addListener(marae: Marae) {
             val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(marae)
             holdingView.setOnClickListener {
                 // TODO: Open a new marae info screen
@@ -145,7 +142,10 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
          *
          * @return Boolean false if a marae should be added to marae to be seen, otherwise true
          */
-        private fun shouldFilterMarae(maraeKeyWords : Array<String?>, searchStrings : Array<String>) : Boolean{
+        private fun shouldFilterMarae(
+            maraeKeyWords: Array<String?>,
+            searchStrings: Array<String>
+        ): Boolean {
             for (keyWord in maraeKeyWords) {
                 if (keyWord == null) {
                     continue
@@ -168,7 +168,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
          * @param str String to be normalized
          * @return Inputted String normalized
          */
-        private fun normalizeString(str: String) : String{
+        private fun normalizeString(str: String): String {
             val REGEX_UNACCENT = "\\p{InCombiningDiacriticalMarks}+".toRegex()
             val temp = Normalizer.normalize(str.lowercase(), Normalizer.Form.NFD)
             return REGEX_UNACCENT.replace(temp, "").trim()
