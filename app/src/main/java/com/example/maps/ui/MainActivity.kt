@@ -61,6 +61,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
     }
 
+    /**
+     * Called when a user navigates up. Overrides arent method.
+     *
+     * Intended to allow back navigation button to work in sub fragments.
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = getNavHostController()
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    /**
+     * Sets the title of the action bar in this activity
+     *
+     * Intended to used by fragments that aren't in the navigation graph, hence don't have a hard coded title
+     */
     fun setActionBarTitle(title: String?) {
         supportActionBar!!.title = title
     }
@@ -73,11 +88,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private fun getNavHostController() : NavController {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
         return navHostFragment.navController
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = getNavHostController()
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     /**
