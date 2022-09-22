@@ -1,23 +1,26 @@
-package com.example.maps
+package com.example.maps.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.example.maps.R
 import com.example.maps.core.Marae
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_marae.*
 
 /**
- * A simple [Fragment] subclass.
- * Use the [MaraeFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Fragment to give a detailed breakdown of a chosen Marae.
+ *
+ * Provides a rich view. With a Google Street and Maps View
+ *
+ * @author Hugo Phibbs
  */
 class MaraeFragment : Fragment() {
 
+    /** Current Marae detailed on this Fragment */
     private lateinit var chosenMarae : Marae;
 
     override fun onCreateView(
@@ -28,16 +31,19 @@ class MaraeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_marae, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        addContent();
+    }
+
+    /**
+     * Adds ui content to this Fragment, calls supporting methods
+     */
     private fun addContent() {
         findChosenMarae()
         addMaraeInfo()
         addStreetView()
         addMap()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        addContent();
     }
 
     /**
@@ -69,6 +75,9 @@ class MaraeFragment : Fragment() {
         })
     }
 
+    /**
+     * Adds text to this fragment providing information on the currently selected marae
+     */
     private fun addMaraeInfo() {
         maraeIwiTextView.text = """${chosenMarae.Name}"""
         maraeIwiTextView.text = """Iwi: ${chosenMarae.Iwi}""";
