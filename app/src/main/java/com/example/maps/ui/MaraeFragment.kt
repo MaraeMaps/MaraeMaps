@@ -51,6 +51,11 @@ class MaraeFragment : Fragment() {
         addMap()
     }
 
+    /**
+     * Adds a title to this fragment.
+     *
+     * Title is just the current marae that we are interested in
+     */
     private fun addFragmentTitle() {
         (requireActivity() as MainActivity).setActionBarTitle(chosenMarae.Name);
     }
