@@ -8,6 +8,8 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 - A custom icon has been made for the launcher logo and wiki icon in the nav bar.
 - Changing to dark mode on the mobile device should not prevent the user from reading
   any of the Wiki entries now- previously was unreadable due to colours.
+- Click on the Wiki entries now generates a screen displaying information on the specific 
+  marae (iwi, hapu, address).
 
 ## User testing
 
@@ -42,4 +44,8 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 
 ## Profiling our app
 
-- 
+- Android Studio has a profiler that was used to profile CPU, memory and energy usage of app during use.
+- CPU usage spikes to 50-60% when the Map fragment is called, which is due to the loading of markers and placement.
+  CPU usage also increases to 20-30% during the use of the Wiki search function, but this is also expected.
+- Memory usage rose to about 240MB during usage but never rose over that during use.
+- Energy usage was consistently "light" during use, even when generating the Map.
