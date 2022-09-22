@@ -31,7 +31,8 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
     var maraeListShown = ArrayList<Marae>(maraeList)
 
     /**
-     * Custom ViewHolder class to display Marae info in the wiki view
+     * Custom ViewHolder class
+     *
      *
      * @param view View that this ViewHolder holds
      */

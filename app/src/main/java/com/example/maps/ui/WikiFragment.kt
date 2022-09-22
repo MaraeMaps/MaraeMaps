@@ -89,6 +89,7 @@ class WikiFragment : Fragment() {
                 return false
             }
 
+
             /**
              * Called when query text entered by a user has changed
              *
