@@ -2,6 +2,8 @@ package com.example.maps.core
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.clustering.ClusterItem
 
 /**
  * Data class for a Marae
@@ -43,7 +45,7 @@ data class Marae(
     val X: Double,
     /** Y coordinate of this Marae */
     val Y: Double
-) : Parcelable {
+) : Parcelable, ClusterItem {
     constructor(parcel: Parcel) : this(
         Alternate = parcel.readString(),
         Comments = parcel.readString(),
@@ -101,4 +103,25 @@ data class Marae(
             return arrayOfNulls(size)
         }
     }
+        private val position: LatLng
+        private val title: String
+        private val snippet: String
+
+        override fun getPosition(): LatLng {
+            return position
+        }
+
+        override fun getTitle(): String? {
+            return title
+        }
+
+        override fun getSnippet(): String? {
+            return snippet
+        }
+
+        init {
+            position = LatLng(Y, X)
+            this.title = Name!!
+            this.snippet = Iwi!!
+        }
 }
