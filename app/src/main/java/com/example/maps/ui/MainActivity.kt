@@ -3,6 +3,8 @@ package com.example.maps.ui
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -43,9 +45,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
      */
     private fun setupNav(maraeListBundle : Bundle) {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
+        val navController = getNavHostController()
         navController.setGraph(R.navigation.nav_graph, maraeListBundle);
 
         val appBarConfiguration = AppBarConfiguration(setOf(
@@ -59,6 +59,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             navController.navigate(item.itemId, maraeListBundle)
             true
         }
+    }
+
+    /**
+     * Gets the navigation controller for the navigation host of this main activity
+     *
+     * Refactored for usability
+     */
+    private fun getNavHostController() : NavController {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
+        return navHostFragment.navController
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = getNavHostController()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     /**
