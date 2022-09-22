@@ -57,7 +57,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
 
 
-            if (maraeList == null){
+        if (maraeList != null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
@@ -149,5 +149,11 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         }
         return myContentsView
 
+    }
+
+    fun onInfoWindowClick(p0: Marker) {
+        val ma: Marae = p0.tag as Marae
+        val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
+        findNavController().navigate(action)
     }
 }

@@ -75,9 +75,6 @@ dependencies {
     implementation 'org.apache.commons:commons-csv:1.5'
 
     implementation 'com.google.code.gson:gson:2.7'
-    implementation 'com.google.maps.android:android-maps-utils:2.3.0'
-    implementation 'com.google.maps.android:maps-utils-ktx:3.4.0'
-
 
 }
 
