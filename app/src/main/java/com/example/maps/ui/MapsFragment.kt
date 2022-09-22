@@ -53,13 +53,13 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.setInfoWindowAdapter(this)
-        googleMap.setOnInfoWindowClickListener(this)
+        //googleMap.setOnInfoWindowClickListener(this)
 
 
         if (maraeList != null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
-                val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))
+                val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
                 marker.tag = marae
                 println(marker.tag.toString())
                 mMarkers.add(marker)
@@ -116,7 +116,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
 
     }
 
-    override fun onInfoWindowClick(p0: Marker) {
+    fun onInfoWindowClick(p0: Marker) {
         val ma: Marae = p0.tag as Marae
         val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
         findNavController().navigate(action)
