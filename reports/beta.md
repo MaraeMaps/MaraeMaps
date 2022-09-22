@@ -2,9 +2,21 @@
 
 By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 
+## Improvements from alpha
+
+- Map clustering has been implemented to give a cleaner look on the map fragment.
+- A custom icon has been made for the launcher logo and wiki icon in the nav bar.
+- Changing to dark mode on the mobile device should not prevent the user from reading
+  any of the Wiki entries now- previously was unreadable due to colours.
+
 ## User testing
 
+- User testing has been discussed with each member looking for people to help
+  test out the build. Questionnaire will distributed to each user tester.
+
 ## Addressing CI feedback
+
+- 
 
 ### Code Coverage
 
@@ -30,3 +42,4 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 
 ## Profiling our app
 
+- 
