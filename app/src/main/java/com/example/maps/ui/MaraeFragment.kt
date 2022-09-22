@@ -36,6 +36,11 @@ class MaraeFragment : Fragment() {
         addContent();
     }
 
+    override fun onResume() {
+        super.onResume()
+        addFragmentTitle()
+    }
+
     /**
      * Adds ui content to this Fragment, calls supporting methods
      */
@@ -44,6 +49,10 @@ class MaraeFragment : Fragment() {
         addMaraeInfo()
         addStreetView()
         addMap()
+    }
+
+    private fun addFragmentTitle() {
+        (requireActivity() as MainActivity).setActionBarTitle(chosenMarae.Name);
     }
 
     /**
@@ -79,7 +88,7 @@ class MaraeFragment : Fragment() {
      * Adds text to this fragment providing information on the currently selected marae
      */
     private fun addMaraeInfo() {
-        maraeIwiTextView.text = """${chosenMarae.Name}"""
+        maraeTitleTextView.text = """${chosenMarae.Name}"""
         maraeIwiTextView.text = """Iwi: ${chosenMarae.Iwi}""";
         maraeHapuTextView.text = """Hapu: ${chosenMarae.Hapu}"""
         maraeAddressTextView.text = """Address: ${chosenMarae.Location}"""
