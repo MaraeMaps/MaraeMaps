@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="@color/grey"
+        app:cardBackgroundColor="#7F7F7F"
         app:cardCornerRadius="@dimen/corner_radius">
 
         <LinearLayout
