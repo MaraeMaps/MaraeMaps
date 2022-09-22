@@ -10,4 +10,4 @@
 - **No pushing directly onto master, always new branch, then pull request. This is so actions can do it's magic!**
 
 ## Questionaire
-- Please visit [this file](https://github.com/MaraeMaps/MaraeMaps/blob/master/reports/questionaire.md) to view our user testing questionaire
+- Please visit [this file](https://github.com/MaraeMaps/MaraeMaps/blob/master/questionaire.md) to view our user testing questionaire
