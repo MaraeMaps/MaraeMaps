@@ -62,9 +62,7 @@ data class Marae(
         Wharenui = parcel.readString(),
         X =  parcel.readDouble(),
         Y = parcel.readDouble()
-    ) {
-    }
-
+    )
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(Alternate)
         parcel.writeString(Comments)
@@ -89,6 +87,11 @@ data class Marae(
         return 0
     }
 
+    /**
+     * Creator object to create Parcelable Marae Objects.
+     *
+     * @author Harry Pirrit
+     */
     companion object CREATOR : Parcelable.Creator<Marae> {
         override fun createFromParcel(parcel: Parcel): Marae {
             return Marae(parcel)
