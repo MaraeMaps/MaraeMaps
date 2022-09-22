@@ -29,7 +29,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
+
+      - n
       - name: Commit Changes
         run: |
           git diff --exit-code || git commit --all -m "[BOT] documentation"
