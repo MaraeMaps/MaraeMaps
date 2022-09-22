@@ -3,7 +3,7 @@
 
     <!-- Language settings -->
     <string-array name="pref_lang_setting">
-        <item>Englis</item>
+        <item>English</item>
         <item>Te reo Māori</item>
     </string-array>
 
