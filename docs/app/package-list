@@ -31,26 +31,31 @@ $dokka.location:com.example.maps.core/MaraeController.Companion/keyWords/#com.ex
 $dokka.location:com.example.maps.core/MaraeController.Companion/maraeToString/#com.example.maps.core.Marae/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-companion/marae-to-string.html
 $dokka.location:com.example.maps.core/MaraeController///PointingToDeclaration/app/com.example.maps.core/-marae-controller/index.html
 $dokka.location:com.example.maps.core/MaraeController/MaraeController/#/PointingToDeclaration/app/com.example.maps.core/-marae-controller/-marae-controller.html
-$dokka.location:com.example.maps.core/MyItem///PointingToDeclaration/app/com.example.maps.core/-my-item/index.html
-$dokka.location:com.example.maps.core/MyItem/MyItem/#kotlin.Double#kotlin.Double#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.maps.core/-my-item/-my-item.html
-$dokka.location:com.example.maps.core/MyItem/getPosition/#/PointingToDeclaration/app/com.example.maps.core/-my-item/get-position.html
-$dokka.location:com.example.maps.core/MyItem/getSnippet/#/PointingToDeclaration/app/com.example.maps.core/-my-item/get-snippet.html
-$dokka.location:com.example.maps.core/MyItem/getTitle/#/PointingToDeclaration/app/com.example.maps.core/-my-item/get-title.html
 $dokka.location:com.example.maps.ui////PointingToDeclaration/app/com.example.maps.ui/index.html
 $dokka.location:com.example.maps.ui/InfoFragment///PointingToDeclaration/app/com.example.maps.ui/-info-fragment/index.html
 $dokka.location:com.example.maps.ui/InfoFragment/InfoFragment/#/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/-info-fragment.html
 $dokka.location:com.example.maps.ui/InfoFragment/onCreatePreferences/#android.os.Bundle?#kotlin.String?/PointingToDeclaration/app/com.example.maps.ui/-info-fragment/on-create-preferences.html
 $dokka.location:com.example.maps.ui/MainActivity///PointingToDeclaration/app/com.example.maps.ui/-main-activity/index.html
 $dokka.location:com.example.maps.ui/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.maps.ui/-main-activity/-main-activity.html
+$dokka.location:com.example.maps.ui/MainActivity/onSupportNavigateUp/#/PointingToDeclaration/app/com.example.maps.ui/-main-activity/on-support-navigate-up.html
+$dokka.location:com.example.maps.ui/MainActivity/setActionBarTitle/#kotlin.String?/PointingToDeclaration/app/com.example.maps.ui/-main-activity/set-action-bar-title.html
 $dokka.location:com.example.maps.ui/MapsFragment///PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/index.html
 $dokka.location:com.example.maps.ui/MapsFragment/MapsFragment/#/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/-maps-fragment.html
 $dokka.location:com.example.maps.ui/MapsFragment/getInfoContents/#com.google.android.gms.maps.model.Marker/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/get-info-contents.html
 $dokka.location:com.example.maps.ui/MapsFragment/getInfoWindow/#com.google.android.gms.maps.model.Marker/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/get-info-window.html
 $dokka.location:com.example.maps.ui/MapsFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/on-create-view.html
+$dokka.location:com.example.maps.ui/MapsFragment/onInfoWindowClick/#com.google.android.gms.maps.model.Marker/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/on-info-window-click.html
 $dokka.location:com.example.maps.ui/MapsFragment/onMarkerClick/#com.google.android.gms.maps.model.Marker/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/on-marker-click.html
 $dokka.location:com.example.maps.ui/MapsFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-maps-fragment/on-view-created.html
+$dokka.location:com.example.maps.ui/MaraeFragment///PointingToDeclaration/app/com.example.maps.ui/-marae-fragment/index.html
+$dokka.location:com.example.maps.ui/MaraeFragment/MaraeFragment/#/PointingToDeclaration/app/com.example.maps.ui/-marae-fragment/-marae-fragment.html
+$dokka.location:com.example.maps.ui/MaraeFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-marae-fragment/on-create-view.html
+$dokka.location:com.example.maps.ui/MaraeFragment/onResume/#/PointingToDeclaration/app/com.example.maps.ui/-marae-fragment/on-resume.html
+$dokka.location:com.example.maps.ui/MaraeFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-marae-fragment/on-view-created.html
 $dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder///PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/index.html
 $dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder/MaraeWikiEntryViewHolder/#android.view.View/PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/-marae-wiki-entry-view-holder.html
+$dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder/addListener/#com.example.maps.core.Marae/PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/add-listener.html
+$dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder/holdingView/#/PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/holding-view.html
 $dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder/maraeIwiTV/#/PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/marae-iwi-t-v.html
 $dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder/maraeLocationTV/#/PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/marae-location-t-v.html
 $dokka.location:com.example.maps.ui/WikiAdapter.MaraeWikiEntryViewHolder/maraeNameTV/#/PointingToDeclaration/app/com.example.maps.ui/-wiki-adapter/-marae-wiki-entry-view-holder/marae-name-t-v.html
@@ -64,6 +69,12 @@ $dokka.location:com.example.maps.ui/WikiAdapter/onCreateViewHolder/#android.view
 $dokka.location:com.example.maps.ui/WikiFragment///PointingToDeclaration/app/com.example.maps.ui/-wiki-fragment/index.html
 $dokka.location:com.example.maps.ui/WikiFragment/WikiFragment/#/PointingToDeclaration/app/com.example.maps.ui/-wiki-fragment/-wiki-fragment.html
 $dokka.location:com.example.maps.ui/WikiFragment/onCreateView/#android.view.LayoutInflater#android.view.ViewGroup?#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-wiki-fragment/on-create-view.html
+$dokka.location:com.example.maps.ui/WikiFragment/onViewCreated/#android.view.View#android.os.Bundle?/PointingToDeclaration/app/com.example.maps.ui/-wiki-fragment/on-view-created.html
+$dokka.location:com.example.maps////PointingToDeclaration/app/com.example.maps/index.html
+$dokka.location:com.example.maps/SettingsFragment///PointingToDeclaration/app/com.example.maps/-settings-fragment/index.html
+$dokka.location:com.example.maps/SettingsFragment/SettingsFragment/#/PointingToDeclaration/app/com.example.maps/-settings-fragment/-settings-fragment.html
+$dokka.location:com.example.maps/SettingsFragment/onCreatePreferences/#android.os.Bundle?#kotlin.String?/PointingToDeclaration/app/com.example.maps/-settings-fragment/on-create-preferences.html
+com.example.maps
 com.example.maps.core
 com.example.maps.ui
 
