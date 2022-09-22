@@ -1,7 +1,6 @@
 package com.example.maps.ui
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -11,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.maps.R
 import com.example.maps.core.Marae
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             navController.navigate(item.itemId, maraeListBundle)
             true
         }
+    }
+
+    fun setActionBarTitle(title: String?) {
+        supportActionBar!!.title = title
     }
 
     /**
