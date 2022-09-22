@@ -31,7 +31,8 @@ class MyItem(
     }
 
     override fun getSnippet(): String? {
-        return snippet
+        return "Snippet goes here"
+//        return "Iwi: ${getIwi()}\nRegion: ${getRegion()}\nAddress: ${getAddress()}"
     }
 
     fun getIwi(): String? {

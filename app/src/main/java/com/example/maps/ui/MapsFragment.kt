@@ -11,6 +11,7 @@ import com.example.maps.core.Marae
 import com.example.maps.core.MyItem
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -28,7 +29,7 @@ import com.google.maps.android.clustering.ClusterManager
  *
  * @author Harry Pirrit
  */
-class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
+class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter  {
 
     private var myContentsView: View? = null
     private lateinit var clusterManager: ClusterManager<MyItem>
@@ -52,10 +53,11 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
 
         val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
-        googleMap.setInfoWindowAdapter(this)
+        //googleMap.setInfoWindowAdapter(this)
 
 
-        if (maraeList == null){
+
+            if (maraeList == null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
@@ -74,7 +76,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MyItem(lat, lng, "Title ${i.Name}", "Snippet : snippet", "${i.Iwi}" , "${i.TPK_Region}", "${i.Location}")
+                val item = MyItem(lat, lng, "${i.Name}", "", "${i.Iwi}" , "${i.TPK_Region}", "${i.Location}")
                 clusterManager.addItem(item)
             }
         }
