@@ -10,7 +10,8 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 - Changing to dark mode on the mobile device now no longer prevents the user from reading any of the
   Wiki entries now - previously was unreadable due to colours.
 - Small tweaks to improve ease of use
-- App has a different theme
+- Imbedded Google Maps and Street View of a Marae in the Marae Information page.
+- App now has a different theme
 
 ## Key features in the works
 
@@ -73,8 +74,27 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 
 - Android Studio has a profiler that was used to profile CPU, memory and energy usage of app during
   use.
-- CPU usage spikes to 50-60% when the Map fragment is called, which is due to the loading of markers
-  and placement. CPU usage also increases to 20-30% during the use of the Wiki search function.
-  Usage of CPU is in the 30-40% range when zooming in and out on the map.
+
+
+Our app has access to 100% CPU. Our main observations were recorded on an emulated Pixel 3a API 32 on a MacBook Pro M1 (ARM).
+
+- Our CPU usage goes to an average of 63% on the launch of the Maps segment
+- Density of Markers also affects our CPU usage, when there are over 1000 markers on screen, usage  spikes around 80% (See included picture), whereas when there are only 2 markers, uses only 40%.
+- Our CPU when clicking on a Marae also spikes it to 5%
+
+![](profiler.png)
+
 - Memory usage rose to about 240MB during usage but never rose over that during use.
 - Energy usage was consistently "light" during use, even when generating the Map.
+
+- One thing to note is that our MapFragment re-opens on click, even when it is already open. This results in more CPU usage than is optimal.
+
+- Our MaraeInfo screen contains both a Google Streetview and a Google Map with a singular marker on it. These use 20% and 40% respectively in regards to CPU
+
+- Our CPU usage goes to an average of 15% on the launch of our ‘Wiki’ segment.
+- Our CPU usage goes to an average of 15% on the launch of our 'Settings' page.
+
+- Overall, the main usage of our app is within the MapsFragment.
+  - To reduce CPU usage, we plan to make the Map Fragment not be able to be opened when it already exists.
+  - Another measure we will take, is to implement clustering for the markering, meaning there cannot be more than approximately 20 markers being rendered on the user’s screen.
+- In Summary, using the profiler let us identify where most of our performance gains can be realised, and we have steps in place to optimise our app.  
