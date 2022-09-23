@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.maps.R
+import com.example.maps.core.CustomClusterRenderer
 import com.example.maps.core.Marae
 import com.example.maps.core.MyItem
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -54,10 +55,14 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         //googleMap.setInfoWindowAdapter(this)
+        //clusterManager = ClusterManager<MainActivity.MyItem?>(context, googleMap)
+        //val renderer = context?.let { CustomClusterRenderer(it, googleMap, clusterManager) }
+
+        //clusterManager.setRenderer(renderer)
 
 
 
-        if (maraeList != null){
+            if (maraeList != null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
@@ -94,7 +99,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
             // Point the map's listeners at the listeners implemented by the cluster
             // manager.
-            googleMap.setOnCameraIdleListener(clusterManager)
+            //googleMap.setOnCameraIdleListener(clusterManager)
             googleMap.setOnMarkerClickListener(clusterManager)
 
             addItems()
@@ -149,11 +154,5 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         }
         return myContentsView
 
-    }
-
-    fun onInfoWindowClick(p0: Marker) {
-        val ma: Marae = p0.tag as Marae
-        val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
-        findNavController().navigate(action)
     }
 }
