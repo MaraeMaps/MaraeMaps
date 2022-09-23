@@ -53,7 +53,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
         val pos = LatLng(maraeList[0].Y, maraeList[0].X)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
-        //googleMap.setInfoWindowAdapter(this)
+        googleMap.setInfoWindowAdapter(this)
 
 
 
@@ -100,6 +100,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             addItems()
         }
         setUpClusterer()
+
     }
 
     override fun onCreateView(
