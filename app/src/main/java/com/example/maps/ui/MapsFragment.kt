@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.maps.R
 import com.example.maps.core.Marae
-import com.example.maps.core.MyItem
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter
@@ -32,7 +31,7 @@ import com.google.maps.android.clustering.ClusterManager
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter  {
 
     private var myContentsView: View? = null
-    private lateinit var clusterManager: ClusterManager<MyItem>
+    private lateinit var clusterManager: ClusterManager<MainActivity.MyItem>
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -76,7 +75,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MyItem(lat, lng, "${i.Name}", "", "${i.Iwi}" , "${i.TPK_Region}", "${i.Location}")
+                val item = MainActivity.MyItem(lat, lng, "${i.Name}", "", "${i.Iwi}" , "${i.TPK_Region}", "${i.Location}")
                 clusterManager.addItem(item)
             }
         }
