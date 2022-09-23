@@ -23,4 +23,5 @@
     <string name="font">Change size of font in app</string>
     <string name="default_font_size">m</string>
 
+    <string name="street_view_not_found">Street View for this Marae could not be found!</string>
 </resources>

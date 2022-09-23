@@ -1,0 +1,122 @@
+package com.example.maps.ui
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.maps.R
+import com.example.maps.core.Marae
+import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera
+import kotlinx.android.synthetic.main.fragment_marae.*
+
+
+/**
+ * Fragment to give a detailed breakdown of a chosen Marae.
+ *
+ * Provides a rich view. With a Google Street and Maps View
+ *
+ * @author Hugo Phibbs
+ */
+class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyCallback {
+
+    /** Current Marae detailed on this Fragment */
+    private lateinit var chosenMarae: Marae;
+
+    /** Google MapsView of a particular Marae */
+    private lateinit var maraeMapView: MapView;
+
+    /** Google StreetViewPanoramaView of a particular Marae */
+    private lateinit var maraeStreetView: StreetViewPanoramaView;
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_marae, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        addContent()
+        initMapView(view, savedInstanceState)
+        initStreetView(view, savedInstanceState)
+    }
+
+    private fun initMapView(view: View, savedInstanceState: Bundle?) {
+        maraeMapView = view.findViewById(R.id.maraeMapView) as MapView
+        maraeMapView.onCreate(savedInstanceState)
+        maraeMapView.onResume()
+        maraeMapView.getMapAsync(this)
+    }
+
+    private fun initStreetView(view: View, savedInstanceState: Bundle?) {
+        maraeStreetView = view.findViewById(R.id.maraeStreetView) as StreetViewPanoramaView
+        maraeStreetView.onCreate(savedInstanceState)
+        maraeStreetView.onResume()
+        maraeStreetView.getStreetViewPanoramaAsync(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addFragmentTitle()
+    }
+
+    /**
+     * Adds ui content to this Fragment, calls supporting methods
+     */
+    private fun addContent() {
+        findChosenMarae()
+        addMaraeInfo()
+    }
+
+    /**
+     * Adds a title to this fragment.
+     *
+     * Title is just the current marae that we are interested in
+     */
+    private fun addFragmentTitle() {
+        (requireActivity() as MainActivity).setActionBarTitle(chosenMarae.Name);
+    }
+
+    /**
+     * Finds and sets the Marae that this MaraeFragment is for
+     */
+    private fun findChosenMarae() {
+        chosenMarae = arguments?.getParcelable("chosenMarae")!!;
+    }
+
+    /**
+     * Adds text to this fragment providing information on the currently selected marae
+     */
+    private fun addMaraeInfo() {
+        maraeTitleTextView.text = """${chosenMarae.Name}"""
+        maraeIwiTextView.text = """Iwi: ${chosenMarae.Iwi}""";
+        maraeHapuTextView.text = """Hapu: ${chosenMarae.Hapu}"""
+        maraeAddressTextView.text = """Address: ${chosenMarae.Location}"""
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        val latLng = LatLng(chosenMarae.Y, chosenMarae.X)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+        googleMap.addMarker(MarkerOptions().position(latLng).title(chosenMarae.Name))
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(10F))
+    }
+
+    override fun onStreetViewPanoramaReady(streetViewPanorama: StreetViewPanorama) {
+        streetViewPanorama.setPosition(LatLng(chosenMarae.Y, chosenMarae.X))
+
+        streetViewPanorama.setOnStreetViewPanoramaChangeListener { streetViewPanoramaLocation ->
+            if (!(streetViewPanoramaLocation != null && streetViewPanoramaLocation.links != null)) {
+                maraeStreetView.visibility = View.GONE;
+                maraeStreetViewSubTitle.text = resources.getString(R.string.street_view_not_found)
+            }
+        }
+    }
+}
