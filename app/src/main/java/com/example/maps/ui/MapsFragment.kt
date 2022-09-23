@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.maps.R
 import com.example.maps.core.Marae
 import com.example.maps.core.MyItem
@@ -57,7 +58,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
 
 
-        if (maraeList != null){
+        if (maraeList == null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
