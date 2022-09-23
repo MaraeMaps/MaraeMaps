@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.maps.R
+import com.example.maps.core.CustomClusterRenderer
 import com.example.maps.core.Marae
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -31,7 +32,7 @@ import com.google.maps.android.clustering.ClusterManager
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter  {
 
     private var myContentsView: View? = null
-    private lateinit var clusterManager: ClusterManager<MainActivity.MyItem>
+    private lateinit var clusterManager: ClusterManager<MainActivity.MyItem?>
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -54,15 +55,19 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.setInfoWindowAdapter(this)
 
+        clusterManager = ClusterManager(context, googleMap)
+
+        val renderer = CustomClusterRenderer(requireContext(), googleMap, clusterManager)
+        clusterManager.renderer = renderer
 
 
-            if (maraeList == null){
+            if (maraeList != null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
-                val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
-                marker.tag = marae
-                println(marker.tag.toString())
-                mMarkers.add(marker)
+                //val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
+                //marker.tag = marae
+                //println(marker.tag.toString())
+                //mMarkers.add(marker)
             }
         }
 
@@ -89,7 +94,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
             // Initialize the manager with the context and the map.
             // (Activity extends context, so we can pass 'this' in the constructor.)
-            clusterManager = ClusterManager(context, googleMap)
 
             // Point the map's listeners at the listeners implemented by the cluster
             // manager.
