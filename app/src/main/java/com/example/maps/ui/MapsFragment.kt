@@ -50,8 +50,9 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
 
         var maraeList: ArrayList<Marae> = arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        val pos = LatLng(maraeList[0].Y, maraeList[0].X)
+        val pos = LatLng(-41.276601, 173.275072)
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
         googleMap.setInfoWindowAdapter(this)
         //googleMap.setOnInfoWindowClickListener(this)
 
