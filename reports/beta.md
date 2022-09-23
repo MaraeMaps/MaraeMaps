@@ -70,7 +70,7 @@ Our app has access to 100% CPU. Our main observations were recorded on an emulat
 - Density of Markers also affects our CPU usage, when there are over 1000 markers on screen, usage  spikes around 80% (See included picture), whereas when there are only 2 markers, uses only 40%.
 - Our CPU when clicking on a Marae also spikes it to 5%
 
-![](../../../../profiler.png)
+![](profiler.png)
 
 - Memory usage rose to about 240MB during usage but never rose over that during use.
 - Energy usage was consistently "light" during use, even when generating the Map.
