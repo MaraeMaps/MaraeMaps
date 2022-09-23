@@ -10,10 +10,10 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 - Clicking on the Wiki entries now generates a screen displaying information on the specific marae (
   iwi, hapu, address).
 - Small tweaks to improve ease of use
+- Imbedded Google Maps and Street View of a Marae in the Marae Information page.
 
 ## Key features in the works
 - Clustering of Marae markers in the Maps view.
-- Imbedded Google Maps and Street View of a Marae in the Marae Information page.
 - Language switching between Maori and English
 
 ---
