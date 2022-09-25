@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mapsFragment_to_wikiFragment"
             app:destination="@id/wikiFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_maraeFragment"
+            app:destination="@id/maraeFragment" />
         <argument
             android:name="maraeList"
             app:argType="java.util.ArrayList"
@@ -29,9 +32,21 @@
             app:destination="@id/mapsFragment" />
         <argument android:name="maraeList"
             app:argType="java.util.ArrayList" />
+        <action
+            android:id="@+id/action_wikiFragment_to_maraeFragment"
+            app:destination="@id/maraeFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.maps.ui.InfoFragment"
         android:label="Settings"/>
+    <fragment
+        android:id="@+id/maraeFragment"
+        android:name="com.example.maps.ui.MaraeFragment"
+        android:label="fragment_marae"
+        tools:layout="@layout/fragment_marae" >
+        <argument
+            android:name="chosenMarae"
+            app:argType="com.example.maps.core.Marae" />
+    </fragment>
 </navigation>

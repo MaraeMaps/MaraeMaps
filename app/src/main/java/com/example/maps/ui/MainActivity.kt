@@ -3,6 +3,8 @@ package com.example.maps.ui
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -45,9 +47,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
      */
     private fun setupNav(maraeListBundle : Bundle) {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
+        val navController = getNavHostController()
         navController.setGraph(R.navigation.nav_graph, maraeListBundle);
 
         val appBarConfiguration = AppBarConfiguration(setOf(
@@ -61,6 +61,35 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             navController.navigate(item.itemId, maraeListBundle)
             true
         }
+    }
+
+    /**
+     * Called when a user navigates up. Overrides arent method.
+     *
+     * Intended to allow back navigation button to work in sub fragments.
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = getNavHostController()
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    /**
+     * Sets the title of the action bar in this activity
+     *
+     * Intended to used by fragments that aren't in the navigation graph, hence don't have a hard coded title
+     */
+    fun setActionBarTitle(title: String?) {
+        supportActionBar!!.title = title
+    }
+
+    /**
+     * Gets the navigation controller for the navigation host of this main activity
+     *
+     * Refactored for usability
+     */
+    private fun getNavHostController() : NavController {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostContainerView) as NavHostFragment
+        return navHostFragment.navController
     }
 
     /**
@@ -93,19 +122,23 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     class MyItem(
         lat: Double,
         lng: Double,
+        marae: Marae,
         title: String,
         snippet: String,
-        iwi: String,
-        region: String,
-        address: String,
+/*    iwi: String,
+    region: String,
+    address: String,*/
     ) : ClusterItem {
 
         private val position: LatLng
+        private val marae: Marae
         private val title: String
         private val snippet: String
-        private val iwi: String
-        private val region: String
-        private val address: String
+/*    private val title: String
+    private val snippet: String
+    private val iwi: String
+    private val region: String
+    private val address: String*/
 
 
 
@@ -118,31 +151,36 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         override fun getSnippet(): String? {
-//        return "Snippet goes here"
-            return "Iwi: ${getIwi()}\n"
+            return "Snippet goes here"
+            //return "Iwi: ${getIwi()}\nRegion: ${getRegion()}\nAddress: ${getAddress()}"
         }
 
-        fun getIwi(): String? {
-            return iwi
-        }
+/*    fun getIwi(): String? {
+        return iwi
+    }
 
-        fun getRegion(): String? {
-            return region
-        }
+    fun getRegion(): String? {
+        return region
+    }
 
-        fun getAddress(): String? {
-            return address
+    fun getAddress(): String? {
+        return address
+    }*/
+
+        fun getMarae(): Marae {
+            return marae
         }
 
 
 
         init {
             position = LatLng(lat, lng)
+            this.marae = marae
             this.title = title
             this.snippet = snippet
-            this.iwi = iwi
-            this.region = region
-            this.address = address
+/*        this.iwi = iwi
+        this.region = region
+        this.address = address*/
 
         }
     }

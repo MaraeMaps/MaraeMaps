@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MaraeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/content_padding">
+
+        <LinearLayout
+            android:id="@+id/infoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/maraeTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marae Title"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/maraeIwiTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Iwi" />
+
+            <TextView
+                android:id="@+id/maraeAddressTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address" />
+
+            <TextView
+                android:id="@+id/maraeHapuTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hapu" />
+
+            <TextView
+                android:id="@+id/maraeWharenuiTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wharenui" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/maraeLocationTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textSize="20dp" />
+
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/maraeMapView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/streetViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/streetViewTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Street View"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/maraeStreetViewSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.gms.maps.StreetViewPanoramaView
+                android:id="@+id/maraeStreetView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

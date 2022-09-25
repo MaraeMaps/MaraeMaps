@@ -16,7 +16,6 @@ import com.example.maps.core.Marae
  * A [Fragment] class that is used for displaying a list view of Marae to a user
  *
  * @author Hugo Phibbs
- * @param maraeList list of all Marae that can be shown on this fragment
  */
 class WikiFragment : Fragment() {
 
@@ -39,19 +38,20 @@ class WikiFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.fragment_wiki, container, false)
-        addComponentsToView(view);
-        // Return the created view
-        return view;
+        return inflater.inflate(R.layout.fragment_wiki, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        addComponentsToView()
     }
 
     /**
      * Adds the components(sub views) to the view of this fragment
      */
-    private fun addComponentsToView(view: View) {
-        initRecyclerView(view)
-
-        maraeSearchView = view.findViewById(R.id.maraeSearchView);
+    private fun addComponentsToView() {
+        initRecyclerView()
+        maraeSearchView = requireView().findViewById(R.id.maraeSearchView);
         addSearchListener()
     }
 
@@ -62,8 +62,8 @@ class WikiFragment : Fragment() {
      *
      * @param view View object of this fragment
      */
-    private fun initRecyclerView(view: View) {
-        recyclerView = view.findViewById(R.id.wikiRecyclerView)
+    private fun initRecyclerView() {
+        recyclerView = requireView().findViewById(R.id.wikiRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.itemAnimator = DefaultItemAnimator()
         val maraeList: ArrayList<Marae> =
@@ -88,6 +88,7 @@ class WikiFragment : Fragment() {
                 (recyclerView.adapter as WikiAdapter).filter.filter(query)
                 return false
             }
+
 
             /**
              * Called when query text entered by a user has changed

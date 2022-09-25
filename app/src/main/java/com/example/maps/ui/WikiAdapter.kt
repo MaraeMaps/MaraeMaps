@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.maps.R
+import com.example.maps.*
 import com.example.maps.core.Marae
 import com.example.maps.core.MaraeController
 import java.text.Normalizer
-
 import kotlin.collections.ArrayList
 
 /**
@@ -28,7 +28,8 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
     var maraeListShown = ArrayList<Marae>(maraeList)
 
     /**
-     * Custom ViewHolder class to display Marae info in the wiki view
+     * Custom ViewHolder class
+     *
      *
      * @param view View that this ViewHolder holds
      */
@@ -36,20 +37,23 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         val maraeLocationTV: TextView;
         val maraeIwiTV: TextView;
         val maraeNameTV: TextView;
+        val holdingView: View
 
         init {
             maraeNameTV = view.findViewById(R.id.marae_name_tv)
             maraeIwiTV = view.findViewById(R.id.marae_iwi_tv);
             maraeLocationTV = view.findViewById(R.id.marae_location_tv);
-            addListener()
+            holdingView = view
         }
 
         /**
          * Adds an on click listener to the view that this ViewHolder has
          */
-        private fun addListener() {
-            maraeLocationTV.setOnClickListener {
+        fun addListener(marae: Marae) {
+            val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(marae)
+            holdingView.setOnClickListener {
                 // TODO: Open a new marae info screen
+                holdingView.findNavController().navigate(action)
             }
         }
     }
@@ -74,6 +78,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
      */
     override fun onBindViewHolder(holder: MaraeWikiEntryViewHolder, position: Int) {
         val currentMarae = maraeListShown[position]
+        holder.addListener(currentMarae)
         holder.maraeNameTV.text = currentMarae.Name
         holder.maraeIwiTV.text = """Iwi: ${currentMarae.Iwi}"""
         holder.maraeLocationTV.text = """Location: ${currentMarae.Location}"""
@@ -137,7 +142,10 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
          *
          * @return Boolean false if a marae should be added to marae to be seen, otherwise true
          */
-        private fun shouldFilterMarae(maraeKeyWords : Array<String?>, searchStrings : Array<String>) : Boolean{
+        private fun shouldFilterMarae(
+            maraeKeyWords: Array<String?>,
+            searchStrings: Array<String>
+        ): Boolean {
             for (keyWord in maraeKeyWords) {
                 if (keyWord == null) {
                     continue
@@ -160,7 +168,7 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
          * @param str String to be normalized
          * @return Inputted String normalized
          */
-        private fun normalizeString(str: String) : String{
+        private fun normalizeString(str: String): String {
             val REGEX_UNACCENT = "\\p{InCombiningDiacriticalMarks}+".toRegex()
             val temp = Normalizer.normalize(str.lowercase(), Normalizer.Form.NFD)
             return REGEX_UNACCENT.replace(temp, "").trim()
