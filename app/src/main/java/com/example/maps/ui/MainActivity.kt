@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         override fun getSnippet(): String? {
 //        return "Snippet goes here"
-            return "Iwi: ${getIwi()}\nRegion: ${getRegion()}\nAddress: ${getAddress()}"
+            return "Iwi: ${getIwi()}\n"
         }
 
         fun getIwi(): String? {

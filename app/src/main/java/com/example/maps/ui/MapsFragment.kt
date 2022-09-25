@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.maps.R
 import com.example.maps.core.CustomClusterRenderer
 import com.example.maps.core.Marae
@@ -16,8 +18,8 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.clustering.ClusterManager
+import com.google.maps.android.clustering.ClusterManager.*
 
 
 /**
@@ -60,8 +62,30 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         val renderer = CustomClusterRenderer(requireContext(), googleMap, clusterManager)
         clusterManager.renderer = renderer
 
+        clusterManager.setOnClusterItemClickListener(
+            OnClusterItemClickListener {
+                Toast.makeText(context, "Cluster item click", Toast.LENGTH_SHORT).show()
 
-            if (maraeList != null){
+                // if true, click handling stops here and do not show info view, do not move camera
+                // you can avoid this by calling:
+                // renderer.getMarker(clusterItem).showInfoWindow();
+                false
+            })
+
+        clusterManager.markerCollection.setInfoWindowAdapter(this)
+        googleMap.setInfoWindowAdapter(clusterManager.markerManager)
+
+        clusterManager.setOnClusterItemInfoWindowClickListener { stringClusterItem ->
+//            Toast.makeText(
+//                context, "Clicked info window: " + stringClusterItem!!.title,
+//                Toast.LENGTH_SHORT
+//            ).show()
+        }
+
+
+
+
+        if (maraeList != null){
             for (marae in maraeList) {
                 val LL = LatLng(marae.Y, marae.X)
                 //val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
@@ -130,27 +154,27 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
     }
 
     override fun getInfoContents(p0: Marker): View? {
-        val ma: Marae = p0.tag as Marae
+        //val ma: Marae = p0.tag as Marae
         val iwi = myContentsView?.findViewById<TextView>(R.id.iwi)
         val title = myContentsView?.findViewById<TextView>(R.id.title)
         val region = myContentsView?.findViewById<TextView>(R.id.region)
         val location = myContentsView?.findViewById<TextView>(R.id.location)
         if (iwi != null) {
-            if (ma.Iwi == ""){
+            if (p0.snippet == ""){
                 iwi.text = "Iwi information not available"
             } else {
-                iwi.text = "Iwi: " + ma.Iwi
+                iwi.text = p0.snippet
             }
         }
         if (title != null) {
-            title.text = ma.Name
+            title.text = p0.title
         }
-        if (region != null) {
-            region.text = "Region: " + ma.TPK_Region
-        }
-        if (location != null) {
-            location.text = "Address: " + ma.Location
-        }
+//        if (region != null) {
+//            region.text = "Region: " + ma.TPK_Region
+//        }
+//        if (location != null) {
+//            location.text = "Address: " + ma.Location
+//        }
         return myContentsView
 
     }
