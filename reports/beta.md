@@ -11,20 +11,19 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
   Wiki entries now - previously was unreadable due to colours.
 - Small tweaks to improve ease of use
 - Imbedded Google Maps and Street View of a Marae in the Marae Information page.
-- App now has a different theme
+- App now has a different theme.
 
-## Key features in the works
+## Key features to still be implemented
 
 - Clustering of Marae markers in the Maps view.
-- Language switching between Maori and English
-- General aesthetic improvements
+- Language switching between Maori and English.
+- General aesthetic improvements.
 
 ---
 
 ## User testing
 
-- We conducted brief user testing during the friday lab session.
-- We have detailed points of feedback below:
+- We conducted brief user testing and have detailed points of feedback below:
 
 #### Improving the Map View
 
@@ -33,11 +32,11 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
   together, which spread apart upon zooming in, thus reducing visual overload.
 - Another great idea was that the Maps view could start zoomed in over the region that a user is
   currently in (using a device's current location). For example, if you opened the app while in
-  Dunedin, a zoomed in view of Otago along with it's Marae could be shown.
+  Dunedin, a zoomed in view of Otago along with its marae could be shown.
 
 #### General Improvements
 
-- For Marae with empty data fields (eg Iwi or Hapu) a text shown be shown that this could not be
+- For marae with empty data fields (eg Iwi or Hapu) a text shown be shown that this could not be
   found, instead of just being empty.
 - Changing language in settings does not seem to do anything.
 
@@ -97,4 +96,5 @@ Our app has access to 100% CPU. Our main observations were recorded on an emulat
 - Overall, the main usage of our app is within the MapsFragment.
   - To reduce CPU usage, we plan to make the Map Fragment not be able to be opened when it already exists.
   - Another measure we will take, is to implement clustering for the markering, meaning there cannot be more than approximately 20 markers being rendered on the user’s screen.
-- In Summary, using the profiler let us identify where most of our performance gains can be realised, and we have steps in place to optimise our app.  
+
+- In Summary, using the profiler let us identify where most of our performance gains can be realised, and we intend to use this information to optimise our app.
