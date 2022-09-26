@@ -36,7 +36,8 @@ import com.google.android.gms.maps.model.MarkerOptions
  *
  * @author Harry Pirrit
  */
-class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter {
+class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter,
+    GoogleMap.OnInfoWindowClickListener {
 
     private var myContentsView: View? = null
     private lateinit var clusterManager: ClusterManager<MainActivity.MyItem?>
@@ -64,7 +65,8 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
         googleMap.setInfoWindowAdapter(this)
-        //googleMap.setOnInfoWindowClickListener(this)
+
+        googleMap.setOnInfoWindowClickListener(this)
 
         clusterManager = ClusterManager(context, googleMap)
 
@@ -87,7 +89,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
         clusterManager.setOnClusterItemInfoWindowClickListener { stringClusterItem ->
 
-            val action = MapsFragmentDirections.actionMapsFragmentToMaraeFragment(stringClusterItem!!.getMarae())
+            val action = MapsFragmentDirections.actionMapsFragmentToMaraeFragment(stringClusterItem!!.getMarae() as Marae)
             findNavController().navigate(action)
 
         }
@@ -191,7 +193,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
     }
 
-    fun onInfoWindowClick(p0: Marker) {
+    override fun onInfoWindowClick(p0: Marker) {
         val ma: Marae = p0.tag as Marae
         val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
         findNavController().navigate(action)

@@ -11,20 +11,19 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
   Wiki entries now - previously was unreadable due to colours.
 - Small tweaks to improve ease of use
 - Imbedded Google Maps and Street View of a Marae in the Marae Information page.
-- App now has a different theme
+- App now has a different theme.
 
-## Key features in the works
+## Key features to still be implemented
 
 - Clustering of Marae markers in the Maps view.
-- Language switching between Maori and English
-- General aesthetic improvements
+- Language switching between Maori and English.
+- General aesthetic improvements.
 
 ---
 
 ## User testing
 
-- We conducted brief user testing during the friday lab session.
-- We have detailed points of feedback below:
+- We conducted brief user testing and have detailed points of feedback below:
 
 #### Improving the Map View
 
@@ -33,11 +32,11 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
   together, which spread apart upon zooming in, thus reducing visual overload.
 - Another great idea was that the Maps view could start zoomed in over the region that a user is
   currently in (using a device's current location). For example, if you opened the app while in
-  Dunedin, a zoomed in view of Otago along with it's Marae could be shown.
+  Dunedin, a zoomed in view of Otago along with its marae could be shown.
 
 #### General Improvements
 
-- For Marae with empty data fields (eg Iwi or Hapu) a text shown be shown that this could not be
+- For marae with empty data fields (eg Iwi or Hapu) a text shown be shown that this could not be
   found, instead of just being empty.
 - Changing language in settings does not seem to do anything.
 
@@ -45,7 +44,7 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 
 - Users complained that zooming in on the Google Maps view while online had poor resolution. We
   think this is because the Google Maps data of NZ isn't actually saved locally.
-- The app crashes when a user gets directions to a particular Marae in Google Maps.
+- The app crashes when a user gets directions to a particular marae in Google Maps.
 
 --- 
 
@@ -75,12 +74,11 @@ By Hugo Phibbs, Kavan Chay, Lucy Sladden and Harry Pirrit
 - Android Studio has a profiler that was used to profile CPU, memory and energy usage of app during
   use.
 
-
 Our app has access to 100% CPU. Our main observations were recorded on an emulated Pixel 3a API 32 on a MacBook Pro M1 (ARM).
 
-- Our CPU usage goes to an average of 63% on the launch of the Maps segment
+- Our CPU usage goes to an average of 63% on the launch of the Maps segment.
 - Density of Markers also affects our CPU usage, when there are over 1000 markers on screen, usage  spikes around 80% (See included picture), whereas when there are only 2 markers, uses only 40%.
-- Our CPU when clicking on a Marae also spikes it to 5%
+- Our CPU usage when clicking on a Marae also spikes to 5%.
 
 ![](profiler.png)
 
@@ -89,12 +87,12 @@ Our app has access to 100% CPU. Our main observations were recorded on an emulat
 
 - One thing to note is that our MapFragment re-opens on click, even when it is already open. This results in more CPU usage than is optimal.
 
-- Our MaraeInfo screen contains both a Google Streetview and a Google Map with a singular marker on it. These use 20% and 40% respectively in regards to CPU
+- Our MaraeInfo screen contains both a Google Street View and a Google Map with a singular marker on it. These use 20% and 40% respectively in regards to CPU use.
 
 - Our CPU usage goes to an average of 15% on the launch of our ‘Wiki’ segment.
 - Our CPU usage goes to an average of 15% on the launch of our 'Settings' page.
 
-- Overall, the main usage of our app is within the MapsFragment.
+- In Summary, using the profiler let us identify where most of our performance gains can be realised and we intend to use this information to optimise the app
+  in several ways:
   - To reduce CPU usage, we plan to make the Map Fragment not be able to be opened when it already exists.
-  - Another measure we will take, is to implement clustering for the markering, meaning there cannot be more than approximately 20 markers being rendered on the user’s screen.
-- In Summary, using the profiler let us identify where most of our performance gains can be realised, and we have steps in place to optimise our app.  
+  - Another measure we will take is to implement clustering for the markering, meaning there cannot be more than approximately 20 markers being rendered on the user’s screen.
