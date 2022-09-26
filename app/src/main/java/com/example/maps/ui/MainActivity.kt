@@ -123,9 +123,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         lat: Double,
         lng: Double,
         marae: Marae,
-        title: String,
         snippet: String,
-/*    iwi: String,
+        title: String
+/*    ,
+
+    iwi: String,
     region: String,
     address: String,*/
     ) : ClusterItem {
@@ -134,8 +136,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         private val marae: Marae
         private val title: String
         private val snippet: String
-/*    private val title: String
-    private val snippet: String
+/*
+
     private val iwi: String
     private val region: String
     private val address: String*/
@@ -167,7 +169,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         return address
     }*/
 
-        fun getMarae(): Marae {
+        fun getMarae(): Marae? {
             return marae
         }
 
@@ -178,9 +180,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             this.marae = marae
             this.title = title
             this.snippet = snippet
-/*        this.iwi = iwi
-        this.region = region
-        this.address = address*/
+//
+//        this.iwi = iwi
+//        this.region = region
+//        this.address = address
 
         }
     }
