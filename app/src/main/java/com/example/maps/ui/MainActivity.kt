@@ -1,6 +1,7 @@
 package com.example.maps.ui
 
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -10,9 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.maps.R
 import com.example.maps.core.Marae
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.google.maps.android.clustering.ClusterItem
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -116,4 +118,71 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val arrayMaraeType = object : TypeToken<ArrayList<Marae>>() {}.type
         return Gson().fromJson(jsonString, arrayMaraeType)
     }
+
+    class MyItem(
+        lat: Double,
+        lng: Double,
+        marae: Marae,
+        title: String,
+        snippet: String,
+/*    iwi: String,
+    region: String,
+    address: String,*/
+    ) : ClusterItem {
+
+        private val position: LatLng
+        private val marae: Marae
+        private val title: String
+        private val snippet: String
+/*    private val title: String
+    private val snippet: String
+    private val iwi: String
+    private val region: String
+    private val address: String*/
+
+
+
+        override fun getPosition(): LatLng {
+            return position
+        }
+
+        override fun getTitle(): String? {
+            return title
+        }
+
+        override fun getSnippet(): String? {
+            return "Snippet goes here"
+            //return "Iwi: ${getIwi()}\nRegion: ${getRegion()}\nAddress: ${getAddress()}"
+        }
+
+/*    fun getIwi(): String? {
+        return iwi
+    }
+
+    fun getRegion(): String? {
+        return region
+    }
+
+    fun getAddress(): String? {
+        return address
+    }*/
+
+        fun getMarae(): Marae {
+            return marae
+        }
+
+
+
+        init {
+            position = LatLng(lat, lng)
+            this.marae = marae
+            this.title = title
+            this.snippet = snippet
+/*        this.iwi = iwi
+        this.region = region
+        this.address = address*/
+
+        }
+    }
+
 }
