@@ -6,8 +6,9 @@ import com.google.maps.android.clustering.ClusterItem
 class MyItem(
     lat: Double,
     lng: Double,
-    marae: Marae
-/*    title: String,
+    marae: Marae,
+    title: String
+/*    ,
     snippet: String,
     iwi: String,
     region: String,
@@ -16,7 +17,8 @@ class MyItem(
 
     private val position: LatLng
     private val marae: Marae
-/*    private val title: String
+    private val title: String
+/*
     private val snippet: String
     private val iwi: String
     private val region: String
@@ -58,11 +60,11 @@ class MyItem(
     init {
         position = LatLng(lat, lng)
         this.marae = marae
-/*        this.title = title
-        this.snippet = snippet
-        this.iwi = iwi
-        this.region = region
-        this.address = address*/
+        this.title = title
+//        this.snippet = snippet
+//        this.iwi = iwi
+//        this.region = region
+//        this.address = address
 
     }
 }
