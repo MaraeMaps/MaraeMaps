@@ -29,7 +29,8 @@ import com.google.android.gms.maps.model.MarkerOptions
  *
  * @author Harry Pirrit
  */
-class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter  {
+class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoWindowAdapter,
+    GoogleMap.OnInfoWindowClickListener {
 
     private var myContentsView: View? = null
 
@@ -54,7 +55,8 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
         googleMap.setInfoWindowAdapter(this)
-        //googleMap.setOnInfoWindowClickListener(this)
+
+        googleMap.setOnInfoWindowClickListener(this)
 
 
         if (maraeList != null){
@@ -117,7 +119,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener,GoogleMap.InfoW
 
     }
 
-    fun onInfoWindowClick(p0: Marker) {
+    override fun onInfoWindowClick(p0: Marker) {
         val ma: Marae = p0.tag as Marae
         val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
         findNavController().navigate(action)
