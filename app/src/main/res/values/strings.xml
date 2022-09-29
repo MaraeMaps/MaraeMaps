@@ -7,7 +7,7 @@
     <string name="iwi_label">"Iwi: $1$s"</string>
     <string name="location_label">"Location: $1$s"</string>
     <string name="map">Map</string>
-    <string name="wiki">Wiki</string>
+    <string name="search">Search</string>
     <string name="settings">Settings</string>
 
     <!-- Language headers/settings, default of English -->
