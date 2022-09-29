@@ -116,6 +116,7 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
             if (!(streetViewPanoramaLocation != null && streetViewPanoramaLocation.links != null)) {
                 maraeStreetView.visibility = View.GONE;
                 maraeStreetViewSubTitle.text = resources.getString(R.string.street_view_not_found)
+                maraeStreetViewSubTitle.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             }
         }
     }
