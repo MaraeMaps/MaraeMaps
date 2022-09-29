@@ -3,19 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/content_padding"
     tools:context=".ui.MaraeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/content_padding">
+        >
 
         <LinearLayout
             android:id="@+id/infoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:id="@+id/maraeTitleTextView"
@@ -23,44 +25,61 @@
                 android:layout_height="wrap_content"
                 android:text="Marae Title"
                 android:textSize="30dp"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/maraeIwiTextView"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Iwi" />
+                android:layout_height="match_parent"
+                android:padding="@dimen/inner_content_padding">
 
-            <TextView
-                android:id="@+id/maraeAddressTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Address" />
+                <TextView
+                    android:id="@+id/maraeIwiTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Iwi" />
 
-            <TextView
-                android:id="@+id/maraeHapuTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hapu" />
+                <TextView
+                    android:id="@+id/maraeAddressTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address" />
 
-            <TextView
-                android:id="@+id/maraeWharenuiTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Wharenui" />
+                <TextView
+                    android:id="@+id/maraeHapuTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hapu" />
+
+                <TextView
+                    android:id="@+id/maraeWharenuiTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wharenui" />
+            </LinearLayout>
+
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            android:layout_height="1dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            android:padding="@dimen/inner_content_padding">
 
             <TextView
                 android:id="@+id/maraeLocationTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Location"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:textSize="20dp" />
 
 
@@ -71,23 +90,31 @@
         </LinearLayout>
 
 
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            android:layout_height="1dp"/>
+
         <LinearLayout
             android:id="@+id/streetViewLayout"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/inner_content_padding">
 
             <TextView
                 android:id="@+id/streetViewTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Street View"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/maraeStreetViewSubTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="0dp" />
 
             <com.google.android.gms.maps.StreetViewPanoramaView
                 android:id="@+id/maraeStreetView"
