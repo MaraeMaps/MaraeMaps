@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/wikiFragment"
         android:name="com.example.maps.ui.WikiFragment"
-        android:label="Marae Wiki"
+        android:label="Marae Search"
         tools:layout="@layout/fragment_wiki" >
         <action
             android:id="@+id/action_wikiFragment_to_mapsFragment"
