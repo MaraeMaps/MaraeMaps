@@ -13,7 +13,20 @@
     <string name="search">Search</string>
     <string name="settings">Settings</string>
     <string name="detail_not_found_label">unavailable</string>
+    <string name="about_us_title">About us</string>
+    <string name="about_us">
+        This app was made by a group of software engineering students from the University of Otago.
+    </string>
 
+    <string name="credits_title">Credits</string>
+    <string name="credits">
+        <![CDATA[Our marae information was borrowed from Te Puni Kōkiri.  You can find the original data set <a href="https://www.arcgis.com/home/item.html?id=3b9e52a2012a4e4cb434e07ce19b36dd">here</a>]]>
+    </string>
+
+    <string name="street_view">Street View</string>
+    <string name="location">Location</string>
+
+    <string name="credits_link"><a href="https://www.arcgis.com/home/item.html?id=3b9e52a2012a4e4cb434e07ce19b36dd">here</a></string>
     <!-- Language headers/settings, default of English -->
 
     <string name="language_header">Language</string>
