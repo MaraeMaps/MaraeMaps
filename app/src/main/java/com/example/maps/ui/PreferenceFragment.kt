@@ -5,11 +5,12 @@ import androidx.preference.PreferenceFragmentCompat
 import com.example.maps.R
 
 /**
- * A fragment representing our list of info: settings, about us, credits.
+ * A fragment for different settings preferences that a user can choose
+ *
  * @author Kavan Chay
  */
 
-class InfoFragment : PreferenceFragmentCompat() {
+class PreferenceFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)

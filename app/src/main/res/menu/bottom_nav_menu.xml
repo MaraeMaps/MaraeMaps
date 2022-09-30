@@ -12,7 +12,7 @@
         android:title="@string/search" />
 
     <item
-        android:id="@+id/infoFragment"
+        android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settings" />
 </menu>
