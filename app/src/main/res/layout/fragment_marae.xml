@@ -22,7 +22,6 @@
                 android:id="@+id/maraeTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Marae Title"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -130,27 +129,25 @@
 
         </LinearLayout>
 
-        <View
+        <include
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black" />
+            android:layout_height="wrap_content"
+            layout="@layout/content_divider"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:orientation="vertical"
-
             android:padding="@dimen/inner_content_padding">
 
             <TextView
                 android:id="@+id/maraeLocationTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Location"
+                android:text="@string/location"
                 android:paddingBottom="@dimen/inner_content_padding"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                style="@style/medium_content_title"/>
 
 
             <com.google.android.gms.maps.MapView
@@ -160,10 +157,11 @@
         </LinearLayout>
 
 
-        <View
+        <include
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black" />
+            android:layout_height="wrap_content"
+            layout="@layout/content_divider"
+            />
 
         <LinearLayout
             android:id="@+id/streetViewLayout"
@@ -176,11 +174,9 @@
                 android:id="@+id/streetViewTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Street View"
+                android:text="@string/street_view"
                 android:paddingBottom="@dimen/inner_content_padding"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                style="@style/medium_content_title"/>
 
             <TextView
                 android:id="@+id/maraeStreetViewSubTitle"
