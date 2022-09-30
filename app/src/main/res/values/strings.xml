@@ -25,8 +25,6 @@
 
     <string name="street_view">Street View</string>
     <string name="location">Location</string>
-
-    <string name="credits_link"><a href="https://www.arcgis.com/home/item.html?id=3b9e52a2012a4e4cb434e07ce19b36dd">here</a></string>
     <!-- Language headers/settings, default of English -->
 
     <string name="language_header">Language</string>
