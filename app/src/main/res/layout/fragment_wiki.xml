@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/fragment_wiki"
     android:layout_height="match_parent"
-    tools:context=".ui.WikiFragment">
+    tools:context=".ui.WikiFragment"
+    android:padding="@dimen/content_padding">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/inner_content_padding">
+        android:orientation="vertical">
 
         <SearchView
             android:id="@+id/maraeSearchView"
