@@ -20,7 +20,7 @@
 
     <string name="credits_title">Credits</string>
     <string name="credits">
-        <![CDATA[Our marae information was borrowed from Te Puni Kōkiri.  You can find the original data set <a href="https://www.arcgis.com/home/item.html?id=3b9e52a2012a4e4cb434e07ce19b36dd">here</a>]]>
+        <![CDATA[Our marae information was borrowed from Te Puni Kōkiri.  You can find the original dataset <a href="https://www.arcgis.com/home/item.html?id=3b9e52a2012a4e4cb434e07ce19b36dd">here</a>]]>
     </string>
 
     <string name="street_view">Street View</string>
