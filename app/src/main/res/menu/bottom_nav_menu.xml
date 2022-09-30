@@ -9,7 +9,7 @@
     <item
         android:id="@+id/wikiFragment"
         android:icon="@drawable/ic_marae"
-        android:title="@string/wiki" />
+        android:title="@string/search" />
 
     <item
         android:id="@+id/infoFragment"

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.maps.R
@@ -63,9 +64,51 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
         maraeStreetView.getStreetViewPanoramaAsync(this)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onResume() {
+        maraeMapView.onResume()
+        maraeStreetView.onResume()
         super.onResume()
         addFragmentTitle()
+    }
+
+    override fun onPause() {
+        maraeMapView.onResume()
+        maraeStreetView.onResume()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        maraeMapView.onDestroy()
+        maraeStreetView.onDestroy()
+        super.onDestroy()
+    }
+
+    override fun onStart() {
+        maraeMapView.onStart()
+        maraeStreetView.onStart()
+        super.onStart()
+    }
+
+    override fun onStop() {
+        maraeMapView.onStart()
+        maraeStreetView.onStart()
+        super.onStop()
+    }
+
+    override fun onLowMemory() {
+        maraeMapView.onLowMemory()
+        maraeStreetView.onLowMemory()
+        super.onLowMemory()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        maraeMapView.onSaveInstanceState(outState)
+        maraeStreetView.onSaveInstanceState(outState)
+        super.onSaveInstanceState(outState)
     }
 
     /**
@@ -96,10 +139,21 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
      * Adds text to this fragment providing information on the currently selected marae
      */
     private fun addMaraeInfo() {
-        maraeTitleTextView.text = """${chosenMarae.Name}"""
-        maraeIwiTextView.text = """Iwi: ${chosenMarae.Iwi}""";
-        maraeHapuTextView.text = """Hapu: ${chosenMarae.Hapu}"""
-        maraeAddressTextView.text = """Address: ${chosenMarae.Location}"""
+        maraeTitleTextView.text = chosenMarae.Name
+        addMaraeDetail(maraeIwiTextView, chosenMarae.Iwi)
+        addMaraeDetail(maraeAddressTextView, chosenMarae.Location)
+        addMaraeDetail(maraeHapuTextView, chosenMarae.Hapu)
+        addMaraeDetail(maraeWharenuiTextView, chosenMarae.Wharenui)
+    }
+
+    private fun addMaraeDetail(textView: TextView, detail : String?) {
+        if (detail == "") {
+            textView.text = resources.getString(R.string.detail_not_found_label)
+            textView.setTextColor(resources.getColor(R.color.light_gray));
+        }
+        else {
+            textView.text = detail;
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -116,6 +170,7 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
             if (!(streetViewPanoramaLocation != null && streetViewPanoramaLocation.links != null)) {
                 maraeStreetView.visibility = View.GONE;
                 maraeStreetViewSubTitle.text = resources.getString(R.string.street_view_not_found)
+                maraeStreetViewSubTitle.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             }
         }
     }
