@@ -40,8 +40,8 @@
             app:destination="@id/maraeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/infoFragment"
-        android:name="com.example.maps.ui.InfoFragment"
+        android:id="@+id/settingsFragment"
+        android:name="com.example.maps.ui.SettingsFragment"
         android:label="Settings"/>
     <fragment
         android:id="@+id/maraeFragment"
