@@ -1,5 +1,7 @@
 package com.example.maps.ui
 
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -13,6 +15,7 @@ import com.example.maps.core.Marae
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.Delay
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -36,6 +39,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupNav(createMaraeListBundle());
+
+        // Play a sound
+        var mMediaPlayer = MediaPlayer()
+        mMediaPlayer = MediaPlayer.create(this, R.raw.open_sound)
+        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        mMediaPlayer.isLooping = false
+
+        mMediaPlayer.start()
     }
 
     /**
