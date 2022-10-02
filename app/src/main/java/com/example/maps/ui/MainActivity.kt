@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         mMediaPlayer = MediaPlayer.create(this, R.raw.open_sound)
         mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
         mMediaPlayer.isLooping = false
-
         mMediaPlayer.start()
     }
 
