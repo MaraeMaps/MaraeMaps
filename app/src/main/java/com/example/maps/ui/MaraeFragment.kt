@@ -113,7 +113,7 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
         streetViewPanorama.setPosition(LatLng(chosenMarae.Y, chosenMarae.X))
 
         streetViewPanorama.setOnStreetViewPanoramaChangeListener { streetViewPanoramaLocation ->
-            if (streetViewPanoramaLocation?.links == null) {
+            if (!(streetViewPanoramaLocation != null && streetViewPanoramaLocation.links != null)) {
                 maraeStreetView.visibility = View.GONE;
                 maraeStreetViewSubTitle.text = resources.getString(R.string.street_view_not_found)
             }
