@@ -13,6 +13,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.StreetViewPanoramaCamera
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation
 import kotlinx.android.synthetic.main.fragment_marae.*
 
 
@@ -166,7 +167,7 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
     override fun onStreetViewPanoramaReady(streetViewPanorama: StreetViewPanorama) {
         streetViewPanorama.setPosition(LatLng(chosenMarae.Y, chosenMarae.X))
 
-        streetViewPanorama.setOnStreetViewPanoramaChangeListener { streetViewPanoramaLocation ->
+        streetViewPanorama.setOnStreetViewPanoramaChangeListener { streetViewPanoramaLocation : StreetViewPanoramaLocation? ->
             if (!(streetViewPanoramaLocation != null && streetViewPanoramaLocation.links != null)) {
                 maraeStreetView.visibility = View.GONE;
                 maraeStreetViewSubTitle.text = resources.getString(R.string.street_view_not_found)
