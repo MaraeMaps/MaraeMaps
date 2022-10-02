@@ -25,18 +25,12 @@
 
     <string name="street_view">Street View</string>
     <string name="location">Location</string>
-    <!-- Language headers/settings, default of English -->
 
+    <!-- Language headers/settings, default of English -->
     <string name="language_header">Language</string>
     <string name="key_language">key_language</string>
     <string name="lang_summary">Change language of the app</string>
     <string name="default_language">en</string>
-
-    <!-- Font size headers/settings, default of Medium -->
-    <string name="font_size_header">Font size</string>
-    <string name="key_font_size">key_font_size</string>
-    <string name="font">Change size of font in app</string>
-    <string name="default_font_size">m</string>
 
     <string name="street_view_not_found">Street View for this Marae could not be found!</string>
 </resources>
