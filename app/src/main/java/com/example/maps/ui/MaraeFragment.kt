@@ -12,6 +12,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.StreetViewPanoramaCamera
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation
 import kotlinx.android.synthetic.main.fragment_marae.*
 
 
@@ -63,9 +64,51 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
         maraeStreetView.getStreetViewPanoramaAsync(this)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onResume() {
+        maraeMapView.onResume()
+        maraeStreetView.onResume()
         super.onResume()
         addFragmentTitle()
+    }
+
+    override fun onPause() {
+        maraeMapView.onResume()
+        maraeStreetView.onResume()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        maraeMapView.onDestroy()
+        maraeStreetView.onDestroy()
+        super.onDestroy()
+    }
+
+    override fun onStart() {
+        maraeMapView.onStart()
+        maraeStreetView.onStart()
+        super.onStart()
+    }
+
+    override fun onStop() {
+        maraeMapView.onStart()
+        maraeStreetView.onStart()
+        super.onStop()
+    }
+
+    override fun onLowMemory() {
+        maraeMapView.onLowMemory()
+        maraeStreetView.onLowMemory()
+        super.onLowMemory()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        maraeMapView.onSaveInstanceState(outState)
+        maraeStreetView.onSaveInstanceState(outState)
+        super.onSaveInstanceState(outState)
     }
 
     /**
@@ -112,8 +155,8 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
     override fun onStreetViewPanoramaReady(streetViewPanorama: StreetViewPanorama) {
         streetViewPanorama.setPosition(LatLng(chosenMarae.Y, chosenMarae.X))
 
-        streetViewPanorama.setOnStreetViewPanoramaChangeListener { streetViewPanoramaLocation ->
-            if (streetViewPanoramaLocation?.links == null) {
+        streetViewPanorama.setOnStreetViewPanoramaChangeListener { streetViewPanoramaLocation : StreetViewPanoramaLocation? ->
+            if (!(streetViewPanoramaLocation != null && streetViewPanoramaLocation.links != null)) {
                 maraeStreetView.visibility = View.GONE;
                 maraeStreetViewSubTitle.text = resources.getString(R.string.street_view_not_found)
             }
