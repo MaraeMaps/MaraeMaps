@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
+
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -73,9 +73,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
         clusterManager.setOnClusterItemClickListener(
             OnClusterItemClickListener {
-
-                Toast.makeText(context, "Cluster item click", Toast.LENGTH_SHORT).show()
-
                 // if true, click handling stops here and do not show info view, do not move camera
                 // you can avoid this by calling:
                 // renderer.getMarker(clusterItem).showInfoWindow();
@@ -91,10 +88,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             findNavController().navigate(action)
 
         }
-//            Toast.makeText(
-//                context, "Clicked info window: " + stringClusterItem!!.title,
-//                Toast.LENGTH_SHORT
-//            ).show()
 
 
         if (maraeList != null) {
@@ -116,7 +109,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MainActivity.MyItem(lat, lng, i, "${i.Name}", i.Iwi  + "\n\nLocation: " + i.Location
+                val item = MainActivity.MyItem(lat, lng, i, "${i.Name}", "${i.Iwi}"
                 )
                 clusterManager.addItem(item)
             }
@@ -167,15 +160,13 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
     }
 
     override fun getInfoContents(p0: Marker): View? {
-        //val ma: Marae = p0.tag as Marae
         val iwi = myContentsView?.findViewById<TextView>(R.id.iwi)
         val title = myContentsView?.findViewById<TextView>(R.id.title)
-        //val address = myContentsView?.findViewById<TextView>(R.id.address)
         if (iwi != null) {
             if (p0.snippet == "") {
                 "Iwi information not available".also { iwi.text = it }
             } else {
-                ("Iwi: " + p0.snippet).also { iwi.text = it }
+                (p0.snippet).also { iwi.text = it }
             }
         }
         if (title != null) {
@@ -183,11 +174,5 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         }
         return myContentsView
 
-    }
-
-    fun onInfoWindowClick(p0: Marker) {
-        val ma: Marae = p0.tag as Marae
-        val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(ma)
-        findNavController().navigate(action)
     }
 }

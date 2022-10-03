@@ -143,9 +143,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         override fun getSnippet(): String? {
             return if (marae.Iwi == ""){
-                "Iwi information no available\n\nLocation: " + marae.Location
+                "Iwi information not available\n\nLocation: " + marae.Location + "\n\nRegion: " + marae.TPK_Region
             } else {
-                "Iwi: " + marae.Iwi + "\n\nLocation: " + marae.Location
+                "Iwi: " + marae.Iwi + "\n\nLocation: " + marae.Location + "\n\nRegion: " + marae.TPK_Region
             }
 
         }

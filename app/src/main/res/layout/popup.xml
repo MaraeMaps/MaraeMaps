@@ -28,15 +28,6 @@
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/address"
-        android:layout_below="@+id/iwi"
-        android:textSize="14dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginBottom="20dp"
-        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
