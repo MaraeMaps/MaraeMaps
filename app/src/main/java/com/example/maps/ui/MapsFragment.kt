@@ -60,8 +60,8 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         var maraeList: ArrayList<Marae> =
             arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        val pos = LatLng(-41.276601, 173.275072)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(pos))
+        val nelson = LatLng(-41.276601, 173.275072)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(nelson))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
         googleMap.setInfoWindowAdapter(this)
         //googleMap.setOnInfoWindowClickListener(this)
@@ -116,7 +116,8 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = i.Name?.let { MainActivity.MyItem(lat, lng, i, "${i.Name}", "${i.Iwi}") }
+                val item = MainActivity.MyItem(lat, lng, i, "${i.Name}", i.Iwi  + "\n\nLocation: " + i.Location
+                )
                 clusterManager.addItem(item)
             }
         }
@@ -169,24 +170,17 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         //val ma: Marae = p0.tag as Marae
         val iwi = myContentsView?.findViewById<TextView>(R.id.iwi)
         val title = myContentsView?.findViewById<TextView>(R.id.title)
-        val region = myContentsView?.findViewById<TextView>(R.id.region)
-        val location = myContentsView?.findViewById<TextView>(R.id.location)
+        //val address = myContentsView?.findViewById<TextView>(R.id.address)
         if (iwi != null) {
             if (p0.snippet == "") {
-                iwi.text = "Iwi information not available"
+                "Iwi information not available".also { iwi.text = it }
             } else {
-                iwi.text = p0.snippet
+                ("Iwi: " + p0.snippet).also { iwi.text = it }
             }
         }
         if (title != null) {
             title.text = p0.title
         }
-//        if (region != null) {
-//            region.text = "Region: " + ma.TPK_Region
-//        }
-//        if (location != null) {
-//            location.text = "Address: " + ma.Location
-//        }
         return myContentsView
 
     }

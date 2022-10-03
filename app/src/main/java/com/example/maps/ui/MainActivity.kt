@@ -124,22 +124,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         lng: Double,
         marae: Marae,
         title: String,
-        snippet: String,
-/*    iwi: String,
-    region: String,
-    address: String,*/
+        snippet: String
     ) : ClusterItem {
 
         private val position: LatLng
         private val marae: Marae
-        private val title: String
-        private val snippet: String
-/*    private val title: String
-    private val snippet: String
-    private val iwi: String
-    private val region: String
-    private val address: String*/
-
+        private var title: String
+        private var snippet: String
 
 
         override fun getPosition(): LatLng {
@@ -151,37 +142,23 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         override fun getSnippet(): String? {
-            return "Snippet goes here"
-            //return "Iwi: ${getIwi()}\nRegion: ${getRegion()}\nAddress: ${getAddress()}"
+            return if (marae.Iwi == ""){
+                "Iwi information no available\n\nLocation: " + marae.Location
+            } else {
+                "Iwi: " + marae.Iwi + "\n\nLocation: " + marae.Location
+            }
+
         }
-
-/*    fun getIwi(): String? {
-        return iwi
-    }
-
-    fun getRegion(): String? {
-        return region
-    }
-
-    fun getAddress(): String? {
-        return address
-    }*/
 
         fun getMarae(): Marae {
             return marae
         }
-
-
 
         init {
             position = LatLng(lat, lng)
             this.marae = marae
             this.title = title
             this.snippet = snippet
-/*        this.iwi = iwi
-        this.region = region
-        this.address = address*/
-
         }
     }
 
