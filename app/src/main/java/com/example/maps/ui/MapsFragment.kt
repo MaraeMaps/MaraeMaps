@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.Navigation.findNavController
@@ -38,6 +39,8 @@ import com.google.android.gms.maps.model.MarkerOptions
  */
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter {
 
+    public var global = 0
+
     private var myContentsView: View? = null
     private lateinit var clusterManager: ClusterManager<MainActivity.MyItem?>
     private var chosenMarae: Marae? = null;
@@ -64,29 +67,28 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(nelson))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
         googleMap.setInfoWindowAdapter(this)
-        //googleMap.setOnInfoWindowClickListener(this)
 
-        clusterManager = ClusterManager(context, googleMap)
+        // cluster manager tasks
+            // if its not 1st time, don't create new clusterManager
+        if (!(global == 1)) {
+            clusterManager = ClusterManager(context, googleMap)
+            val renderer = CustomClusterRenderer(requireContext(), googleMap, clusterManager)
+            clusterManager.renderer = renderer
+            clusterManager.setOnClusterItemClickListener(
+                OnClusterItemClickListener {
+                    // if true, click handling stops here and do not show info view, do not move camera
+                    // you can avoid this by calling:
+                    // renderer.getMarker(clusterItem).showInfoWindow();
+                    false
+                })
+            clusterManager.markerCollection.setInfoWindowAdapter(this)
+            googleMap.setInfoWindowAdapter(clusterManager.markerManager)
+            clusterManager.setOnClusterItemInfoWindowClickListener { stringClusterItem ->
+                val action =
+                    MapsFragmentDirections.actionMapsFragmentToMaraeFragment(stringClusterItem!!.getMarae())
+                findNavController().navigate(action)
 
-        val renderer = CustomClusterRenderer(requireContext(), googleMap, clusterManager)
-        clusterManager.renderer = renderer
-
-        clusterManager.setOnClusterItemClickListener(
-            OnClusterItemClickListener {
-                // if true, click handling stops here and do not show info view, do not move camera
-                // you can avoid this by calling:
-                // renderer.getMarker(clusterItem).showInfoWindow();
-                false
-            })
-
-        clusterManager.markerCollection.setInfoWindowAdapter(this)
-        googleMap.setInfoWindowAdapter(clusterManager.markerManager)
-
-        clusterManager.setOnClusterItemInfoWindowClickListener { stringClusterItem ->
-
-            val action = MapsFragmentDirections.actionMapsFragmentToMaraeFragment(stringClusterItem!!.getMarae())
-            findNavController().navigate(action)
-
+            }
         }
 
 
@@ -109,13 +111,20 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MainActivity.MyItem(lat, lng, i, "${i.Name}", "${i.Iwi}"
+                val item = MainActivity.MyItem(
+                    lat, lng, i, "${i.Name}", "${i.Iwi}"
                 )
                 clusterManager.addItem(item)
             }
         }
 
         fun setUpClusterer() {
+
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(context, "clusterer setup!", duration)
+            toast.show()
+
             var lat = maraeList.get(0).Y
             var lng = maraeList.get(0).X
 
@@ -131,8 +140,12 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             googleMap.setOnMarkerClickListener(clusterManager)
 
             addItems()
+            global = 1
         }
-        setUpClusterer()
+
+        if (!(global == 1)) {
+            setUpClusterer()
+        }
 
     }
 
@@ -146,8 +159,8 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
+            val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+            mapFragment?.getMapAsync(callback)
     }
 
     override fun onMarkerClick(p0: Marker): Boolean {
