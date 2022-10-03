@@ -1,6 +1,7 @@
 package com.example.maps.ui
 
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -10,9 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.maps.R
 import com.example.maps.core.Marae
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.google.maps.android.clustering.ClusterItem
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -116,4 +118,57 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val arrayMaraeType = object : TypeToken<ArrayList<Marae>>() {}.type
         return Gson().fromJson(jsonString, arrayMaraeType)
     }
+
+    /**
+     *
+     * This inner class represents individual Marae and is used to enable clustering.
+     *
+     *
+     */
+    class MyItem(
+        lat: Double,
+        lng: Double,
+        marae: Marae,
+        title: String,
+        snippet: String
+    ) : ClusterItem {
+
+        private val position: LatLng
+        private val marae: Marae
+        private var title: String
+        private var snippet: String
+
+
+        override fun getPosition(): LatLng {
+            return position
+        }
+
+        override fun getTitle(): String? {
+            return title
+        }
+
+        override fun getSnippet(): String? {
+            return if (marae.Iwi == ""){
+                "Iwi information not available\n\nLocation: " + marae.Location + "\n\nRegion: " + marae.TPK_Region
+            } else {
+                "Iwi: " + marae.Iwi + "\n\nLocation: " + marae.Location + "\n\nRegion: " + marae.TPK_Region
+            }
+
+        }
+
+        /**
+         * the class is using carrying an instance of a Marae object to set the snippet text.
+         */
+        fun getMarae(): Marae {
+            return marae
+        }
+
+        init {
+            position = LatLng(lat, lng)
+            this.marae = marae
+            this.title = title
+            this.snippet = snippet
+        }
+    }
+
 }
