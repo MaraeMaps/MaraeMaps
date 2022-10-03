@@ -119,6 +119,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         return Gson().fromJson(jsonString, arrayMaraeType)
     }
 
+    /**
+     *
+     * This inner class represents individual Marae and is used to enable clustering.
+     *
+     *
+     */
     class MyItem(
         lat: Double,
         lng: Double,
@@ -150,6 +156,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         }
 
+        /**
+         * the class is using carrying an instance of a Marae object to set the snippet text.
+         */
         fun getMarae(): Marae {
             return marae
         }

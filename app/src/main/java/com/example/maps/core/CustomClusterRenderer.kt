@@ -10,7 +10,15 @@ import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
 import kotlinx.coroutines.channels.ticker
 
-
+/**
+ *
+ * This class looks after the customisation of our google maps cluster items.
+ *
+ * it sets the image for the marker icon and sets the text for the info pop-ups.
+ *
+ * @author Lucy Sladden
+ *
+ */
 class CustomClusterRenderer(
     context: Context, map: GoogleMap?,
     clusterManager: ClusterManager<MainActivity.MyItem?>?
