@@ -45,4 +45,5 @@
     <string name="street_view_not_found">Street View for this Marae could not be found!</string>
 
     <string name="marae_search">Marae Whakataki"</string>
+    <string name="marae_map">Marae Mapi</string>
 </resources>

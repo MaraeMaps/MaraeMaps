@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.maps.ui.MapsFragment"
-        android:label="Marae Mapi"
+        android:label="@string/marae_map"
         tools:layout="@layout/fragment_maps" >
         <action
             android:id="@+id/action_mapsFragment_to_wikiFragment"

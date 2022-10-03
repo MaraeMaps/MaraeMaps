@@ -44,4 +44,6 @@
     <string name="default_font_size">Default Font Size</string>
     <string name="font_size_summary">ADD MAORI Font size is: %1$s</string>
 
+    <string name="marae_map">Marae Map</string>
+
 </resources>
