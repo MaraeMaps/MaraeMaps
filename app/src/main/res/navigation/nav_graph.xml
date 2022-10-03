@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.maps.ui.MapsFragment"
-        android:label="Marae Map"
+        android:label="Marae Mapi"
         tools:layout="@layout/fragment_maps" >
         <action
             android:id="@+id/action_mapsFragment_to_wikiFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/wikiFragment"
         android:name="com.example.maps.ui.WikiFragment"
-        android:label="Marae Search"
+        android:label="@string/marae_search"
         tools:layout="@layout/fragment_wiki" >
         <action
             android:id="@+id/action_wikiFragment_to_mapsFragment"
@@ -42,7 +42,7 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.maps.ui.SettingsFragment"
-        android:label="Settings"/>
+        android:label="@string/settings"/>
     <fragment
         android:id="@+id/maraeFragment"
         android:name="com.example.maps.ui.MaraeFragment"
