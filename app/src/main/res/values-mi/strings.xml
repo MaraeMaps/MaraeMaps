@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MaraeMaps</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="map_id">7712746dad954cb</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="iwi_label">"Iwi: $1$s"</string>
+    <string name="location_label">"Tauwāhi: $1$s"</string>
+    <string name="map">Mapi</string>
+    <string name="wiki">Marae</string>
+    <string name="settings">Kōwhiringa </string>
+
+    <!-- Language headers/settings, default of English -->
+
+    <string name="language_header">Reo</string>
+    <string name="key_language">key_language</string>
+    <string name="lang_summary">Huri reo taupānga</string>
+    <string name="default_language">en</string>
+    <string name="language_summary">ADD MAORI Current Language is: %1$s</string>
+
+    <!-- Font size headers/settings, default of Medium -->
+    <string name="font_size_header">Rahi momotuhi</string>
+    <string name="key_font_size">key_font_size</string>
+    <string name="font">Maori Hurihia te rahi momotuhi taupānga</string>
+    <string name="default_font_size">m</string>
+    <string name="font_size_summary">ADD MAORI Font size is: %1$s</string>
+
+
+
+</resources>
