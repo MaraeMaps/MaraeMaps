@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_lang_setting" translatable="false">
+        <item>reo Ingarihi</item>
+        <item>Te reo Māori</item>
+    </string-array>
+
+    <string-array name="lang_values" translatable="false">
+        <item>en</item>
+        <item>ma</item>
+    </string-array>
+
+    <string-array name="pref_size_settings" translatable="false">
+        <item>Iti</item>
+        <item>Waenga</item>
+        <item>Rarahi</item>
+    </string-array>
+
+    <string-array name="size_values" translatable="false">
+        <item>s</item>
+        <item>m</item>
+        <item>l</item>
+    </string-array>
+</resources>
