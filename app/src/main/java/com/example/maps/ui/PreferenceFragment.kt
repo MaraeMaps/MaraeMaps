@@ -10,6 +10,8 @@ import java.util.*
 /**
  * A fragment for different settings preferences that a user can choose
  *
+ * Is placed inside a SettingsFragmmetn
+ *
  * @author Kavan Chay, Harry Pirrit and Hugo Phibbs
  */
 class PreferenceFragment : PreferenceFragmentCompat() {

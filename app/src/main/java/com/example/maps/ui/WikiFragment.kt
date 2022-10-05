@@ -29,11 +29,6 @@ class WikiFragment : Fragment() {
      */
     private lateinit var maraeSearchView: SearchView;
 
-    /**
-     * Called to instantiate the view of this Fragment
-     *
-     * Overrides [Fragment.onCreateView]
-     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -100,7 +95,6 @@ class WikiFragment : Fragment() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 return onQueryTextSubmit(newText)
             }
-
         })
     }
 }
