@@ -5,7 +5,7 @@
     <string name="title_activity_main">MainActivity</string>
 
     <string name="iwi_label">Iwi: </string>
-    <string name="location_label">"Location: </string>
+    <string name="location_label">Location: </string>
     <string name="address_label">Address: </string>
     <string name="hapu_label">Hapu: </string>
     <string name="wharenui_label">Wharenui: </string>
