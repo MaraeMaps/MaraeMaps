@@ -64,8 +64,11 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
         val nelson = LatLng(-41.276601, 173.275072)
+        if (global == 0) {
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(nelson))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
+
+        }
         googleMap.setInfoWindowAdapter(this)
 
         // cluster manager tasks
@@ -129,7 +132,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             var lng = maraeList.get(0).X
 
             // Position the map.
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lng), 0f))
+//            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lng), 0f))
 
             // Initialize the manager with the context and the map.
             // (Activity extends context, so we can pass 'this' in the constructor.)
