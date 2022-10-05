@@ -8,34 +8,29 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
-import kotlinx.coroutines.channels.ticker
 
 /**
  *
- * This class looks after the customisation of our google maps cluster items.
+ * This class looks after the customisation of our Google Maps ClusterItems.
  *
- * it sets the image for the marker icon and sets the text for the info pop-ups.
+ * It sets the image for the marker icon and sets the text for the info pop-ups.
  *
  * @author Lucy Sladden
  *
  */
 class CustomClusterRenderer(
     context: Context, map: GoogleMap?,
-    clusterManager: ClusterManager<MainActivity.MyItem?>?
+    clusterManager: ClusterManager<MainActivity.MaraeItem?>?
 ) :
-    DefaultClusterRenderer<MainActivity.MyItem?>(context, map, clusterManager) {
-    private val mContext: Context
+    DefaultClusterRenderer<MainActivity.MaraeItem?>(context, map, clusterManager) {
+
     override fun onBeforeClusterItemRendered(
-        item: MainActivity.MyItem,
+        item: MainActivity.MaraeItem,
         markerOptions: MarkerOptions
     ) {
         val markerDescriptor: BitmapDescriptor = BitmapDescriptorFactory.defaultMarker(
-            BitmapDescriptorFactory.HUE_ORANGE);
-
+            BitmapDescriptorFactory.HUE_ORANGE
+        );
         markerOptions.icon(markerDescriptor).snippet(item!!.snippet).title(item!!.title);
-    }
-
-    init {
-        mContext = context
     }
 }

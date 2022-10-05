@@ -187,6 +187,5 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
             }
             notifyDataSetChanged()
         }
-
     }
 }

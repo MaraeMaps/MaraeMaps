@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.maps.R
 import com.example.maps.core.CustomClusterRenderer
 import com.example.maps.core.Marae
@@ -25,8 +23,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.ClusterManager.*
 
-import com.google.android.gms.maps.model.MarkerOptions
-
 /**
  * Fragment to show a Maps view of Marae around NZ
  *
@@ -39,7 +35,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter {
 
     private var myContentsView: View? = null
-    private lateinit var clusterManager: ClusterManager<MainActivity.MyItem?>
+    private lateinit var clusterManager: ClusterManager<MainActivity.MaraeItem?>
     private var chosenMarae: Marae? = null;
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -54,17 +50,10 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
          */
         myContentsView = layoutInflater.inflate(R.layout.popup, null);
 
-        // Create a Marker array and iterate through marae to add them to the map
-        var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
-
         var maraeList: ArrayList<Marae> =
             arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        val nelson = LatLng(-41.276601, 173.275072)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(nelson))
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
         googleMap.setInfoWindowAdapter(this)
-        //googleMap.setOnInfoWindowClickListener(this)
 
         clusterManager = ClusterManager(context, googleMap)
 
@@ -81,7 +70,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
 
         clusterManager.markerCollection.setInfoWindowAdapter(this)
         googleMap.setInfoWindowAdapter(clusterManager.markerManager)
-
         clusterManager.setOnClusterItemInfoWindowClickListener { stringClusterItem ->
 
             val action = MapsFragmentDirections.actionMapsFragmentToMaraeFragment(stringClusterItem!!.getMarae())
@@ -109,19 +97,15 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MainActivity.MyItem(lat, lng, i, "${i.Name}", "${i.Iwi}"
+                val item = MainActivity.MaraeItem(lat, lng, i, "${i.Name}", "${i.Iwi}"
                 )
                 clusterManager.addItem(item)
             }
         }
 
         fun setUpClusterer() {
-            var lat = maraeList.get(0).Y
-            var lng = maraeList.get(0).X
-
             // Position the map.
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lng), 0f))
-
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(-41.276601, 173.275072), 5f))
             // Initialize the manager with the context and the map.
             // (Activity extends context, so we can pass 'this' in the constructor.)
 
@@ -151,7 +135,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
     }
 
     override fun onMarkerClick(p0: Marker): Boolean {
-
         TODO("Not yet implemented")
     }
 

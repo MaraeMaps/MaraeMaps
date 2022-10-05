@@ -15,12 +15,11 @@ import java.util.*
 /**
  * Fragment for settings of this app.
  *
- * Includes any actual credits, plus a credits and about us section
+ * Includes any actual credits, plus a credits and about us section.
  *
  * @author Hugo Phibbs
  */
 class SettingsFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,15 +41,4 @@ class SettingsFragment : Fragment() {
         Linkify.addLinks(credits, Linkify.WEB_URLS)
         credits.movementMethod = LinkMovementMethod.getInstance();
     }
-
-    private fun updateLocale(loc: String) {
-        val locale = Locale(loc);
-        Locale.setDefault(locale)
-        val resources = activity?.getResources();
-        val config = resources?.configuration;
-        config?.setLocale(locale);
-
-        resources?.updateConfiguration(config, resources!!.displayMetrics)
-    }
-
 }

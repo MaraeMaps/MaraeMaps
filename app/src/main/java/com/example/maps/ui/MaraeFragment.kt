@@ -51,6 +51,9 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
         initStreetView(view, savedInstanceState)
     }
 
+    /**
+     * Initializes the Google Maps view insert of this marae
+     */
     private fun initMapView(view: View, savedInstanceState: Bundle?) {
         maraeMapView = view.findViewById(R.id.maraeMapView) as MapView
         maraeMapView.onCreate(savedInstanceState)

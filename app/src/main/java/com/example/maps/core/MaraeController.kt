@@ -8,12 +8,12 @@ package com.example.maps.core
  * @author Hugo Phibbs
  */
 class MaraeController {
-
     
      /**
      * Companion object used for accessing static methods of MaraeController
      */
     companion object {
+
         /**
          * Returns a String representation of an inputted Marae
          *
@@ -32,7 +32,6 @@ class MaraeController {
          * @return array of Strings as described
          */
         fun keyWords(marae: Marae): Array<String?> {
-            // TODO update for hapu, wharenui etc?
             return arrayOf(marae.Name, marae.Iwi, marae.Location)
         }
     }
