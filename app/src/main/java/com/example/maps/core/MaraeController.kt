@@ -1,19 +1,25 @@
 package com.example.maps.core
 
+import android.content.res.Resources
+import android.widget.TextView
+import com.example.maps.R
+
 /**
  * Class for manipulating and formatting Marae
  *
  * Meant to accompany Marae data class.
  *
+ * Provides general utility methods.
+ *
  * @author Hugo Phibbs
  */
 class MaraeController {
 
-    
-     /**
+    /**
      * Companion object used for accessing static methods of MaraeController
      */
     companion object {
+
         /**
          * Returns a String representation of an inputted Marae
          *
@@ -32,8 +38,29 @@ class MaraeController {
          * @return array of Strings as described
          */
         fun keyWords(marae: Marae): Array<String?> {
-            // TODO update for hapu, wharenui etc?
             return arrayOf(marae.Name, marae.Iwi, marae.Location)
         }
+
+        /**
+         * Adds detail for a particular field.
+         *
+         * Handles if the detail is empty.
+         *
+         * Refactored here for re-useablity for other ui classes =
+         *
+         * @param textView TextView object that displays the detail field of a particular marae.
+         * @param detail String for a marae detail to be shown
+         * @param resources Resources object that is used for this ui
+         */
+        fun addMaraeDetail(textView: TextView, detail: String?, resources : Resources) {
+            if (detail == "") {
+                textView.text = resources.getString(R.string.detail_not_found_label)
+                textView.setTextColor(resources.getColor(R.color.light_gray));
+            } else {
+                textView.text = detail;
+            }
+        }
     }
+
+
 }

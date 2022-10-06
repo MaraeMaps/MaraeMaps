@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.maps.R
 import com.example.maps.core.CustomClusterRenderer
 import com.example.maps.core.Marae
@@ -24,8 +22,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.ClusterManager.*
-
-import com.google.android.gms.maps.model.MarkerOptions
 
 /**
  * Fragment to show a Maps view of Marae around NZ
@@ -41,7 +37,7 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
     var freshLaunch = true
 
     private var myContentsView: View? = null
-    private lateinit var clusterManager: ClusterManager<MainActivity.MyItem?>
+    private lateinit var clusterManager: ClusterManager<MainActivity.MaraeItem?>
     private var chosenMarae: Marae? = null;
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -56,9 +52,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
          */
         myContentsView = layoutInflater.inflate(R.layout.popup, null);
 
-        // Create a Marker array and iterate through marae to add them to the map
-        var mMarkers: java.util.ArrayList<Marker> = java.util.ArrayList()
-
         var maraeList: ArrayList<Marae> =
             arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
@@ -69,7 +62,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         if (freshLaunch == true) {
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(centre))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
-
         }
         googleMap.setInfoWindowAdapter(this)
 
@@ -102,7 +94,8 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
             for (i in maraeList) {
                 lat = i.Y
                 lng = i.X
-                val item = MainActivity.MyItem(
+
+                val item = MainActivity.MaraeItem(
                     lat, lng, i, "${i.Name}", "${i.Iwi}"
                 )
                 clusterManager.addItem(item)
@@ -140,7 +133,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
     }
 
     override fun onMarkerClick(p0: Marker): Boolean {
-
         TODO("Not yet implemented")
     }
 

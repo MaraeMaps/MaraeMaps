@@ -9,7 +9,7 @@ import android.os.Parcelable
  * @author Lucy Sladden
  */
 data class Marae(
-    /** String for alternate name of this */
+    /** String for alternate name of this marae */
     val Alternate: String?,
     /* String for any comments that accompany this Marae*/
     val Comments: String?,
@@ -93,6 +93,7 @@ data class Marae(
      * @author Harry Pirrit
      */
     companion object CREATOR : Parcelable.Creator<Marae> {
+
         override fun createFromParcel(parcel: Parcel): Marae {
             return Marae(parcel)
         }

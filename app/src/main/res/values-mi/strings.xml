@@ -1,0 +1,49 @@
+<resources>
+        <string name="app_name">MaraeMaps</string>
+        <string name="title_activity_maps">MapsActivity</string>
+        <string name="map_id">7712746dad954cb</string>
+        <string name="title_activity_main">MainActivity</string>
+
+        <string name="iwi_label">Iwi: $1$s</string>
+        <string name="location_label">Tauwāhi: $1$s</string>
+        <string name="map">Mapi</string>
+        <string name="settings">Kōwhiringa </string>
+
+        <!-- Language headers/settings, default of English -->
+
+        <string name="language_header">Reo</string>
+        <string name="key_language">key_language</string>
+        <string name="lang_summary">Huri reo taupānga</string>
+        <string name="default_language">en</string>
+        <string name="language_summary">ADD MAORI Current Language is: %1$s</string>
+
+        <!-- Font size headers/settings, default of Medium -->
+        <string name="font_size_header">Rahi momotuhi</string>
+        <string name="key_font_size">key_font_size</string>
+        <string name="font">Maori Hurihia te rahi momotuhi taupānga</string>
+        <string name="default_font_size">m</string>
+        <string name="font_size_summary">ADD MAORI Font size is: %1$s</string>
+
+    <string name="address_label">Wāhi noho: </string>
+    <string name="hapu_label">Hapu: </string>
+    <string name="wharenui_label">Wharenui: </string>
+    <string name="search">Whakataki</string>
+    <string name="detail_not_found_label">unavailable</string>
+    <string name="about_us_title">Wāhi noho Wāhi noho</string>
+    <string name="about_us">
+        This is now in Maori
+    </string>
+
+    <string name="credits_title">Credits</string>
+    <string name="credits">
+        <![CDATA[Our marae information was borrowed from Te Puni Kōkiri.  You can find the original dataset <a href="https://www.arcgis.com/home/item.html?id=3b9e52a2012a4e4cb434e07ce19b36dd">here</a>]]>
+    </string>
+
+    <string name="street_view">Street View</string>
+    <string name="location">Location</string>
+
+    <string name="street_view_not_found">Street View for this Marae could not be found!</string>
+
+    <string name="marae_search">Marae Whakataki"</string>
+    <string name="marae_map">Marae Mapi</string>
+</resources>

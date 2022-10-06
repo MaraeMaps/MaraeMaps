@@ -5,7 +5,7 @@
     <string name="title_activity_main">MainActivity</string>
 
     <string name="iwi_label">Iwi: </string>
-    <string name="location_label">"Location: </string>
+    <string name="location_label">Location: </string>
     <string name="address_label">Address: </string>
     <string name="hapu_label">Hapu: </string>
     <string name="wharenui_label">Wharenui: </string>
@@ -33,4 +33,17 @@
     <string name="default_language">en</string>
 
     <string name="street_view_not_found">Street View for this Marae could not be found!</string>
+
+    <string name="marae_search">Marae Search"</string>
+
+    <string name="language_summary">ADD MAORI Current Language is: %1$s</string>
+
+    <string name="font_size_header">Font Size</string>
+    <string name="key_font_size">key_font_size</string>
+    <string name="font">FONT</string>
+    <string name="default_font_size">Default Font Size</string>
+    <string name="font_size_summary">ADD MAORI Font size is: %1$s</string>
+
+    <string name="marae_map">Marae Map</string>
+
 </resources>

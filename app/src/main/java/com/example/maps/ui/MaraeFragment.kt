@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.maps.R
 import com.example.maps.core.Marae
+import com.example.maps.core.MaraeController.Companion.addMaraeDetail
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -51,6 +52,9 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
         initStreetView(view, savedInstanceState)
     }
 
+    /**
+     * Initializes the Google Maps view insert of this marae
+     */
     private fun initMapView(view: View, savedInstanceState: Bundle?) {
         maraeMapView = view.findViewById(R.id.maraeMapView) as MapView
         maraeMapView.onCreate(savedInstanceState)
@@ -141,20 +145,10 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
      */
     private fun addMaraeInfo() {
         maraeTitleTextView.text = chosenMarae.Name
-        addMaraeDetail(maraeIwiTextView, chosenMarae.Iwi)
-        addMaraeDetail(maraeAddressTextView, chosenMarae.Location)
-        addMaraeDetail(maraeHapuTextView, chosenMarae.Hapu)
-        addMaraeDetail(maraeWharenuiTextView, chosenMarae.Wharenui)
-    }
-
-    private fun addMaraeDetail(textView: TextView, detail : String?) {
-        if (detail == "") {
-            textView.text = resources.getString(R.string.detail_not_found_label)
-            textView.setTextColor(resources.getColor(R.color.light_gray));
-        }
-        else {
-            textView.text = detail;
-        }
+        addMaraeDetail(maraeIwiTextView, chosenMarae.Iwi, resources)
+        addMaraeDetail(maraeAddressTextView, chosenMarae.Location, resources)
+        addMaraeDetail(maraeHapuTextView, chosenMarae.Hapu, resources)
+        addMaraeDetail(maraeWharenuiTextView, chosenMarae.Wharenui, resources)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

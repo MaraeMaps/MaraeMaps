@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.maps.*
 import com.example.maps.core.Marae
 import com.example.maps.core.MaraeController
+import com.example.maps.core.MaraeController.Companion.addMaraeDetail
 import java.text.Normalizer
 import kotlin.collections.ArrayList
 
@@ -52,7 +53,6 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         fun addListener(marae: Marae) {
             val action = WikiFragmentDirections.actionWikiFragmentToMaraeFragment(marae)
             holdingView.setOnClickListener {
-                // TODO: Open a new marae info screen
                 holdingView.findNavController().navigate(action)
             }
         }
@@ -71,7 +71,9 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
     }
 
     /**
-     * Binds a new MaraeEntryVH to this Adapter
+     * Binds a new MaraeEntryVH to this Adapter.
+     *
+     * Adds marae detail to the inputted holder
      *
      * @param holder MaraeWikiEntryViewHolder to be binded.
      * @param position Int for the position of a Marae (in list of Marae that the RecyclerView holds) that the inputted holder should show
@@ -80,8 +82,9 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
         val currentMarae = maraeListShown[position]
         holder.addListener(currentMarae)
         holder.maraeNameTV.text = currentMarae.Name
-        holder.maraeIwiTV.text = """Iwi: ${currentMarae.Iwi}"""
-        holder.maraeLocationTV.text = """Location: ${currentMarae.Location}"""
+        val resources = holder.holdingView.resources
+        addMaraeDetail(holder.maraeIwiTV, currentMarae.Iwi, resources)
+        addMaraeDetail(holder.maraeLocationTV, currentMarae.Location, resources)
     }
 
     /**
@@ -187,6 +190,5 @@ class WikiAdapter(private val maraeList: ArrayList<Marae>) :
             }
             notifyDataSetChanged()
         }
-
     }
 }

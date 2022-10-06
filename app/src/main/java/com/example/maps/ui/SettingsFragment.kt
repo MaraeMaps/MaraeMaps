@@ -10,26 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.maps.R
 import kotlinx.android.synthetic.main.fragment_settings.*
+import java.util.*
 
 /**
  * Fragment for settings of this app.
  *
- * Includes any actual credits, plus a credits and about us section
+ * Includes any actual credits, plus a credits and about us section.
  *
  * @author Hugo Phibbs
  */
 class SettingsFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_settings, container, false)
     }
 
@@ -46,6 +41,4 @@ class SettingsFragment : Fragment() {
         Linkify.addLinks(credits, Linkify.WEB_URLS)
         credits.movementMethod = LinkMovementMethod.getInstance();
     }
-
-
 }
