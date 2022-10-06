@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.Navigation.findNavController
@@ -39,7 +38,7 @@ import com.google.android.gms.maps.model.MarkerOptions
  */
 class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdapter {
 
-    public var global = 0
+    var freshLaunch = true
 
     private var myContentsView: View? = null
     private lateinit var clusterManager: ClusterManager<MainActivity.MyItem?>
@@ -63,25 +62,25 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         var maraeList: ArrayList<Marae> =
             arguments?.getParcelableArrayList<Marae>("maraeList") as ArrayList<Marae>
 
-        val nelson = LatLng(-41.276601, 173.275072)
-        if (global == 0) {
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(nelson))
+        // centre of NZ is -40.6993, 174.1392
+        val centre = LatLng(-41.6993, 174.1932)
+
+        // if first time launching the app
+        if (freshLaunch == true) {
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(centre))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
 
         }
         googleMap.setInfoWindowAdapter(this)
 
         // cluster manager tasks
-            // if its not 1st time, don't create new clusterManager
-        if (!(global == 1)) {
+            // if its not a fresh launch, don't create new clusterManager
+        if (!(freshLaunch == false)) {
             clusterManager = ClusterManager(context, googleMap)
             val renderer = CustomClusterRenderer(requireContext(), googleMap, clusterManager)
             clusterManager.renderer = renderer
             clusterManager.setOnClusterItemClickListener(
                 OnClusterItemClickListener {
-                    // if true, click handling stops here and do not show info view, do not move camera
-                    // you can avoid this by calling:
-                    // renderer.getMarker(clusterItem).showInfoWindow();
                     false
                 })
             clusterManager.markerCollection.setInfoWindowAdapter(this)
@@ -91,17 +90,6 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
                     MapsFragmentDirections.actionMapsFragmentToMaraeFragment(stringClusterItem!!.getMarae())
                 findNavController().navigate(action)
 
-            }
-        }
-
-
-        if (maraeList != null) {
-            for (marae in maraeList) {
-                val LL = LatLng(marae.Y, marae.X)
-                //val marker: Marker = googleMap.addMarker(MarkerOptions().position(LL).title(marae.Name))!!
-                //marker.tag = marae
-                //println(marker.tag.toString())
-                //mMarkers.add(marker)
             }
         }
 
@@ -122,31 +110,16 @@ class MapsFragment : Fragment(), GoogleMap.OnMarkerClickListener, InfoWindowAdap
         }
 
         fun setUpClusterer() {
-
-            val duration = Toast.LENGTH_SHORT
-
-            val toast = Toast.makeText(context, "clusterer setup!", duration)
-            toast.show()
-
-            var lat = maraeList.get(0).Y
-            var lng = maraeList.get(0).X
-
-            // Position the map.
-//            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, lng), 0f))
-
-            // Initialize the manager with the context and the map.
-            // (Activity extends context, so we can pass 'this' in the constructor.)
-
             // Point the map's listeners at the listeners implemented by the cluster
             // manager.
             googleMap.setOnCameraIdleListener(clusterManager)
             googleMap.setOnMarkerClickListener(clusterManager)
 
             addItems()
-            global = 1
+            freshLaunch = false
         }
 
-        if (!(global == 1)) {
+        if (!(freshLaunch == false)) {
             setUpClusterer()
         }
 
