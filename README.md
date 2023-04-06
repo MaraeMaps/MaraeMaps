@@ -27,19 +27,28 @@ Search function to quickly find Maraes by name or location
 Filter function to display Maraes by region or iwi affiliation
 Users can add new Maraes to the map and submit them for approval
 Admin panel for reviewing and approving new Marae submissions
-Installation
+<h3>Installation<h3>
 To install and run the app on your Android device, follow these steps:
 
+
 Clone the repository to your local machine
+
 Open the project in Android Studio
+
 Build and run the app on your device or emulator
+
 Note: To use the Google Maps API, you will need to obtain an API key and add it to the app's manifest file.
 
-Usage
+
+<h3>Usage<h3>
 When you first launch the app, you will be taken to the map screen. From here, you can use the following functions:
 
 Zoom in and out using pinch gestures or the zoom buttons
+
 Pan around the map by dragging with one finger
+
 Click on a marker to view details of the Marae
+
 Use the search bar to find Maraes by name or location
+
 Use the filter button to display Maraes by region or iwi affiliation
