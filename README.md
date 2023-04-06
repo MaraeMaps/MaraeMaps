@@ -16,6 +16,7 @@ Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Mar
 - [Acknowledgements](#Acknowledgements)
 
 <h3>Features</h3>
+
 --
 
 * Interactive map displaying the locations of Maraes all throughout New Zealand
@@ -31,7 +32,9 @@ Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Mar
 * Admin panel for reviewing and approving new Marae submissions
 
 <h3>Installation</h3>
---
+
+---
+
 To install and run the app on your Android device, follow these steps:
 
 * Clone the repository to your local machine
@@ -44,7 +47,8 @@ Note: To use the Google Maps API, you will need to obtain an API key and add it 
 
 
 <h3>Usage</h3>
---
+---
+
 When you first launch the app, you will be taken to the map screen. From here, you can use the following functions:
 
 * Zoom in and out using pinch gestures or the zoom buttons
@@ -58,4 +62,5 @@ When you first launch the app, you will be taken to the map screen. From here, y
 * Use the filter button to display Maraes by region or iwi affiliation
 
 <h3>Acknoweldgements</h3>
---
+
+---
