@@ -26,12 +26,11 @@ Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Mar
 <h3>Installation</h3>
 To install and run the app on your Android device, follow these steps:
 
+* Clone the repository to your local machine
 
-Clone the repository to your local machine
+* Open the project in Android Studio
 
-Open the project in Android Studio
-
-Build and run the app on your device or emulator
+* Build and run the app on your device or emulator
 
 Note: To use the Google Maps API, you will need to obtain an API key and add it to the app's manifest file.
 
