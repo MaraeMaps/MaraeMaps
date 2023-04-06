@@ -8,13 +8,19 @@
 <h1>Iwi Maps - Android Kotlin App</h1>
 Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Maraes all throughout New Zealand. This app was built using the Kotlin programming language and the Google Maps API.
 
-Table of Contents
-Features
-Installation
-Usage
-Contributing
-License
-Features
+## Table of Contents
+
+- [Features](#Features)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+
+-Features
+-Installation
+-Usage
+-Contributing
+
+<h3>Features<h3>
 Interactive map displaying the locations of Maraes all throughout New Zealand
 Users can click on a marker to view the name and location details of the Marae
 Search function to quickly find Maraes by name or location
