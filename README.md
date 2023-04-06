@@ -15,11 +15,6 @@ Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Mar
 - [Usage](#Usage)
 - [Contributing](#Contributing)
 
--Features
--Installation
--Usage
--Contributing
-
 <h3>Features</h3>
 Interactive map displaying the locations of Maraes all throughout New Zealand
 Users can click on a marker to view the name and location details of the Marae
@@ -52,3 +47,5 @@ Click on a marker to view details of the Marae
 Use the search bar to find Maraes by name or location
 
 Use the filter button to display Maraes by region or iwi affiliation
+
+<h3>Acknoweldgements</h3>
