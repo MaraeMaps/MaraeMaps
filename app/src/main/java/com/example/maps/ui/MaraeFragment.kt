@@ -153,9 +153,9 @@ class MaraeFragment : Fragment(), OnMapReadyCallback, OnStreetViewPanoramaReadyC
 
     override fun onMapReady(googleMap: GoogleMap) {
         val latLng = LatLng(chosenMarae.Y, chosenMarae.X)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         googleMap.addMarker(MarkerOptions().position(latLng).title(chosenMarae.Name))
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(10F))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(5F))
     }
 
     override fun onStreetViewPanoramaReady(streetViewPanorama: StreetViewPanorama) {

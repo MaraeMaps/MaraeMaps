@@ -5,9 +5,35 @@
 [![Coverage](https://codecov.io/gh/MaraeMaps/MaraeMaps/branch/master/graph/badge.svg?token=FLVYXZUJJ4)](https://codecov.io/gh/MaraeMaps/MaraeMaps)
 - By Harry Pirit, Kavan Chay, Lucy Sladden and Hugo Phibbs
 
-## Instructions
-- Go to apiKey-instructions.md first
-- **No pushing directly onto master, always new branch, then pull request. This is so actions can do it's magic!**
+<h1>Iwi Maps - Android Kotlin App</h1>
+Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Maraes all throughout New Zealand. This app was built using the Kotlin programming language and the Google Maps API.
 
-## Questionaire
-- Please visit [this file](https://github.com/MaraeMaps/MaraeMaps/blob/master/reports/questionaire.md) to view our user testing questionaire
+Table of Contents
+Features
+Installation
+Usage
+Contributing
+License
+Features
+Interactive map displaying the locations of Maraes all throughout New Zealand
+Users can click on a marker to view the name and location details of the Marae
+Search function to quickly find Maraes by name or location
+Filter function to display Maraes by region or iwi affiliation
+Users can add new Maraes to the map and submit them for approval
+Admin panel for reviewing and approving new Marae submissions
+Installation
+To install and run the app on your Android device, follow these steps:
+
+Clone the repository to your local machine
+Open the project in Android Studio
+Build and run the app on your device or emulator
+Note: To use the Google Maps API, you will need to obtain an API key and add it to the app's manifest file.
+
+Usage
+When you first launch the app, you will be taken to the map screen. From here, you can use the following functions:
+
+Zoom in and out using pinch gestures or the zoom buttons
+Pan around the map by dragging with one finger
+Click on a marker to view details of the Marae
+Use the search bar to find Maraes by name or location
+Use the filter button to display Maraes by region or iwi affiliation
