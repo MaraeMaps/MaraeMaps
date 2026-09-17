@@ -1,12 +1,12 @@
-# IwiMaps
+# Marae Maps
 ![Build](https://github.com/MaraeMaps/MaraeMaps/actions/workflows/android.yml/badge.svg)
 [![Documentation](https://github.com/MaraeMaps/MaraeMaps/actions/workflows/documentation.yml/badge.svg)](https://maraemaps.github.io/MaraeMaps/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/341d2fa04a634b609d030c9517c617c9)](https://www.codacy.com/gh/MaraeMaps/MaraeMaps/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MaraeMaps/MaraeMaps&amp;utm_campaign=Badge_Grade)
 [![Coverage](https://codecov.io/gh/MaraeMaps/MaraeMaps/branch/master/graph/badge.svg?token=FLVYXZUJJ4)](https://codecov.io/gh/MaraeMaps/MaraeMaps)
 - By Harry Pirit, Kavan Chay, Lucy Sladden and Hugo Phibbs
 
-<h1>Iwi Maps - Android Kotlin App</h1>
-Welcome to Iwi Maps - an interactive Android Kotlin app that lets you locate Maraes all throughout New Zealand. This app was built using the Kotlin programming language and the Google Maps API.
+<h1>Marae Maps - Android Kotlin App</h1>
+Welcome to Marae Maps - an interactive Android Kotlin app that lets you locate Maraes all throughout New Zealand. This app was built using the Kotlin programming language and the Google Maps API.
 
 ## Table of Contents
 
